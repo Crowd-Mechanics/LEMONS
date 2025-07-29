@@ -11,11 +11,22 @@
 </table>
 <div align="center">
 
-[![](https://badgen.net/badge/DOI/open%20access/orange)](https://scipost.org/SciPostPhysCodeb)
-[![](https://badgen.net/static/DOC/lemons-docs/cyan?icon=https://icons.getbootstrap.com/icons/filetype-doc/)](https://lemons.readthedocs.io/en/latest/index.html)
-[![](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/odufour7/LEMONS)
-[![](https://badgen.net/badge/🚀/Streamlit%20App/green)](https://lemons.streamlit.app/)
-[![](https://badgen.net/badge/VIDEO/open%20access/red)](https://zenodo.org/records/16371833)
+<a href="https://scipost.org/SciPostPhysCodeb" target="_blank">
+  <img src="https://badgen.net/badge/DOI/open%20access/orange" />
+</a>
+<a href="https://lemons.readthedocs.io/en/latest/index.html" target="_blank">
+  <img src="https://badgen.net/static/DOC/lemons-docs/cyan?icon=https://icons.getbootstrap.com/icons/filetype-doc/" />
+</a>
+<a href="https://github.com/odufour7/LEMONS" target="_blank">
+  <img src="https://badgen.net/badge/icon/GitHub?icon=github&label" />
+</a>
+<a href="https://lemons.streamlit.app/" target="_blank">
+  <img src="https://badgen.net/badge/🚀/Streamlit%20App/green" />
+</a>
+<a href="https://zenodo.org/records/16371833" target="_blank">
+  <img src="https://badgen.net/badge/VIDEO/open%20access/red" />
+</a>
+
 
 </div>
 
