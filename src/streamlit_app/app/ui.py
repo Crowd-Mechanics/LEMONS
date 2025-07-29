@@ -50,8 +50,7 @@ def setup_app() -> None:
 
 
 def menubar() -> Any:
-    """
-    Create a menu bar with multiple tabs and icons.
+    """Create a menu bar with multiple tabs and icons,adapting its appearance to Streamlit's selected theme.
 
     Returns
     -------
@@ -66,27 +65,50 @@ def menubar() -> Any:
     - The `styles` dictionary customizes the appearance of the menu bar.
     - The icon can be changed using resources from https://icons.getbootstrap.com/.
     """
-    # Custom CSS rules to handle multi-line text alignment and indentation, that applies to the entire app.
     st.markdown(
         """
-        <style>
-        .nav-link {
-            display: flex;
-            align-items: center;
-            white-space: pre-wrap; /* Ensures that long text wraps onto multiple lines without breaking formatting */
-            text-align: left;
+    <style>
+    /* Default: light mode */
+    .option-menu .nav-link, .option-menu .nav-link.active {
+        background-color: #fafafa !important;
+        color: #222 !important;
+    }
+    .option-menu .icon {
+        color: #d33c3c !important;
+    }
+
+    /* For dark mode, use media query */
+    @media (prefers-color-scheme: dark) {
+        .option-menu .nav-link, .option-menu .nav-link.active {
+            background-color: #222 !important;
+            color: #fafafa !important;
         }
-        .nav-link div {
-            margin-left: 10px; /* Adjust margin to align text with icon */
+        .option-menu .icon {
+            color: #ff7979 !important; /* adjust for dark mode contrast */
         }
-        .nav-link div span {
-            display: block;
-            padding-left: 20px; /* Simulate tab space */
-        }
-        </style>
-        """,
-        unsafe_allow_html=True,  # enables Streamlit to render raw HTML and CSS
+    }
+
+    .option-menu .nav-link {
+        display: flex;
+        align-items: center;
+        white-space: pre-wrap;
+        text-align: left;
+        font-size: 15px;
+        margin: 0px;
+        transition: background 0.3s;
+    }
+    .option-menu .nav-link div {
+        margin-left: 10px;
+    }
+    .option-menu .nav-link div span {
+        display: block;
+        padding-left: 20px;
+    }
+    </style>
+    """,
+        unsafe_allow_html=True,
     )
+
     return option_menu(
         f"{cst_app.PROJECT_NAME} project",
         [
@@ -106,28 +128,18 @@ def menubar() -> Any:
         orientation="horizontal",
         styles={
             "container": {
-                "padding": "0!important",  # Removes padding from container. (generate space around an element's content)
-                "background-color": "#fafafa",  # Sets the background color of the container to a light gray shade (#fafafa).
+                "padding": "0!important",
             },
-            "icon": {"color": "red", "font-size": "15px"},
+            "icon": {"font-size": "15px"},
             "nav-link": {
                 "font-size": "15px",
-                "text-align": "left",
-                "margin": "0px",
-                "--hover-color": "#fafafa",  # Sets the hover color to a light gray shade (#eee).
             },
         },
     )
 
 
 def init_sidebar_looks() -> None:
-    """
-    Initialize the appearance of the sidebar.
-
-    - Displays a GitHub repository badge with a link to the repository.
-    - Displays a DOI badge with a link to the DOI.
-    - Displays a logo image from the assets directory.
-    """
+    """Initialize the appearance of the sidebar with several badges and a logo image."""
     current_file_path = Path(__file__)
     ROOT_DIR = current_file_path.parent.parent.parent.parent.absolute()
     logo_path = ROOT_DIR / "docs" / "source" / "_static" / "logo" / "logo_app.png"

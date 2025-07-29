@@ -91,7 +91,7 @@ def display_shape2D(agents: list[Agent]) -> go.Figure:
                     fill="toself",
                     mode="lines",
                     line={"color": "black", "width": 1},
-                    fillcolor="rgba(255, 0, 0, 0.5)",
+                    fillcolor="rgba(255, 255, 0, 0.5)",
                     name=f"agent {id_agent}",
                 )
             )
@@ -104,7 +104,7 @@ def display_shape2D(agents: list[Agent]) -> go.Figure:
                 y=centroid_y,
                 text=f"agent {id_agent}",
                 showarrow=False,
-                font={"size": 16, "color": "white"},
+                font={"size": 16},
                 align="center",
             )
 
@@ -119,7 +119,7 @@ def display_shape2D(agents: list[Agent]) -> go.Figure:
                         fill="toself",
                         mode="lines",
                         line={"color": "black", "width": 1},
-                        fillcolor="rgba(255, 0, 0, 0.5)",
+                        fillcolor="rgba(255, 255, 0, 0.5)",
                     )
                 )
 
@@ -131,7 +131,7 @@ def display_shape2D(agents: list[Agent]) -> go.Figure:
                 y=centroid_y,
                 text=f"agent {id_agent}",
                 showarrow=False,
-                font={"size": 16, "color": "white"},
+                font={"size": 16},
                 align="center",
             )
 
@@ -726,7 +726,7 @@ def display_crowd3D_slices_by_slices(crowd: Crowd) -> go.Figure:
                     text=[f"{idx}"],
                     mode="text",
                     showlegend=False,
-                    textfont={"color": "black", "size": txt_size, "family": "Arial"},
+                    textfont={"size": txt_size, "family": "Arial"},
                     visible=False,
                     hoverinfo="skip",
                 )
