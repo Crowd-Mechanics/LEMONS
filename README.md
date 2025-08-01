@@ -9,24 +9,17 @@
     </td>
   </tr>
 </table>
+
+
 <div align="center">
 
-<a href="https://scipost.org/SciPostPhysCodeb" target="_blank">
-  <img src="https://badgen.net/badge/DOI/open%20access/orange" />
-</a>
-<a href="https://lemons.readthedocs.io/en/latest/index.html" target="_blank">
-  <img src="https://badgen.net/static/DOC/lemons-docs/cyan?icon=https://icons.getbootstrap.com/icons/filetype-doc/" />
-</a>
-<a href="https://github.com/odufour7/LEMONS" target="_blank">
-  <img src="https://badgen.net/badge/icon/GitHub?icon=github&label" />
-</a>
-<a href="https://lemons.streamlit.app/" target="_blank">
-  <img src="https://badgen.net/badge/🚀/Streamlit%20App/green" />
-</a>
-<a href="https://zenodo.org/records/16371833" target="_blank">
-  <img src="https://badgen.net/badge/VIDEO/open%20access/red" />
-</a>
+[![](https://badgen.net/badge/DOI/open%20access/orange)](https://scipost.org/SciPostPhysCodeb)
+[![](https://badgen.net/static/DOC/lemons-docs/cyan?icon=https://icons.getbootstrap.com/icons/filetype-doc/)](https://lemons.readthedocs.io/en/latest/index.html)
+[![](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/odufour7/LEMONS)
+[![](https://badgen.net/badge/🚀/Streamlit%20App/green)](https://lemons.streamlit.app/)
+[![](https://badgen.net/badge/VIDEO/10.5281%2Fzenodo.16371832/red)](https://zenodo.org/records/16371833)
 
+ <img src="./docs/source/_static/logo/logo_icon.png" alt="lemon" width="20" style="vertical-align:middle;"> **LEMONS**: *An Open-Source Platform to Generate Non-Circular, Anthropometry-Based Pedestrian Shapes and Simulate Their Mechanical Interactions in 2D*
 
 </div>
 
