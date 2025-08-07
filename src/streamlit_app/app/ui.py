@@ -145,17 +145,18 @@ def init_sidebar_looks() -> None:
     logo_path = ROOT_DIR / "docs" / "source" / "_static" / "logo" / "logo_app.png"
     article_badge = "[![](https://badgen.net/badge/DOI/open%20access/orange)](https://scipost.org/SciPostPhysCodeb)"
     doc_badge = "[![](https://badgen.net/static/DOC/lemons-docs/cyan?icon=https://icons.getbootstrap.com/icons/filetype-doc/)](https://lemons.readthedocs.io/en/latest/index.html)"
-    gh = "https://badgen.net/badge/icon/GitHub?icon=github&label"
-    repo = "https://github.com/odufour7/LEMONS"
-    repo_badge = f"[![]({gh})]({repo})"
+    repo_badge = "[![](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/odufour7/LEMONS)"
+    zenodo_badge = "[![](https://badgen.net/badge/VIDEOS/10.5281%2Fzenodo.16371832/red)](https://zenodo.org/records/16371833)"
 
     c1, c2 = st.sidebar.columns((0.25, 0.8))
     c1.write("**Article**")
     c2.write(article_badge)
     c1.write("**Doc**")
     c2.write(doc_badge)
-    c1.write("**Repo**")
+    c1.write("**Code**")
     c2.markdown(repo_badge, unsafe_allow_html=True)
+    c1.write("**Zenodo**")
+    c2.markdown(zenodo_badge, unsafe_allow_html=True)
 
     st.sidebar.image(str(logo_path), use_container_width=True)
 
