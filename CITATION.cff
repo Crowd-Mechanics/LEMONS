@@ -1,8 +1,7 @@
 cff-version: 1.3.4
 title: lemons
 message: >-
-  If you use this software, please cite it using the
-  metadata from this file.
+  If you use this software, please cite it using the metadata from this file.
 type: software
 authors:
   - family-names: Dufour
@@ -31,7 +30,7 @@ abstract: >-
   misjudging flow or crowd density. To address this gap, we present
   a software for more realistic crowd simulations. A user-friendly
   graphical interface enables the creation of 2D and 3D pedestrian
-  crowds from anthropometric data. Then, a C$^{++}$ library (Python-compatible)
+  crowds from anthropometric data. Then, a C++ library (Python-compatible)
   handles mechanical contacts, resolving agent-to-agent and agent-to-obstacle
   collisions in 2D spaces. Users can extend simulations by integrating
   decision-making algorithms from established crowd models.
