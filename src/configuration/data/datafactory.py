@@ -176,11 +176,8 @@ def prepare_3D_body_data(data_dir_path: Path) -> None:
     Raises
     ------
     FileNotFoundError
-        If either the input directory structure is invalid or source pickle file
-        for a sex is missing.
+        If either the input directory structure is invalid or source pickle file for a sex is missing.
     """
-    # [Rest of function implementation unchanged]
-
     for sex in cst.Sex:
         pickle_path = data_dir_path / "pkl" / f"{sex.name}_3dBody.pkl"
         if not pickle_path.exists():
