@@ -143,7 +143,7 @@ def init_sidebar_looks() -> None:
     current_file_path = Path(__file__)
     ROOT_DIR = current_file_path.parent.parent.parent.parent.absolute()
     logo_path = ROOT_DIR / "docs" / "source" / "_static" / "logo" / "logo_app.png"
-    article_badge = "[![](https://badgen.net/badge/DOI/open%20access/orange)](https://hal.science/hal-05215318v1)"
+    article_badge = "[![](https://badgen.net/badge/DOI/open%20access/orange)](https://scipost.org/submissions/scipost_202507_00067v1/)"
     doc_badge = "[![](https://badgen.net/static/DOC/lemons-docs/cyan?icon=https://icons.getbootstrap.com/icons/filetype-doc/)](https://lemons.readthedocs.io/en/latest/index.html)"
     repo_badge = "[![](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/odufour7/LEMONS)"
     zenodo_badge = "[![](https://badgen.net/badge/VIDEOS/10.5281%2Fzenodo.16371832/red)](https://zenodo.org/records/16371833)"
