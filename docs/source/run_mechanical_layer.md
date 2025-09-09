@@ -13,7 +13,7 @@ import ctypes
 
 ## Load the shared library into ctypes
 c_lib = ctypes.CDLL(r'path/to/libCrowdMechanics.so')         # Linux
-# c_lib = ctypes.CDLL(r'path/to/libCrowdMechanics.dylib')    # MacOS
+# c_lib = ctypes.CDLL(r'path/to/libCrowdMechanics.dylib')    # macOS
 # c_lib = ctypes.CDLL(r'path/to/libCrowdMechanics.dll')      # Windows
 
 ## Input of the CrowdMechanics main function
