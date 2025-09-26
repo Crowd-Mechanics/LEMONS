@@ -326,7 +326,7 @@ class Agent:
 
     def translate(self, dx: float, dy: float) -> None:
         """
-        Translate all 2D shapes by specified offsets in x and y directions.
+        Translate all 2D shapes by the specified offsets in x and y directions.
 
         Parameters
         ----------
@@ -345,7 +345,7 @@ class Agent:
 
     def rotate(self, angle: float) -> None:
         """
-        Rotate all 2D shapes around their combined centroid by specified angle.
+        Rotate all 2D shapes around the agent position (defined by its centroid) by the specified angle.
 
         Parameters
         ----------
@@ -368,10 +368,7 @@ class Agent:
         Returns
         -------
         Point
-            Geometric centroid of all polygon-based 2D shapes, calculated as:
-                1. Extract centroids from all Polygon/MultiPolygon shapes
-                2. Create MultiPoint from these centroids
-                3. Return centroid of this MultiPoint
+            The mean of the centroids of all composite shapes of the 2D representation of the agent.
         """
         multipoint = []
         for shape in self.shapes2D.shapes.values():
@@ -430,14 +427,14 @@ class Agent:
             rotated_body3D[height] = affin.rotate(multipolygon, angle, origin=centroid_body, use_radians=False)
         self.shapes3D.shapes = rotated_body3D
 
-    def get_centroid_body3D(self) -> MultiPoint:
+    def get_centroid_body3D(self) -> Point:
         """
         Calculate the centroid of the agent's 3D body.
 
         Returns
         -------
-        MultiPoint
-            The centroid of the agent's 3D body, calculated as the centroid of all 3D shapes.
+        Point
+            The centroid of the agent's 3D body, calculated as the mean of the centroid of each 3D body layer.
 
         Raises
         ------

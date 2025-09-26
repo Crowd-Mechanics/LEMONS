@@ -615,3 +615,4 @@ class Shapes2D:
         bideltoid_breadth_cm = total_breadth_m * cst.M_TO_CM
 
         return float(bideltoid_breadth_cm)
+        return float(bideltoid_breadth_cm)
