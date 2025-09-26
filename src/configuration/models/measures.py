@@ -1,4 +1,4 @@
-"""Module containing the AgentMeasures and CrowdMeasures dataclass to store body measures dynamically and crowd desired measures."""
+"""Module containing the AgentMeasures and CrowdMeasures dataclass to store body measures and crowd desired measures."""
 
 # Copyright  2025  Institute of Light and Matter, CNRS UMR 5306, University Claude Bernard Lyon 1
 # Contributors: Oscar DUFOUR, Maxime STAPELLE, Alexandre NICOLAS
@@ -37,7 +37,7 @@ from configuration.utils.typing_custom import Sex
 
 @dataclass
 class AgentMeasures:
-    """Class to store body charasteristics dynamically based on agent type."""
+    """Class to store body characteristics based on agent type."""
 
     agent_type: cst.AgentTypes
     measures: dict[str, float | Sex] = field(default_factory=dict)
@@ -147,7 +147,7 @@ class CrowdMeasures:
 
 def draw_agent_measures(agent_type: cst.AgentTypes, crowd_measures: CrowdMeasures) -> AgentMeasures:
     """
-    Draw a random set of agent measures based on the agent type.
+    Draw randomly a set of agent measures based on the agent type.
 
     Parameters
     ----------
@@ -273,7 +273,7 @@ def _draw_measure(crowd_measures: CrowdMeasures, sex: Sex | None, part_enum: cst
 
 def draw_agent_type(crowd_measures: CrowdMeasures) -> cst.AgentTypes:
     """
-    Draw a random agent type using tower sampling.
+    Draw a random agent type using tower sampling algorithm.
 
     Parameters
     ----------
@@ -321,7 +321,7 @@ def draw_agent_type(crowd_measures: CrowdMeasures) -> cst.AgentTypes:
 
 def create_pedestrian_measures(agent_data: dict[str, float]) -> AgentMeasures:
     """
-    Create pedestrian-specific agent measures.
+    Create pedestrian-specific AgentMeasures object.
 
     Parameters
     ----------
@@ -352,7 +352,7 @@ def create_pedestrian_measures(agent_data: dict[str, float]) -> AgentMeasures:
 
 def create_bike_measures(agent_data: dict[str, float]) -> AgentMeasures:
     """
-    Create bike-specific agent measures.
+    Create bike-specific AgentMeasures object.
 
     Parameters
     ----------

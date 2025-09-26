@@ -1,4 +1,4 @@
-"""Module defining the InitialState class."""
+"""Module defining the InitialPedestrian and InitialBike classes."""
 
 # Copyright  2025  Institute of Light and Matter, CNRS UMR 5306, University Claude Bernard Lyon 1
 # Contributors: Oscar DUFOUR, Maxime STAPELLE, Alexandre NICOLAS
@@ -360,7 +360,7 @@ class InitialPedestrian:
 
 
 class InitialBike:
-    """Encapsulates the initial state of a bike, including its 2D shape data and derived measurements."""
+    """Class representing the initial state of a bike, including its 2D shape data and derived measurements."""
 
     def __init__(self) -> None:
         """

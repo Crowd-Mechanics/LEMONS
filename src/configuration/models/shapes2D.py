@@ -1,4 +1,4 @@
-"""Class to store body shapes dynamically based on agent type."""
+"""Class to store body shapes based on agent type."""
 
 # Copyright  2025  Institute of Light and Matter, CNRS UMR 5306, University Claude Bernard Lyon 1
 # Contributors: Oscar DUFOUR, Maxime STAPELLE, Alexandre NICOLAS
@@ -45,11 +45,11 @@ from configuration.utils.typing_custom import MaterialType, ShapeDataType, Shape
 @dataclass
 class Shapes2D:
     """
-    Class to store body shapes dynamically based on agent type.
+    Class to store body shapes based on agent type.
 
     This class allows you to manage shapes in two ways:
-    1. Provide a dictionary of pre-defined Shapely shapes as input.
-    2. Specify the type of shape and its characteristics to create it dynamically.
+    1. Provide a dictionary of pre-defined Shapely shapes as input
+    2. Specify the type of shape and its characteristics to create it
     """
 
     agent_type: cst.AgentTypes
