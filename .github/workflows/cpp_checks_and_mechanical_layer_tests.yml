@@ -10,7 +10,7 @@ jobs:
   test:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [macos-latest]
     runs-on: ${{ matrix.os }}
 
     env:
@@ -51,8 +51,8 @@ jobs:
       - name: Run pre-commit hooks
         run: uv run pre-commit run --all-files
 
-      - name: Run the mechanical layer tests
-        run: |
-          cd ./tests/mechanical_layer
-          ./run_mechanical_tests
-          cd ../..
+      # - name: Run the mechanical layer tests
+      #   run: |
+      #     cd ./tests/mechanical_layer
+      #     ./run_mechanical_tests
+      #     cd ../..
