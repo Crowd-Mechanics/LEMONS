@@ -4,7 +4,10 @@ ci:
   autoupdate_branch: "master"
   autoupdate_commit_msg: "[pre-commit.ci] pre-commit automatically updated revs."
   autoupdate_schedule: weekly
-  skip: [] # Optionally list ids of hooks to skip on CI
+  skip:
+    [clang-tidy]
+    # we skip clang-tidy because it requires a build directory, but we can't build the C++ package with pre-commit.ci
+    # so we use GitHub Actions for that instead
   submodules: false # Whether to update submodules during autoupdate
 
 fail_fast: false # Continue running other hooks even if one fails
@@ -53,7 +56,7 @@ repos:
     hooks:
       - id: clang-format
         args: [--style=file]
-      - id: clang-tidy
+      - id: clang-tidy # you need to have build the C++ project with CMake first
         args: [-p=src/mechanical_layer/build]
       - id: cpplint
         args: [--filter=-runtime/string]
@@ -80,11 +83,12 @@ repos:
         always_run: true
         types: ["python"]
 
-  # Run all tests script of the C++ code
+  # Run the copyright test script
   - repo: local
     hooks:
-      - id: mecha_layer_test
-        name: run-all-tests-mechanical-layer
-        entry: ./test/mechanical_layer/run_mechanical_tests
+      - id: check-copyright
+        name: check-copyright
+        entry: ./.check-copyright.sh
         language: system
+        pass_filenames: false
         always_run: true

@@ -23,7 +23,7 @@
 
     The fact that you are presently reading this means that you have had knowledge of the CeCILL-B license and that
     you accept its terms.
- */
+*/
 
 #include "MechanicalLayer.h"
 
@@ -306,13 +306,15 @@ int MechanicalLayer::readInteractionsInputFile(const std::string& interactionsFi
             const char* buffer = nullptr;
             if (wallElement->QueryStringAttribute("TangentialRelativeDisplacement", &buffer) != tinyxml2::XML_SUCCESS)
             {
-                cerr << "Error: no tangential relative displacement in interaction between agent and wall in " << interactionsFile << endl;
+                cerr << "Error: no tangential relative displacement in interaction between agent and wall in " << interactionsFile
+                     << endl;
                 return EXIT_FAILURE;
             }
             auto [rcSlipWall, inputSlipWall] = parse2DComponents(buffer);
             if (rcSlipWall != EXIT_SUCCESS)
             {
-                cerr << "Error: Could not parse components of tangential relative displacement between agent and wall in " << interactionsFile << endl;
+                cerr << "Error: Could not parse components of tangential relative displacement between agent and wall in "
+                     << interactionsFile << endl;
                 return EXIT_FAILURE;
             }
             uint32_t cpt_shape = agentIDshape[agentIds[agentMap[agent1ExternId]]] + shape;
