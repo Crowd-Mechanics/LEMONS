@@ -193,7 +193,7 @@ class Shapes3D:
 
     def get_reference_multipolygon(self) -> MultiPolygon:
         """
-        Get the reference multipolygon of the agent.
+        Get the reference multipolygon of the agent i.e. the one at torso height.
 
         Returns
         -------
@@ -202,8 +202,8 @@ class Shapes3D:
         """
         smallest_height = min(self.shapes.keys())
         largest_height = max(self.shapes.keys()) - smallest_height
-        largest_height_3_4 = largest_height * cst.HEIGHT_OF_BIDELTOID_OVER_HEIGHT + smallest_height
-        closest_height = min(self.shapes.keys(), key=lambda x: abs(float(x) - largest_height_3_4))
+        theoretical_torso_height = largest_height * cst.HEIGHT_OF_BIDELTOID_OVER_HEIGHT + smallest_height
+        closest_height = min(self.shapes.keys(), key=lambda x: abs(float(x) - theoretical_torso_height))
         multip = self.shapes[closest_height]
         return multip
 

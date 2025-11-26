@@ -1,3 +1,12 @@
+ci:
+  autofix_commit_msg: "[pre-commit.ci] Fixing issues with pre-commit"
+  autofix_prs: true # prs = pull requests
+  autoupdate_branch: "master"
+  autoupdate_commit_msg: "[pre-commit.ci] pre-commit automatically updated revs."
+  autoupdate_schedule: weekly
+  skip: [] # Optionally list ids of hooks to skip on CI
+  submodules: false # Whether to update submodules during autoupdate
+
 fail_fast: false # Continue running other hooks even if one fails
 
 repos:
@@ -38,17 +47,6 @@ repos:
       - id: numpydoc-validation
         files: ^(src|tests)/.*\.py$
 
-  # Test of python functions
-  - repo: local
-    hooks:
-      - id: uv-pytest
-        name: pytest
-        entry: uv run pytest
-        language: system
-        pass_filenames: false
-        always_run: true
-        types: ["python"]
-
   # Cppcheck: C++ static analysis
   - repo: https://github.com/pocc/pre-commit-hooks
     rev: v1.3.5
@@ -70,3 +68,23 @@ repos:
         files: \.(h|hpp|cpp|c)$
         language: system
         pass_filenames: false
+
+  # Test of python functions
+  - repo: local
+    hooks:
+      - id: uv-pytest
+        name: pytest
+        entry: uv run pytest
+        language: system
+        pass_filenames: false
+        always_run: true
+        types: ["python"]
+
+  # Run all tests script of the C++ code
+  - repo: local
+    hooks:
+      - id: mecha_layer_test
+        name: run-all-tests-mechanical-layer
+        entry: ./test/mechanical_layer/run_mechanical_tests
+        language: system
+        always_run: true
