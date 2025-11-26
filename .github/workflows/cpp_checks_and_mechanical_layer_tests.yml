@@ -49,4 +49,7 @@ jobs:
         run: uv run pre-commit run clang-tidy --all-files
 
       - name: Run the mechanical layer tests
-        run: ./tests/mechanical_layer/run_mechanical_tests
+        run: |
+          cd ./tests/mechanical_layer
+          ./run_mechanical_tests
+          cd ../..
