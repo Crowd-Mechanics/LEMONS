@@ -45,8 +45,11 @@ jobs:
           cmake --build build
           cd ../..
 
-      - name: Run clang-tidy via pre-commit
-        run: uv run pre-commit run clang-tidy --all-files
+      - name: Install pre-commit
+        run: uv run pre-commit install
+
+      - name: Run pre-commit hooks
+        run: uv run pre-commit run --all-files
 
       - name: Run the mechanical layer tests
         run: |

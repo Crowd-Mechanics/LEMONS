@@ -1,14 +1,14 @@
-ci:
-  autofix_commit_msg: "[pre-commit.ci] Fixing issues with pre-commit"
-  autofix_prs: true # prs = pull requests
-  autoupdate_branch: "master"
-  autoupdate_commit_msg: "[pre-commit.ci] pre-commit automatically updated revs."
-  autoupdate_schedule: weekly
-  skip:
-    [clang-tidy]
-    # we skip clang-tidy because it requires a build directory, but we can't build the C++ package with pre-commit.ci
-    # so we use GitHub Actions for that instead
-  submodules: false # Whether to update submodules during autoupdate
+# ci:
+#   autofix_commit_msg: "[pre-commit.ci] Fixing issues with pre-commit"
+#   autofix_prs: true # prs = pull requests
+#   autoupdate_branch: "master"
+#   autoupdate_commit_msg: "[pre-commit.ci] pre-commit automatically updated revs."
+#   autoupdate_schedule: weekly
+#   skip:
+#     [clang-tidy]
+#     # we skip clang-tidy because it requires a build directory, but we can't build the C++ package with pre-commit.ci
+#     # so we use GitHub Actions for that instead
+#   submodules: false # Whether to update submodules during autoupdate
 
 fail_fast: false # Continue running other hooks even if one fails
 
