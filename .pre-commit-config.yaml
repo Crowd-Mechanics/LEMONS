@@ -72,15 +72,15 @@ repos:
         args: [--filter=-runtime/string]
         exclude: src/mechanical_layer/3rdparty/tinyxml/tinyxml2\.(h|cpp)$
 
-  # # Doxygen: Documentation generator
-  # - repo: local
-  #   hooks:
-  #     - id: check-doxygen
-  #       name: check-doxygen
-  #       entry: ./.check-doxygen.sh
-  #       files: \.(h|hpp|cpp|c)$
-  #       language: system
-  #       pass_filenames: false
+  # Doxygen: Documentation generator
+  - repo: local
+    hooks:
+      - id: check-doxygen
+        name: check-doxygen
+        entry: ./.check-doxygen.sh
+        files: \.(h|hpp|cpp|c)$
+        language: system
+        pass_filenames: false
 
   # Test of python functions
   - repo: local

@@ -1,4 +1,4 @@
-name: Run mechanical layer tests and clang-tidy hook
+name: Run mechanical layer tests, configuration files tests and clang-tidy hook
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
   test:
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
 
     env:
@@ -63,6 +63,10 @@ jobs:
       - name: Run clang-tidy pre-commit hook
         run: |
           uv run pre-commit run clang-tidy --all-files
+
+      - name: Run pytest pre-commit hook
+        run: |
+          uv run pre-commit run uv-pytest --all-files
 
       # - name: Run the mechanical layer tests
       #   run: |
