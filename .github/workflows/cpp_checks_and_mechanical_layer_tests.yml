@@ -19,13 +19,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install ffmpeg (Linux)
+      - name: Install dependencies (Linux)
         if: runner.os == 'Linux'
-        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+        run: |
+          sudo apt-get update && sudo apt-get install -y ffmpeg
+          sudo apt install llvm
+          sudo apt-get install -y build-essential cmake
 
-      - name: Install ffmpeg (macOS)
+      - name: Install dependencies (macOS)
         if: runner.os == 'macOS'
-        run: brew install ffmpeg
+        run: |
+          brew install ffmpeg
+          brew install llvm
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -37,6 +42,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install uv
           uv sync --extra dev
+          uv run pre-commit install
 
       - name: Build the C++ project
         run: |
@@ -45,11 +51,9 @@ jobs:
           cmake --build build
           cd ../..
 
-      - name: Install pre-commit
-        run: uv run pre-commit install
-
       - name: Run pre-commit hooks
-        run: uv run pre-commit run --all-files
+        run: |
+          uv run pre-commit run --all-files
 
       # - name: Run the mechanical layer tests
       #   run: |
