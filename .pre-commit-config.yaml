@@ -5,7 +5,7 @@ ci:
   autoupdate_commit_msg: "[pre-commit.ci] pre-commit automatically updated revs."
   autoupdate_schedule: weekly
   skip:
-    [clang-tidy, uv-pytest, check-copyright]
+    [clang-tidy, uv-pytest]
     # we skip clang-tidy because it requires a build directory and llvm installed,
     # but we can't build the C++ package and install llvm with pre-commit.ci
     # so we use GitHub Actions for that instead
