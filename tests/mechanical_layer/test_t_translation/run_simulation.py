@@ -63,8 +63,8 @@ files = [
     agentDynamicsFilename.encode("ascii"),  # Convert filename to bytes (required by ctypes)
 ]
 nFiles = len(files)  # Number of configuration files to be passed
-filesInput = (ctypes.c_char_p * nFiles)()  # Create a ctypes array of string pointers
-filesInput[:] = files  # Populate array with the XML file names
+FilesArray = ctypes.c_char_p * nFiles  # Create a ctypes array of string pointers
+filesInput = FilesArray(*files)  # Populate array with the XML file names
 
 # === Main Simulation Loop ===
 for t in range(Ndt):

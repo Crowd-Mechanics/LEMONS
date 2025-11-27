@@ -1,6 +1,6 @@
 """User interface module."""
 
-# Copyright  2025  Institute of Light and Matter, CNRS UMR 5306
+# Copyright  2025  Institute of Light and Matter, CNRS UMR 5306, University Claude Bernard Lyon 1
 # Contributors: Oscar DUFOUR, Maxime STAPELLE, Alexandre NICOLAS
 
 # This software is a computer program designed to generate a realistic crowd from anthropometric data and
@@ -50,7 +50,8 @@ def setup_app() -> None:
 
 
 def menubar() -> Any:
-    """Create a menu bar with multiple tabs and icons,adapting its appearance to Streamlit's selected theme.
+    """
+    Create a menu bar with multiple tabs and icons, adapting its appearance to Streamlit's selected theme.
 
     Returns
     -------
@@ -59,11 +60,11 @@ def menubar() -> Any:
 
     Notes
     -----
-    - Streamlit's `st.markdown` is used to apply custom CSS styles.
-    - The `option_menu` function creates the menu bar with specified tabs and icons.
-    - The `unsafe_allow_html=True` parameter enables Streamlit to render raw HTML and CSS.
-    - The `styles` dictionary customizes the appearance of the menu bar.
-    - The icon can be changed using resources from https://icons.getbootstrap.com/.
+    - Streamlit's ``st.markdown`` is used to apply custom CSS styles.
+    - The ``option_menu`` function creates the menu bar with specified tabs and icons.
+    - The ``unsafe_allow_html=True`` parameter enables Streamlit to render raw HTML and CSS.
+    - The ``styles`` dictionary customizes the appearance of the menu bar.
+    - Icons can be selected from https://icons.getbootstrap.com/.
     """
     st.markdown(
         """

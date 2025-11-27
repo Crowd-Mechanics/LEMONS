@@ -1,3 +1,16 @@
+ci:
+  autofix_commit_msg: "[pre-commit.ci] Fixing issues with pre-commit"
+  autofix_prs: true # prs = pull requests
+  autoupdate_branch: "master"
+  autoupdate_commit_msg: "[pre-commit.ci] pre-commit automatically updated revs."
+  autoupdate_schedule: weekly
+  skip:
+    [clang-tidy, uv-pytest, check-doxygen]
+    # we skip clang-tidy because it requires a build directory and llvm installed,
+    # but we can't build the C++ package and install llvm with pre-commit.ci
+    # so we use GitHub Actions for that instead
+  submodules: false # Whether to update submodules during autoupdate
+
 fail_fast: false # Continue running other hooks even if one fails
 
 repos:
@@ -21,15 +34,15 @@ repos:
           - --ignore-words-list=teh,fo,bar,tesselator,Tesselator,tesselation,tesselate
         files: '\.(py|md|c|cpp|h|hpp)$'
 
-  # Mypy: Static type checker (local hook)
-  - repo: local
+  # Mypy: Static type checker for python files
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.18.2
     hooks:
       - id: mypy
-        name: mypy
-        entry: mypy --strict
-        language: python
-        types: ["python"]
-        files: "\\.py$"
+        args: [--strict]
+        additional_dependencies:
+          - numpy
+          - pytest
 
   # Numpydoc Validation: Ensure docstring compliance
   - repo: https://github.com/numpy/numpydoc
@@ -38,25 +51,23 @@ repos:
       - id: numpydoc-validation
         files: ^(src|tests)/.*\.py$
 
-  # Test of python functions
-  - repo: local
-    hooks:
-      - id: uv-pytest
-        name: pytest
-        entry: uv run pytest
-        language: system
-        pass_filenames: false
-        always_run: true
-        types: ["python"]
-
   # Cppcheck: C++ static analysis
-  - repo: https://github.com/pocc/pre-commit-hooks
-    rev: v1.3.5
+  - repo: https://github.com/pre-commit/mirrors-clang-format
+    rev: v21.1.6
     hooks:
       - id: clang-format
         args: [--style=file]
-      - id: clang-tidy
+
+    # Cppcheck: C++ static analysis
+  - repo: https://github.com/pocc/pre-commit-hooks # requires llvm installed
+    rev: v1.3.5
+    hooks:
+      - id: clang-tidy # you need to have build the C++ project with CMake first
         args: [-p=src/mechanical_layer/build]
+
+  - repo: https://github.com/cpplint/cpplint
+    rev: 2.0.2
+    hooks:
       - id: cpplint
         args: [--filter=-runtime/string]
         exclude: src/mechanical_layer/3rdparty/tinyxml/tinyxml2\.(h|cpp)$
@@ -70,3 +81,35 @@ repos:
         files: \.(h|hpp|cpp|c)$
         language: system
         pass_filenames: false
+
+  # Test of python functions
+  - repo: local
+    hooks:
+      - id: uv-pytest
+        name: pytest
+        entry: uv run pytest
+        language: system
+        pass_filenames: false
+        always_run: true
+        types: ["python"]
+
+  # Check if the copyright header is present and correct on all source files .cpp, .h and .py
+  - repo: local
+    hooks:
+      - id: check-copyright
+        name: check-copyright
+        entry: ./.check-copyright.sh
+        language: system
+        pass_filenames: false
+        always_run: true
+
+  # shfmt: Formatter for shell scripts
+  - repo: https://github.com/maxwinterstein/shfmt-py
+    rev: v3.11.0.2
+    hooks:
+      - id: shfmt
+        args:
+          - -i
+          - "2" # 2-space indentation
+          - -ci # indent switch cases
+        files: \.(sh|bash|zsh)$

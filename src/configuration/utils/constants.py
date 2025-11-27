@@ -58,7 +58,7 @@ NECK_HEIGHT_FEMALE: float = 150.0  # Height of the neck in cm
 KNEES_HEIGHT_MALE: float = 59.0  # Height of the knees in cm
 KNEES_HEIGHT_FEMALE: float = 50.0  # Height of the knees in cm
 
-HEIGHT_OF_BIDELTOID_OVER_HEIGHT: float = 151.6 / 186.6  # Ratio of the height of the bideltoid to the agent height (male = female)
+HEIGHT_OF_BIDELTOID_OVER_HEIGHT: float = 151.6 / 187.0  # Ratio of the height of the bideltoid to the agent height (male = female)
 
 # Material properties
 YOUNG_MODULUS_CONCRETE: float = 1.7e10  # N/m

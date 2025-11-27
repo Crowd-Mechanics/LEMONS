@@ -23,9 +23,10 @@
 
     The fact that you are presently reading this means that you have had knowledge of the CeCILL-B license and that
     you accept its terms.
-
+*/
+/*
     Global variables, operators and function used by the whole library.
- */
+*/
 
 #include "Global.h"
 

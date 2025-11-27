@@ -1,6 +1,6 @@
 """Pedestrian visualization tab."""
 
-# Copyright  2025  Institute of Light and Matter, CNRS UMR 5306
+# Copyright  2025  Institute of Light and Matter, CNRS UMR 5306, University Claude Bernard Lyon 1
 # Contributors: Oscar DUFOUR, Maxime STAPELLE, Alexandre NICOLAS
 
 # This software is a computer program designed to generate a realistic crowd from anthropometric data and
@@ -783,13 +783,13 @@ def run_crowd_from_config() -> None:
 
     # --- XML Parsing ---
     if all(file is not None and (not hasattr(file, "size") or file.size > 0) for file in files.values()):  #
-        crowd_xml: str = uploaded_agents.read().decode("utf-8")  # type: ignore
+        crowd_xml: str = uploaded_agents.read().decode("utf-8")
         static_dict: StaticCrowdDataType = fun_xml.static_xml_to_dict(crowd_xml)
 
-        geometry_xml: str = uploaded_geometry.read().decode("utf-8")  # type: ignore
+        geometry_xml: str = uploaded_geometry.read().decode("utf-8")
         geometry_dict: GeometryDataType = fun_xml.geometry_xml_to_dict(geometry_xml)
 
-        dynamic_xml: str = uploaded_dynamics.read().decode("utf-8")  # type: ignore
+        dynamic_xml: str = uploaded_dynamics.read().decode("utf-8")
         dynamic_dict: DynamicCrowdDataType = fun_xml.dynamic_xml_to_dict(dynamic_xml)
 
         # --- Crowd creation ---
