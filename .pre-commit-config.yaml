@@ -102,3 +102,14 @@ repos:
         language: system
         pass_filenames: false
         always_run: true
+
+  # shfmt: Formatter for shell scripts
+  - repo: https://github.com/maxwinterstein/shfmt-py
+    rev: v3.11.0.2
+    hooks:
+      - id: shfmt
+        args:
+          - -i
+          - "2" # 2-space indentation
+          - -ci # indent switch cases
+        files: \.(sh|bash|zsh)$
