@@ -23,12 +23,11 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg llvm clang build-essential cmake
-
+          sudo apt-get install -y ffmpeg llvm clang build-essential cmake doxygen graphviz
       - name: Install dependencies (macOS)
         if: runner.os == 'macOS'
         run: |
-          brew install ffmpeg llvm
+          brew install ffmpeg llvm doxygen graphviz
 
       - name: Add LLVM to PATH (macOS)
         if: runner.os == 'macOS'
@@ -67,6 +66,10 @@ jobs:
       - name: Run pytest pre-commit hook
         run: |
           uv run pre-commit run uv-pytest --all-files
+
+      - name: Run doxygen pre-commit hook
+        run: |
+          uv run pre-commit run check-doxygen --all-files
 
       # - name: Run the mechanical layer tests
       #   run: |
