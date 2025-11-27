@@ -1,10 +1,8 @@
 name: Run mechanical layer tests, configuration files tests and clang-tidy hook
 
 on:
-  push:
-    branches: [main, master]
   pull_request:
-    branches: [main, master]
+    branches: [master]
 
 jobs:
   test:
