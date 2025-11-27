@@ -28,7 +28,8 @@ jobs:
       - name: Install dependencies (macOS)
         if: runner.os == 'macOS'
         run: |
-          brew install ffmpeg llvm cmake
+          xcode-select --install
+          brew install ffmpeg llvm
 
       - name: Add LLVM to PATH (macOS)
         if: runner.os == 'macOS'

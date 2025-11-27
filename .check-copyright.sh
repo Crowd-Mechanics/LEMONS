@@ -56,7 +56,7 @@ for f in $(find ./src ./tests -type f -name '*.py'); do
     fi
 
     # Compute start line for the license header: line after module docstring
-    start_line=$(uv run python - <<'PY' "$f"
+    start_line=$(python - <<'PY' "$f"
 import ast, sys
 path = sys.argv[1]
 with open(path, 'r', encoding='utf-8') as fh:
@@ -87,7 +87,7 @@ PY
 )
     start_line=$((start_line + 1))
     # Display file that being checked
-    # echo "Checking $f (header starts at line $start_line)"
+    echo "Checking $f (header starts at line $start_line)"
     # Python header starts at line 3
     check_file "$f" "$PY_HEADER_FILE" "$PY_HEADER_LINES" "$start_line"
 done
