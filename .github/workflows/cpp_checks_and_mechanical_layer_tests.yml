@@ -22,15 +22,19 @@ jobs:
       - name: Install dependencies (Linux)
         if: runner.os == 'Linux'
         run: |
-          sudo apt-get update && sudo apt-get install -y ffmpeg
-          sudo apt install llvm
-          sudo apt-get install -y build-essential cmake
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg llvm clang build-essential cmake
 
       - name: Install dependencies (macOS)
         if: runner.os == 'macOS'
         run: |
-          brew install ffmpeg
-          brew install llvm
+          brew install ffmpeg llvm cmake
+
+      - name: Add LLVM to PATH (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          # Add Homebrew LLVM bin directory to PATH for clang-tidy
+          echo "$(brew --prefix llvm)/bin" >> $GITHUB_PATH
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -53,7 +57,7 @@ jobs:
 
       - name: Run pre-commit hooks
         run: |
-          uv run pre-commit run --all-files
+          uv run pre-commit run --all-files --show-diff-on-failure
 
       # - name: Run the mechanical layer tests
       #   run: |

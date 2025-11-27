@@ -56,7 +56,7 @@ for f in $(find ./src ./tests -type f -name '*.py'); do
     fi
 
     # Compute start line for the license header: line after module docstring
-    start_line=$(python - <<'PY' "$f"
+    start_line=$(uv run python - <<'PY' "$f"
 import ast, sys
 path = sys.argv[1]
 with open(path, 'r', encoding='utf-8') as fh:
