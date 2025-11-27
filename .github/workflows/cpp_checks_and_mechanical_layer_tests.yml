@@ -1,4 +1,4 @@
-name: Run mechanical layer tests and C++ checks
+name: Run mechanical layer tests and clang-tidy hook
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
   test:
     strategy:
       matrix:
-        os: [macos-latest]
+        os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
 
     env:
