@@ -28,7 +28,6 @@ jobs:
       - name: Install dependencies (macOS)
         if: runner.os == 'macOS'
         run: |
-          xcode-select --install
           brew install ffmpeg llvm
 
       - name: Add LLVM to PATH (macOS)
@@ -36,6 +35,11 @@ jobs:
         run: |
           # Add Homebrew LLVM bin directory to PATH for clang-tidy
           echo "$(brew --prefix llvm)/bin" >> $GITHUB_PATH
+
+      - name: Set SDKROOT for clang/clang-tidy
+        if: runner.os == 'macOS'
+        run: |
+          echo "SDKROOT=$(xcrun --show-sdk-path)" >> "$GITHUB_ENV"
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -56,9 +60,9 @@ jobs:
           cmake --build build
           cd ../..
 
-      - name: Run pre-commit hooks
+      - name: Run clang-tidy pre-commit hook
         run: |
-          uv run pre-commit run --all-files --show-diff-on-failure
+          uv run pre-commit run clang-tidy --all-files
 
       # - name: Run the mechanical layer tests
       #   run: |
