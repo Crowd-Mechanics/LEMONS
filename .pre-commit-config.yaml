@@ -16,7 +16,7 @@ fail_fast: false # Continue running other hooks even if one fails
 repos:
   # Ruff: Linter and Formatter
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.11.7
+    rev: v0.14.6
     hooks:
       - id: ruff
         args: ["--fix"]
@@ -46,7 +46,7 @@ repos:
 
   # Numpydoc Validation: Ensure docstring compliance
   - repo: https://github.com/numpy/numpydoc
-    rev: v1.8.0
+    rev: v1.9.0
     hooks:
       - id: numpydoc-validation
         files: ^(src|tests)/.*\.py$
