@@ -72,5 +72,5 @@ jobs:
       - name: Run the mechanical layer tests
         run: |
           cd ./tests/mechanical_layer
-          ./run_mechanical_tests
+          ./run_mechanical_tests.sh
           cd ../..

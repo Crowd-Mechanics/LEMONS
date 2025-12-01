@@ -130,6 +130,7 @@ ipykernel==6.29.5
     #   jupyter
     #   jupyter-console
     #   jupyterlab
+    #   nbmake
 ipython==9.0.2
     # via
     #   ipykernel
@@ -254,7 +255,9 @@ narwhals==1.30.0
     #   altair
     #   plotly
 nbclient==0.10.2
-    # via nbconvert
+    # via
+    #   nbconvert
+    #   nbmake
 nbconvert==7.16.6
     # via
     #   jupyter
@@ -265,7 +268,10 @@ nbformat==5.10.4
     #   jupyter-server
     #   nbclient
     #   nbconvert
+    #   nbmake
     #   nbsphinx
+nbmake==1.5.5
+    # via lemons (pyproject.toml)
 nbsphinx==0.9.6
     # via
     #   lemons (pyproject.toml)
@@ -373,6 +379,7 @@ pygments==2.19.1
     #   jupyter-console
     #   kivy
     #   nbconvert
+    #   nbmake
     #   sphinx
     #   sphinx-mdinclude
 pyparsing==3.2.1
@@ -380,6 +387,7 @@ pyparsing==3.2.1
 pytest==8.3.5
     # via
     #   lemons (pyproject.toml)
+    #   nbmake
     #   pytest-cov
 pytest-cov==6.1.1
     # via lemons (pyproject.toml)

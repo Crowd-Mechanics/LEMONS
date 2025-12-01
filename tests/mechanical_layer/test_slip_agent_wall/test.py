@@ -1,4 +1,5 @@
-"""Tests for the slip agent wall scenario.
+"""
+Tests for the slip agent wall scenario.
 
 Tests cover:
     - Time and position continuity
@@ -51,7 +52,8 @@ DELTA_THETA_CONTACT_TOL = 0.5  # radians
 
 @pytest.fixture(scope="session")
 def df() -> pd.DataFrame:
-    """Export to CSV the XML files and load the time series once per test session.
+    """
+    Export to CSV the XML files and load the time series once per test session.
 
     Returns
     -------
@@ -71,7 +73,8 @@ def df() -> pd.DataFrame:
 
 
 def test_time_and_position_continuity(df: pd.DataFrame) -> None:
-    """Test time and position continuity for each agent.
+    """
+    Test time and position continuity for each agent.
 
     Parameters
     ----------
@@ -82,28 +85,32 @@ def test_time_and_position_continuity(df: pd.DataFrame) -> None:
     missing = required_cols - set(df.columns)
     assert not missing, f"Missing expected columns: {missing}"
 
-    violations_missing_time = []
-    violations_big_jump = []
+    # agent IDs with irregular time steps
+    violations_missing_time: list[int] = []
+    # (agent_id, list of jump distances > MAX_SPATIAL_JUMP)
+    violations_big_jump: list[tuple[int, list[float]]] = []
 
     for agent_id, g in df.sort_values("t").groupby("ID"):
         t = g["t"].to_numpy()
         dt = np.diff(t)
         ddt = np.diff(dt)
-        assert np.all(np.abs(ddt) < TIME_TOL), f"Non-uniform time steps for agent {agent_id}"
+        if not np.all(np.abs(ddt) < TIME_TOL):
+            violations_missing_time.append(int(agent_id))
 
         x = g["x"].to_numpy()
         y = g["y"].to_numpy()
         dist = np.sqrt(np.diff(x) ** 2 + np.diff(y) ** 2)
         bad_jump_idx = np.where(dist > MAX_SPATIAL_JUMP)[0]
         if bad_jump_idx.size > 0:
-            violations_big_jump.append((agent_id, dist[bad_jump_idx].tolist()))
+            violations_big_jump.append((int(agent_id), dist[bad_jump_idx].tolist()))
 
     assert not violations_missing_time, f"Irregular time steps: {violations_missing_time}"
     assert not violations_big_jump, f"Large spatial jumps: {violations_big_jump}"
 
 
 def test_omega_near_zero_and_theta_near_constant(df: pd.DataFrame) -> None:
-    """Near-zero angular velocity and near constant orientation for all agents.
+    """
+    Near-zero angular velocity and near constant orientation for all agents.
 
     Parameters
     ----------
@@ -114,8 +121,8 @@ def test_omega_near_zero_and_theta_near_constant(df: pd.DataFrame) -> None:
     missing = required_cols - set(df.columns)
     assert not missing, f"Missing expected columns: {missing}"
 
-    violations_omega = []
-    violations_theta = []
+    violations_omega: list[tuple[int, float]] = []
+    violations_theta: list[tuple[int, float]] = []
 
     for agent_id, g in df.groupby("ID"):
         max_abs_omega = float(g["omega"].abs().max())
@@ -132,7 +139,8 @@ def test_omega_near_zero_and_theta_near_constant(df: pd.DataFrame) -> None:
 
 
 def test_velocity_signs_during_core(df: pd.DataFrame) -> None:
-    """During the core of the simulation: vx > 0 and vy ~ 0 or negative.
+    """
+    During the core of the simulation: vx > 0 and vy ~ 0 or negative.
 
     Parameters
     ----------
