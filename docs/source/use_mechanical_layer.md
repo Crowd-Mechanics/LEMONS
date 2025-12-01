@@ -15,7 +15,7 @@ There are two types of files: the static ones which contains immutable parameter
   - *Agent Dynamics* contain the current positions and velocities of the agents, as well as the driving forces and torques we apply to them. It is used as input as well as as output of the library.
   - (*optional*) *Agent Interactions* is a product of the library that lists all the contacts, be it agent/agent or agent/obstacle, the forces on each agent as well as a technical quantity that we call the Tangential relative displacement. This file must also be provided as input to the library if the current execution is part of a series of consecutive executions of the same situation.
 
-We detail the contents of those files below, by order of importance and of input into the function.
+We detail the contents of those files below, by order of importance and of input into the function. Note that all quantities present in those files are expressed in International System of Units (SI), in particular distances are in metres, time in seconds, angles in radians.
 
 > Note: we use the external library [tinyxml2](http://leethomason.github.io/tinyxml2/index.html) for the handling of XML files.
 

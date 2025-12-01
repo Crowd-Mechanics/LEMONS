@@ -15,7 +15,7 @@ This project uses ``cmake`` as the build system. Please ensure you have a recent
 Building the Library
 --------------------
 
-After downloading the repository from `GitHub <https://github.com/odufour7/LEMONS.git>`__, you can build the ``CrowdMechanics`` library as a shared library in the ``mechanical_layer`` directory by running the following commands on Linux or macOS:
+After downloading the repository from `GitHub <https://github.com/odufour7/LEMONS.git>`__, you can build the ``CrowdMechanics`` library as a shared library in the ``src/mechanical_layer`` directory by running the following commands on Linux or macOS:
 
 .. code-block:: console
 

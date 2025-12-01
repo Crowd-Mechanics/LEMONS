@@ -50,6 +50,7 @@ build/
 /tutorials/mechanical_layer/inputCSV/
 /tutorials/mechanical_layer/dynamic/AgentInteractions.xml
 
+/tests/mechanical_layer/test_push_agent_agent/inputCSV/
 /tests/mechanical_layer/test_push_agent_agent/inputXML/
 /tests/mechanical_layer/test_push_agent_agent/outputXML/
 /tests/mechanical_layer/test_push_agent_agent/plots/
@@ -57,6 +58,7 @@ build/
 /tests/mechanical_layer/test_push_agent_agent/dynamic/AgentDynamics.xml
 /tests/mechanical_layer/test_push_agent_agent/dynamic/AgentInteractions.xml
 
+/tests/mechanical_layer/test_push_agent_wall/inputCSV/
 /tests/mechanical_layer/test_push_agent_wall/inputXML/
 /tests/mechanical_layer/test_push_agent_wall/outputXML/
 /tests/mechanical_layer/test_push_agent_wall/plots/
@@ -64,6 +66,7 @@ build/
 /tests/mechanical_layer/test_push_agent_wall/dynamic/AgentDynamics.xml
 /tests/mechanical_layer/test_push_agent_wall/dynamic/AgentInteractions.xml
 
+/tests/mechanical_layer/test_t_translation/inputCSV/
 /tests/mechanical_layer/test_t_translation/inputXML/
 /tests/mechanical_layer/test_t_translation/outputXML/
 /tests/mechanical_layer/test_t_translation/plots/
@@ -71,6 +74,7 @@ build/
 /tests/mechanical_layer/test_t_translation/dynamic/AgentDynamics.xml
 /tests/mechanical_layer/test_t_translation/dynamic/AgentInteractions.xml
 
+/tests/mechanical_layer/test_t_rotation/inputCSV/
 /tests/mechanical_layer/test_t_rotation/inputXML/
 /tests/mechanical_layer/test_t_rotation/outputXML/
 /tests/mechanical_layer/test_t_rotation/plots/
@@ -78,6 +82,7 @@ build/
 /tests/mechanical_layer/test_t_rotation/dynamic/AgentDynamics.xml
 /tests/mechanical_layer/test_t_rotation/dynamic/AgentInteractions.xml
 
+/tests/mechanical_layer/test_tangential_spring_agent_agent/inputCSV/
 /tests/mechanical_layer/test_tangential_spring_agent_agent/inputXML/
 /tests/mechanical_layer/test_tangential_spring_agent_agent/outputXML/
 /tests/mechanical_layer/test_tangential_spring_agent_agent/plots/
@@ -85,6 +90,7 @@ build/
 /tests/mechanical_layer/test_tangential_spring_agent_agent/dynamic/AgentDynamics.xml
 /tests/mechanical_layer/test_tangential_spring_agent_agent/dynamic/AgentInteractions.xml
 
+/tests/mechanical_layer/test_tangential_spring_agent_wall/inputCSV/
 /tests/mechanical_layer/test_tangential_spring_agent_wall/inputXML/
 /tests/mechanical_layer/test_tangential_spring_agent_wall/outputXML/
 /tests/mechanical_layer/test_tangential_spring_agent_wall/plots/
@@ -92,6 +98,7 @@ build/
 /tests/mechanical_layer/test_tangential_spring_agent_wall/dynamic/AgentDynamics.xml
 /tests/mechanical_layer/test_tangential_spring_agent_wall/dynamic/AgentInteractions.xml
 
+/tests/mechanical_layer/test_slip_agent_agent/inputCSV/
 /tests/mechanical_layer/test_slip_agent_agent/inputXML/
 /tests/mechanical_layer/test_slip_agent_agent/outputXML/
 /tests/mechanical_layer/test_slip_agent_agent/plots/
@@ -99,6 +106,7 @@ build/
 /tests/mechanical_layer/test_slip_agent_agent/dynamic/AgentDynamics.xml
 /tests/mechanical_layer/test_slip_agent_agent/dynamic/AgentInteractions.xml
 
+/tests/mechanical_layer/test_slip_agent_wall/inputCSV/
 /tests/mechanical_layer/test_slip_agent_wall/inputXML/
 /tests/mechanical_layer/test_slip_agent_wall/outputXML/
 /tests/mechanical_layer/test_slip_agent_wall/plots/

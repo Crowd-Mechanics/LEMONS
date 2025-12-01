@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Geometry>
+    <Dimensions Lx="5.40" Ly="1.60"/>
+    <Wall Id="0" MaterialId="concrete">
+        <Corner Coordinates="-0.20,-0.20"/>
+        <Corner Coordinates="1.20,-0.20"/>
+        <Corner Coordinates="1.80,0.25"/>
+        <Corner Coordinates="3.50,0.25"/>
+        <Corner Coordinates="4.0,-0.2"/>
+        <Corner Coordinates="5.20,-0.2"/>
+        <Corner Coordinates="5.20,1.4"/>
+        <Corner Coordinates="4.0,1.4"/>
+        <Corner Coordinates="3.50,0.95"/>
+        <Corner Coordinates="1.80,0.95"/>
+        <Corner Coordinates="1.20,1.40"/>
+        <Corner Coordinates="-0.20,1.40"/>
+        <Corner Coordinates="-0.20,-0.20"/>
+    </Wall>
+</Geometry>

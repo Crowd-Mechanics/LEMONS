@@ -49,7 +49,7 @@ target-version = "py313"
 # - "Q": Quality issues
 # - "D": Documentation issues
 # The 'ignore' array is currently empty, meaning no linting rules are ignored.
-select = ["E", "F", "W", "C901", "C", "B", "Q", "D"]
+select = ["E", "F", "W", "C901", "C", "B", "Q", "D", "I"]
 ignore = []
 
 [lint.pydocstyle]

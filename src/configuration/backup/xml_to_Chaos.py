@@ -136,11 +136,16 @@ def create_dict_of_agent_trajectories(
 
             pos = kinematics.get("Position")
             vel = kinematics.get("Velocity")
-            if pos is None or vel is None:
+            omega = kinematics.get("Omega")
+            theta = kinematics.get("Theta")
+            if pos is None or vel is None or omega is None or theta is None:
                 continue
 
             pos_match = re.fullmatch(rf"({regex_nb}),({regex_nb})", pos)
             vel_match = re.fullmatch(rf"({regex_nb}),({regex_nb})", vel)
+            omega_match = float(omega)
+            theta_match = float(theta)
+
             if not pos_match or not vel_match:
                 continue
 
@@ -149,6 +154,8 @@ def create_dict_of_agent_trajectories(
                 "y": float(pos_match.group(2)),
                 "vx": float(vel_match.group(1)),
                 "vy": float(vel_match.group(2)),
+                "theta": theta_match,
+                "omega": omega_match,
             }
 
         del agents_tree
@@ -174,13 +181,14 @@ def export_dict_to_CSV(PathCSV: Path, PathXML: Path) -> None:
     csv_path = PathCSV / trajectories_csv_filename
 
     with open(csv_path, "w", encoding="utf-8") as monfichier:
-        monfichier.write("t,ID,x,y,vx,vy")
+        monfichier.write("t,ID,x,y,vx,vy,theta,omega")
         for time_loc in times:
             for ID_agent in ID_agents:
                 posvel = agents[ID_agent].get(time_loc)
                 if posvel is not None:
                     monfichier.write(
-                        f"\n{time_loc:.4f},{ID_agent},{posvel['x']:.6f},{posvel['y']:.6f},{posvel['vx']:.6f},{posvel['vy']:.6f}"
+                        f"\n{time_loc:.4f},{ID_agent},{posvel['x']:.6f},{posvel['y']:.6f},{posvel['vx']:.6f},{posvel['vy']:.6f},"
+                        f"{posvel['theta']:.6f},{posvel['omega']:.6f}",
                     )
 
 

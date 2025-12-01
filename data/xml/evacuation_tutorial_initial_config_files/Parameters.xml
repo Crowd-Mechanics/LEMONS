@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Parameters>
+    <Directories Static="./static/" Dynamic="./dynamic/"/>
+    <Times TimeStep="0.1" TimeStepMechanical="5e-6"/>
+</Parameters>
