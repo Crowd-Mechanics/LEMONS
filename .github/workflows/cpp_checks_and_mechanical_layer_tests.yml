@@ -1,4 +1,4 @@
-name: Run mechanical layer tests, configuration files tests and clang-tidy hook
+name: Run mechanical layer tests, and remaining pre-commit hooks
 
 on:
   pull_request:
