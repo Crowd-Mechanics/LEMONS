@@ -16,7 +16,7 @@ fail_fast: false # Continue running other hooks even if one fails
 repos:
   # Ruff: Linter and Formatter
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.6
+    rev: v0.14.7
     hooks:
       - id: ruff
         args: ["--fix"]
@@ -105,6 +105,16 @@ repos:
         pass_filenames: false
         always_run: true
 
+  # Pre-commit hook to test Jupyter notebooks
+  - repo: local
+    hooks:
+      - id: test-notebooks
+        name: Setup and test notebooks
+        entry: ./.check-notebooks.sh
+        language: system
+        pass_filenames: false
+        files: ".*\\.ipynb$"
+
   # shfmt: Formatter for shell scripts
   - repo: https://github.com/maxwinterstein/shfmt-py
     rev: v3.11.0.2
@@ -126,13 +136,3 @@ repos:
         args: ["--py37-plus"]
       - id: nbqa-isort
         args: ["--float-to-top"]
-
-  # Pre-commit hook to test Jupyter notebooks
-  - repo: local
-    hooks:
-      - id: test-notebooks
-        name: Setup and test notebooks
-        entry: ./.check-notebooks.sh
-        language: system
-        pass_filenames: false
-        files: ".*\\.ipynb$"

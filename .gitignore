@@ -48,6 +48,7 @@ build/
 /tutorials/mechanical_layer/inputXML/
 /tutorials/mechanical_layer/outputCSV/
 /tutorials/mechanical_layer/inputCSV/
+/tutorials/mechanical_layer/plots/
 /tutorials/mechanical_layer/dynamic/AgentInteractions.xml
 
 /tests/mechanical_layer/test_push_agent_agent/inputCSV/

@@ -64,12 +64,12 @@ def about() -> None:
         consisting of slices of frozen bodies. We take the slice associated with the torso and cover it with disks:
         two for the shoulders, two for the pectoral muscles and one for the belly.
         """)
-        st.image(str(ROOT_DIR / "data" / "images" / "coverage.png"), use_container_width=True)
+        st.image(str(ROOT_DIR / "data" / "images" / "coverage.png"), width="stretch")
         st.markdown(f"""
         Then, to extend that shape to other individuals in a population, we used anthropometric measurements
         from [Gordon and collaborators]({ANSURII_url}). In particular, we matched the measure of the **chest depth** using a uniform
         scaling factor for the disk radii, and the measure of the **bideltoid breadth** using an homothety on the disk centers.""")
-        st.image(str(ROOT_DIR / "data" / "images" / "measure_ped.png"), use_container_width=True)
+        st.image(str(ROOT_DIR / "data" / "images" / "measure_ped.png"), width="stretch")
         st.markdown("""
         We use disks instead of one single ellipse or a single polygon because the physical contact is easier
         to define mathematically, and the use of composite shapes allows for **relative motion** between the different
@@ -83,7 +83,7 @@ def about() -> None:
         contact is reduced to 2D and modelled with **damped springs** that are normal and tangential to the surface contact.
         Stick and slip mechanism is rendered using **Coulomb law**.
         """)
-        st.image(str(ROOT_DIR / "data" / "images" / "contact_mecha_spring.png"), use_container_width=True)
+        st.image(str(ROOT_DIR / "data" / "images" / "contact_mecha_spring.png"), width="stretch")
 
     st.markdown(
         """
@@ -96,5 +96,5 @@ def about() -> None:
         "The motion of each agent is subjected to the following equations coupling the decision layer (:blue[blue]) with "
         "the mechanical layer (:green[green] and :orange[orange])."
     )
-    st.image(str(ROOT_DIR / "data" / "images" / "coupling.png"), use_container_width=True)
+    st.image(str(ROOT_DIR / "data" / "images" / "coupling.png"), width="stretch")
     st.markdown("The :green[green] part represents the floor contact and all other sources of mechanical dissipation.")

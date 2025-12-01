@@ -159,6 +159,6 @@ def init_sidebar_looks() -> None:
     c1.write("**Zenodo**")
     c2.markdown(zenodo_badge, unsafe_allow_html=True)
 
-    st.sidebar.image(str(logo_path), use_container_width=True)
+    st.sidebar.image(str(logo_path), width="stretch")
 
     st.sidebar.warning("⚠️ All measurements in this app are displayed in centimeters.")

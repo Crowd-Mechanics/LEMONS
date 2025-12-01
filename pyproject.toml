@@ -18,7 +18,7 @@ dependencies = [
     "exhale>=0.3.7",
     "gprof2dot>=2025.4.14",
     "jupyter>=1.1.1",
-    "kaleido==0.2.1",
+    "kaleido==1.2.0",
     "kivy>=2.3.1",
     "matplotlib>=3.10.3",
     "myst-parser>=4.0.1",
@@ -64,6 +64,6 @@ checks = [
     "SA01",
     "ES01",
 ]
-# remember to use single quotes for regex in TOML
+# have to use single quotes for regex in TOML
 exclude = ['\.undocumented_method$', '\.__repr__$']
 override_SS05 = ['^Process ', '^Assess ', '^Access ']

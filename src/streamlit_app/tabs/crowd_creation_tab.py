@@ -284,7 +284,7 @@ def plot_and_download_crowd2D(current_crowd: Crowd) -> None:
             data=zip_buffer,
             file_name=filename,
             mime="application/zip",
-            use_container_width=True,
+            width="stretch",
         )
 
         if cst_app.SHOW_DEV:
@@ -297,7 +297,7 @@ def plot_and_download_crowd2D(current_crowd: Crowd) -> None:
                 file_name=filename,
                 mime="application/xml",
                 help="Export basic information about the crowd to a single XML file",
-                use_container_width=True,
+                width="stretch",
             )
 
         # Download the crowd statistics as a CSV file
@@ -309,7 +309,7 @@ def plot_and_download_crowd2D(current_crowd: Crowd) -> None:
             file_name=filename,
             mime="text/csv",
             help="Export all the measured data used to compute the statistics given in the table as CSV file",
-            use_container_width=True,
+            width="stretch",
         )
 
     else:
@@ -322,7 +322,7 @@ def plot_and_download_crowd2D(current_crowd: Crowd) -> None:
             file_name=filename,
             mime="application/xml",
             help="Export basic information about the crowd to a single XML file",
-            use_container_width=True,
+            width="stretch",
         )
 
         # Download the crowd statistics as a CSV file
@@ -334,7 +334,7 @@ def plot_and_download_crowd2D(current_crowd: Crowd) -> None:
             file_name=filename,
             mime="text/csv",
             help="Export all the measured data used to compute the statistics given in the table as CSV file",
-            use_container_width=True,
+            width="stretch",
         )
 
     # Display information about the covered area
