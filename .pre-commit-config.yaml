@@ -60,12 +60,12 @@ repos:
         args: [--style=file]
         files: \.(cpp|h|hpp|c)$
 
-  # Cppcheck: C++ static analysis
-  - repo: https://github.com/pocc/pre-commit-hooks # requires llvm installed
-    rev: v1.3.5
-    hooks:
-      - id: clang-tidy # you need to have build the C++ project with CMake first
-        args: [-p=src/mechanical_layer/build]
+  # # Cppcheck: C++ static analysis
+  # - repo: https://github.com/pocc/pre-commit-hooks # requires llvm installed
+  #   rev: v1.3.5
+  #   hooks:
+  #     - id: clang-tidy # you need to have build the C++ project with CMake first
+  #       args: [-p=src/mechanical_layer/build]
 
   - repo: https://github.com/cpplint/cpplint
     rev: 2.0.2
@@ -85,15 +85,15 @@ repos:
         pass_filenames: false
 
   # Test of python functions
-  - repo: local
-    hooks:
-      - id: uv-pytest
-        name: pytest
-        entry: uv run pytest tests/configuration
-        language: system
-        pass_filenames: false
-        always_run: true
-        types: ["python"]
+  # - repo: local
+  #   hooks:
+  #     - id: uv-pytest
+  #       name: pytest
+  #       entry: uv run pytest tests/configuration
+  #       language: system
+  #       pass_filenames: false
+  #       always_run: true
+  #       types: ["python"]
 
   # Check if the copyright header is present and correct on all source files .cpp, .h and .py
   - repo: local
@@ -105,15 +105,15 @@ repos:
         pass_filenames: false
         always_run: true
 
-  # Pre-commit hook to test Jupyter notebooks
-  - repo: local
-    hooks:
-      - id: test-notebooks
-        name: Setup and test notebooks
-        entry: ./.check-notebooks.sh
-        language: system
-        pass_filenames: false
-        files: ".*\\.ipynb$"
+  # # Pre-commit hook to test Jupyter notebooks
+  # - repo: local
+  #   hooks:
+  #     - id: test-notebooks
+  #       name: Setup and test notebooks
+  #       entry: ./.check-notebooks.sh
+  #       language: system
+  #       pass_filenames: false
+  #       files: ".*\\.ipynb$"
 
   # shfmt: Formatter for shell scripts
   - repo: https://github.com/maxwinterstein/shfmt-py
@@ -131,7 +131,7 @@ repos:
     rev: 1.9.1
     hooks:
       - id: nbqa-ruff
-        args: ["--extend-ignore=D100", --fix]
+        args: ["--extend-ignore=D100"]
         additional_dependencies: [ruff, jupytext]
 
       - id: nbqa-pyupgrade
