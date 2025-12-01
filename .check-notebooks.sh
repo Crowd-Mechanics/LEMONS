@@ -8,4 +8,4 @@ cp ./data/xml/evacuation_tutorial_initial_config_files/Materials.xml ./tutorials
 cp ./data/xml/evacuation_tutorial_initial_config_files/Parameters.xml ./tutorials/mechanical_layer/
 
 # run nbmake tests on the notebooks in the tutorials folder
-pytest --nbmake ./tutorials/
+uv run pytest --nbmake ./tutorials/

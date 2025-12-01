@@ -48,15 +48,19 @@ jobs:
 
       - name: Run clang-tidy pre-commit hook
         run: |
-          uv run pre-commit run clang-tidy --all-files
+          uv run pre-commit run clang-tidy
 
       - name: Run pytest pre-commit hook for the configuration tests
         run: |
-          uv run pre-commit run uv-pytest --all-files
+          uv run pre-commit run uv-pytest
+
+      - name: Run notebooks tests pre-commit hook
+        run: |
+          uv run pre-commit run test-notebooks
 
       - name: Run doxygen pre-commit hook
         run: |
-          uv run pre-commit run check-doxygen --all-files
+          uv run pre-commit run check-doxygen
 
       - name: Run the mechanical layer tests
         run: |

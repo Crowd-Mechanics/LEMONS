@@ -5,7 +5,7 @@ ci:
   autoupdate_commit_msg: "[pre-commit.ci] pre-commit automatically updated revs."
   autoupdate_schedule: weekly
   skip:
-    [clang-tidy, uv-pytest, check-doxygen]
+    [clang-tidy, uv-pytest, check-doxygen, test-notebooks]
     # we skip clang-tidy because it requires a build directory and llvm installed,
     # but we can't build the C++ package and install llvm with pre-commit.ci
     # so we use GitHub Actions for that instead
@@ -60,7 +60,7 @@ repos:
         args: [--style=file]
         files: \.(cpp|h|hpp|c)$
 
-    # Cppcheck: C++ static analysis
+  # Cppcheck: C++ static analysis
   - repo: https://github.com/pocc/pre-commit-hooks # requires llvm installed
     rev: v1.3.5
     hooks:
@@ -130,9 +130,10 @@ repos:
   - repo: https://github.com/nbQA-dev/nbQA
     rev: 1.9.1
     hooks:
-      - id: nbqa-black
-        additional_dependencies: ["black==25.11.0"]
+      - id: nbqa-ruff
+        args: ["--extend-ignore=D100", --fix]
+        additional_dependencies: [ruff, jupytext]
+
       - id: nbqa-pyupgrade
         args: ["--py37-plus"]
-      - id: nbqa-isort
-        args: ["--float-to-top"]
+        additional_dependencies: [pyupgrade, jupytext]
