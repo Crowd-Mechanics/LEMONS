@@ -36,7 +36,6 @@ Tests cover:
 import subprocess
 from pathlib import Path
 
-from kivy.tests.test_audio import DELTA
 import numpy as np
 import pandas as pd
 import pytest
