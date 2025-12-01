@@ -181,7 +181,7 @@ def download_data(current_pedestrian: Agent) -> None:
         data=data_to_download,
         file_name=filename,
         mime="application/octet-stream",
-        use_container_width=True,
+        width="stretch",
         help="Contains the polygons used to display the pedestrian.",
     )
 
@@ -196,7 +196,7 @@ def download_data(current_pedestrian: Agent) -> None:
         help="Contains the polygons used to build the 3D representation of the pedestrian"
         " with standard parameters,"
         " with a precision up to 0.1 mm in the altitude-direction.",
-        use_container_width=True,
+        width="stretch",
     )
 
 
@@ -242,7 +242,7 @@ def orthogonal_projection_option(current_pedestrian: Agent) -> None:
         data=body3D_orthogonal_projection,
         file_name="body3D_orthogonal_projection.pdf",
         mime="application/pdf",
-        use_container_width=True,
+        width="stretch",
     )
 
 
@@ -282,7 +282,7 @@ def slices_option(current_pedestrian: Agent) -> None:
         label="Download plot as PDF",
         data=fig_plotly.to_image(format="pdf"),
         file_name="body3D_slices.pdf",
-        use_container_width=True,
+        width="stretch",
     )
 
 
@@ -325,7 +325,7 @@ def mesh_option(current_pedestrian: Agent) -> None:
         label="Download plot as PDF",
         data=fig_plotly_mesh.to_image(format="pdf"),
         file_name="body3D_mesh.pdf",
-        use_container_width=True,
+        width="stretch",
     )
 
 

@@ -33,7 +33,7 @@ from shutil import copyfile
 
 # === Simulation Parameters ===
 dt = 0.1  # Time step for the decisional layer (matches "TimeStep" in Parameters.xml)
-Ndt = 50  # How many dt will be performed in total
+Ndt = 30  # How many dt will be performed in total
 
 # === Paths Setup ===
 outputPath = Path("outputXML/")  # Directory to store output XML files

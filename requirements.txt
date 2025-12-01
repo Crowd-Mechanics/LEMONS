@@ -53,6 +53,8 @@ cfgv==3.4.0
     # via pre-commit
 charset-normalizer==3.4.1
     # via requests
+choreographer==1.2.1
+    # via kaleido
 click==8.1.8
     # via streamlit
 cmcrameri==1.9
@@ -130,6 +132,7 @@ ipykernel==6.29.5
     #   jupyter
     #   jupyter-console
     #   jupyterlab
+    #   nbmake
 ipython==9.0.2
     # via
     #   ipykernel
@@ -211,7 +214,7 @@ jupyterlab-server==2.27.3
     #   notebook
 jupyterlab-widgets==3.0.13
     # via ipywidgets
-kaleido==0.2.1
+kaleido==1.2.0
     # via lemons (pyproject.toml)
 kivy==2.3.1
     # via lemons (pyproject.toml)
@@ -219,6 +222,10 @@ kivy-garden==0.1.5
     # via kivy
 kiwisolver==1.4.8
     # via matplotlib
+logistro==2.0.1
+    # via
+    #   choreographer
+    #   kaleido
 lxml==5.4.0
     # via exhale
 markdown-it-py==3.0.0
@@ -254,7 +261,9 @@ narwhals==1.30.0
     #   altair
     #   plotly
 nbclient==0.10.2
-    # via nbconvert
+    # via
+    #   nbconvert
+    #   nbmake
 nbconvert==7.16.6
     # via
     #   jupyter
@@ -265,7 +274,10 @@ nbformat==5.10.4
     #   jupyter-server
     #   nbclient
     #   nbconvert
+    #   nbmake
     #   nbsphinx
+nbmake==1.5.5
+    # via lemons (pyproject.toml)
 nbsphinx==0.9.6
     # via
     #   lemons (pyproject.toml)
@@ -296,6 +308,8 @@ numpy==2.2.6
     #   streamlit
 numpydoc==1.8.0
     # via lemons (pyproject.toml)
+orjson==3.11.4
+    # via kaleido
 overrides==7.7.0
     # via jupyter-server
 packaging==24.2
@@ -307,6 +321,7 @@ packaging==24.2
     #   jupyter-server
     #   jupyterlab
     #   jupyterlab-server
+    #   kaleido
     #   matplotlib
     #   nbconvert
     #   plotly
@@ -373,6 +388,7 @@ pygments==2.19.1
     #   jupyter-console
     #   kivy
     #   nbconvert
+    #   nbmake
     #   sphinx
     #   sphinx-mdinclude
 pyparsing==3.2.1
@@ -380,9 +396,13 @@ pyparsing==3.2.1
 pytest==8.3.5
     # via
     #   lemons (pyproject.toml)
+    #   nbmake
     #   pytest-cov
+    #   pytest-timeout
 pytest-cov==6.1.1
     # via lemons (pyproject.toml)
+pytest-timeout==2.4.0
+    # via kaleido
 python-dateutil==2.9.0.post0
     # via
     #   arrow
@@ -445,6 +465,8 @@ setuptools==78.0.2
     # via jupyterlab
 shapely==2.1.1
     # via lemons (pyproject.toml)
+simplejson==3.20.2
+    # via choreographer
 six==1.17.0
     # via
     #   exhale

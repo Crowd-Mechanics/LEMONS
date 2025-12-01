@@ -47,9 +47,10 @@ Ndt = 50  # How many dt will be performed in total
 
 # === Prepare the folders ===
 # Define the paths to the folders you'll use
-inputPath = Path("inputXML/")
-staticPath = Path("./static")
-plotsPath = Path("./plots")
+CWD = Path(__file__).parent  # Current working directory
+inputPath = CWD / "inputXML"
+staticPath = CWD / "static"
+plotsPath = CWD / "plots"
 plotsPath.mkdir(parents=True, exist_ok=True)  # Create plots directory if it doesn't exist
 
 # Remove any old '.png' files in the plots directory
@@ -99,8 +100,8 @@ for t in range(Ndt):
 # === Export to a movie with FFMPEG ===
 ffmpeg = args.ffmpeg  # Get the ffmpeg path from command line arguments
 movie_name = "test_slip_agent_agent"
-plotsPath = Path("./plots")
-moviesPath = Path("./movies")
+plotsPath = CWD / "plots"
+moviesPath = CWD / "movies"
 moviesPath.mkdir(parents=True, exist_ok=True)
 framerate = int(1.0 / dt)
 

@@ -6,35 +6,21 @@ on:
 
 jobs:
   test:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
-
-    env:
-      FFMPEG_BIN: /usr/bin/ffmpeg
+    runs-on: macos-latest
 
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install dependencies (Linux)
-        if: runner.os == 'Linux'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg llvm clang build-essential cmake graphviz
       - name: Install dependencies (macOS)
-        if: runner.os == 'macOS'
         run: |
-          brew install ffmpeg llvm graphviz
+          brew install llvm graphviz
 
       - name: Add LLVM to PATH (macOS)
-        if: runner.os == 'macOS'
         run: |
           # Add Homebrew LLVM bin directory to PATH for clang-tidy
-          echo "$(brew --prefix llvm)/bin" >> $GITHUB_PATH
+          echo "$(brew --prefix llvm)/bin" >> "$GITHUB_PATH"
 
       - name: Set SDKROOT for clang/clang-tidy
-        if: runner.os == 'macOS'
         run: |
           echo "SDKROOT=$(xcrun --show-sdk-path)" >> "$GITHUB_ENV"
 
@@ -62,18 +48,22 @@ jobs:
 
       - name: Run clang-tidy pre-commit hook
         run: |
-          uv run pre-commit run clang-tidy --all-files
+          uv run pre-commit run clang-tidy
 
-      - name: Run pytest pre-commit hook
+      - name: Run pytest pre-commit hook for the configuration tests
         run: |
-          uv run pre-commit run uv-pytest --all-files
+          uv run pre-commit run uv-pytest
+
+      - name: Run notebooks tests pre-commit hook
+        run: |
+          uv run pre-commit run test-notebooks
 
       - name: Run doxygen pre-commit hook
         run: |
-          uv run pre-commit run check-doxygen --all-files
+          uv run pre-commit run check-doxygen
 
-      # - name: Run the mechanical layer tests
-      #   run: |
-      #     cd ./tests/mechanical_layer
-      #     ./run_mechanical_tests
-      #     cd ../..
+      - name: Run the mechanical layer tests
+        run: |
+          cd ./tests/mechanical_layer
+          ./run_mechanical_tests.sh
+          cd ../..

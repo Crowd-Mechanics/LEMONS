@@ -75,7 +75,7 @@ def run_tab_anthropometry() -> None:
     col1, col2 = st.columns([1.4, 1])  # Adjust proportions as needed
     with col1:
         fig = plot.display_distribution(df, selected_attribute.lower())
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
         # Sidebar: Button to download the graph in PDF format
         selected_attribute_name = selected_attribute.replace(" ", "_")
     with col2:
@@ -108,7 +108,7 @@ def run_tab_anthropometry() -> None:
         data=fig.to_image(format="pdf"),
         file_name=f"{selected_attribute_name}_distribution.pdf",
         mime="application/pdf",
-        use_container_width=True,
+        width="stretch",
     )
 
     # Add a selectbox for choosing the dataset to download
@@ -124,7 +124,7 @@ def run_tab_anthropometry() -> None:
         data=data_to_download,
         file_name=download_filename,
         mime="text/csv",
-        use_container_width=True,
+        width="stretch",
     )
 
     df = fun.load_csv(path_file / "ANSURIIMALEPublic.csv")
@@ -137,5 +137,5 @@ def run_tab_anthropometry() -> None:
         data=data_to_download,
         file_name=download_filename,
         mime="text/csv",
-        use_container_width=True,
+        width="stretch",
     )

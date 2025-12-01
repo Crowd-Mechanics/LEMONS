@@ -1,5 +1,5 @@
 <Agents>
     <Agent Id="0">
-        <Kinematics Position="0.12,1.65" Velocity="1.5,0" Theta="0.0" Omega="0.00" />
+        <Kinematics Position="0.12,1.65" Velocity="1.5,0.0" Theta="0.0" Omega="0.00" />
     <Dynamics Fp="100.0,0.0" Mp="0.0" /></Agent>
 </Agents>
