@@ -1,8 +1,14 @@
 # Contributing to the LEMONS project
 
-Thanks for your interest in contributing! This document explains the development workflow, how to run checks and tests, and what is expected in a pull request.
+Thanks for your interest in contributing! This guide covers:
 
-## Branching and pull requests
+- The [general procedure](#general-procedure) for contributing to the project
+- How to set up and test the [Python wrapper](#working-on-the-python-wrapper) and the [C++ mechanical layer](#working-on-the-c-mechanical-layer)
+- What happens in [continuous integration](#continuous-integration-ci) when you open a pull request
+- How [to report an issue](#reporting-issues-and-proposing-changes)
+
+
+## General procedure
 
 The `master` branch is protected: direct pushes are not allowed.
 All changes must go through a pull request (PR). Here is how you should proceed:
@@ -47,9 +53,9 @@ There are two main types of checks:
 
 
 
-## Working on the Python files
+## Working on the Python wrapper
 
-To work on the Python code:
+To work on the Python wrapper:
 
 1. Install Python (version 3.13 or later).
 2. Install and configure the [`uv`](https://docs.astral.sh/uv/) package manager to set up the Python virtual environment with all required dependencies:
@@ -59,14 +65,12 @@ To work on the Python code:
    uv sync
    ```
    This creates and manages a virtual environment for you and installs all dependencies (including development dependencies).
-
-You can then modify the Python code as needed. Before committing, run in the repository root:
-
-```bash
-uv run pre-commit run --all-files --skip clang-tidy,clang-format,cpplint
-```
-
-Here `--skip` is used to avoid running the C++-related hooks locally when you are only modifying Python code, which saves time.
+3. You can then modify the Python code as needed.
+4. Before committing, run in the repository root:
+   ```bash
+   uv run pre-commit run --all-files --skip clang-tidy,clang-format,cpplint
+   ```
+   Here `--skip` is used to avoid running the C++-related hooks locally when you are only modifying Python code, which saves time.
 
 
 
@@ -75,27 +79,25 @@ Here `--skip` is used to avoid running the C++-related hooks locally when you ar
 To work on the C++ part, you need a working C++ toolchain. On macOS this includes LLVM/Clang and CMake. The C++ “mechanical layer” has its own build and test workflow:
 
 1. You first need to build the C++ project. From the repository root, run:
-    ```bash
-    cd src/mechanical_layer
-    cmake -H. -Bbuild -DBUILD_SHARED_LIBS=ON
-    cmake --build build
-    cd ../..
-    ```
-    This creates the `build` directory used by the C++ pre-commit hooks and tests.
+   ```bash
+   cd src/mechanical_layer
+   cmake -H. -Bbuild -DBUILD_SHARED_LIBS=ON
+   cmake --build build
+   cd ../..
+   ```
+   This creates the `build` directory used by the C++ pre-commit hooks and tests.
 2. Modify the code as you want.
-3. Run mechanical layer pre-commit hooks and tests. From the repository root:
-    ```bash
-    uv run pre-commit run --all-files
-    cd tests/mechanical_layer
-    ./run_mechanical_tests.sh
-    cd ../..
-    ```
-4. Additionally, you may want to visualize the outputs of the mechanical layer tests. From the repository root:
-    ```bash
-    cd tests/mechanical_layer
-    ./make_tests_videos.sh
-    cd ../..
-    ```
+3. Run mechanical layer pre-commit hooks and tests. The tests depend on the Python wrapper, so you must set up the required Python virtual environment as explained above. Then, from the repository root:
+   ```bash
+   uv run pre-commit run --all-files
+   cd tests/mechanical_layer
+   ./run_mechanical_tests.sh
+   ```
+4. Additionally, you may want to visualize the outputs of the mechanical layer tests:
+   ```bash
+   ./make_tests_videos.sh
+   ```
+   The generated videos are stored in `/test/mechanical_layer/movies/`.
 
 
 

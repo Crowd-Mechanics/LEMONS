@@ -6,21 +6,33 @@ on:
 
 jobs:
   test:
-    runs-on: macos-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v3
 
+      - name: Install dependencies (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y llvm clang build-essential cmake graphviz
+
       - name: Install dependencies (macOS)
+        if: runner.os == 'macOS'
         run: |
           brew install llvm graphviz
 
       - name: Add LLVM to PATH (macOS)
-        run: |
-          # Add Homebrew LLVM bin directory to PATH for clang-tidy
-          echo "$(brew --prefix llvm)/bin" >> "$GITHUB_PATH"
+        if: runner.os == 'macOS'
+        run: | # Add Homebrew LLVM bin directory to PATH for clang-tidy
+          echo "$(brew --prefix llvm)/bin" >> $GITHUB_PATH
 
       - name: Set SDKROOT for clang/clang-tidy
+        if: runner.os == 'macOS'
         run: |
           echo "SDKROOT=$(xcrun --show-sdk-path)" >> "$GITHUB_ENV"
 
@@ -28,7 +40,7 @@ jobs:
         uses: ssciwr/doxygen-install@v1
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.13"
 
@@ -37,12 +49,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install uv
           uv sync --extra dev
-          uv run pre-commit install
 
       - name: Build the C++ project
         run: |
           cd src/mechanical_layer
-          cmake -H. -Bbuild -DBUILD_SHARED_LIBS=ON
+          cmake -S . -B build -DBUILD_SHARED_LIBS=ON
           cmake --build build
           cd ../..
 
