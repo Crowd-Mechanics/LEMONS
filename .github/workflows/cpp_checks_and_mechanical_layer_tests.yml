@@ -48,7 +48,7 @@ jobs:
 
       - name: Run clang-tidy pre-commit hook
         run: |
-          uv run pre-commit run clang-tidy
+          uv run pre-commit run clang-tidy --all-files
 
       - name: Run pytest pre-commit hook for the configuration tests
         run: |

@@ -163,7 +163,7 @@ def create_dict_of_agent_trajectories(
     return times, agents
 
 
-def export_dict_to_CSV(PathCSV: Path, PathXML: Path) -> None:
+def export_XML_to_CSV(PathCSV: Path, PathXML: Path) -> None:
     """
     Export agent trajectories to a CSV file with header: t,ID,x,y,vx,vy.
 
@@ -172,9 +172,9 @@ def export_dict_to_CSV(PathCSV: Path, PathXML: Path) -> None:
     Parameters
     ----------
     PathCSV : Path
-        Path to the folder containing the XML files.
+        Path to the folder where the CSV file will be saved.
     PathXML : Path
-        Path to the folder containing the CSV files.
+        Path to the folder containing the XML files.
     """
     times, agents = create_dict_of_agent_trajectories(PathXML)
     ID_agents = sorted(agents.keys())
@@ -192,7 +192,7 @@ def export_dict_to_CSV(PathCSV: Path, PathXML: Path) -> None:
                     )
 
 
-def export_from_CSV_to_CHAOS(PathCSV: Path, dt: float) -> None:
+def export_CSV_to_CHAOS(PathCSV: Path, dt: float) -> None:
     """
     Read agent trajectories from a CSV file and exports them into multiple text files in the format required by the ChAOS software.
 

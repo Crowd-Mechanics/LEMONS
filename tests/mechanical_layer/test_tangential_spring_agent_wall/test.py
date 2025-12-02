@@ -63,7 +63,7 @@ def df() -> pd.DataFrame:
     PathXML = Path("inputXML")  # Folder path where the XML files are located
     PathCSV = Path("inputCSV")  # Folder path where CSV files will be saved
     PathCSV.mkdir(parents=True, exist_ok=True)  # Create directories if it doesn't exist
-    xml_to_Chaos.export_dict_to_CSV(PathCSV, PathXML)
+    xml_to_Chaos.export_XML_to_CSV(PathCSV, PathXML)
     return pd.read_csv(PathCSV / filenameCSV)
 
 
