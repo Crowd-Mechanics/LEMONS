@@ -63,15 +63,15 @@ jobs:
 
       - name: Run pytest pre-commit hook for the configuration tests
         run: |
-          uv run pre-commit run uv-pytest
+          uv run pre-commit run uv-pytest --all-files
 
       - name: Run notebooks tests pre-commit hook
         run: |
-          uv run pre-commit run test-notebooks
+          uv run pre-commit run test-notebooks --all-files
 
       - name: Run doxygen pre-commit hook
         run: |
-          uv run pre-commit run check-doxygen
+          uv run pre-commit run check-doxygen --all-files
 
       - name: Run the mechanical layer tests
         run: |
