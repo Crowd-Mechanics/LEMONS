@@ -14,6 +14,16 @@ ci:
 fail_fast: false # Continue running other hooks even if one fails
 
 repos:
+  # Codespell: Spell checker
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.1
+    hooks:
+      - id: codespell
+        args:
+          - --skip=*.js,*.html,*.css,*.pdf,*.png,*.csv,*.pkl,*.json,*.xml
+          - --ignore-words-list=teh,fo,bar,tesselator,Tesselator,tesselation,tesselate
+        files: '\.(py|md|c|cpp|h|hpp)$'
+
   # Ruff: Linter and Formatter
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.14.7
@@ -24,16 +34,6 @@ repos:
       # Formatting with Ruff
       - id: ruff-format
         types_or: ["python", "pyi"]
-
-  # Codespell: Spell checker
-  - repo: https://github.com/codespell-project/codespell
-    rev: v2.4.1
-    hooks:
-      - id: codespell
-        args:
-          - --skip=*.js,*.html,*.css,*.pdf,*.png,*.csv,*.pkl,*.json,*.xml
-          - --ignore-words-list=teh,fo,bar,tesselator,Tesselator,tesselation,tesselate
-        files: '\.(py|md|c|cpp|h|hpp)$'
 
   # Mypy: Static type checker for python files
   - repo: https://github.com/pre-commit/mirrors-mypy
@@ -51,6 +51,39 @@ repos:
     hooks:
       - id: numpydoc-validation
         files: ^(src|tests)/.*\.py$
+
+  # nbQA: formatting and linting for Jupyter notebooks
+  - repo: https://github.com/nbQA-dev/nbQA
+    rev: 1.9.1
+    hooks:
+      - id: nbqa-ruff
+        args: ["--extend-ignore=D100"]
+        additional_dependencies: [ruff, jupytext]
+
+      - id: nbqa-pyupgrade
+        args: ["--py37-plus"]
+        additional_dependencies: [pyupgrade, jupytext]
+
+  # Check if the copyright header is present and correct on all source files .cpp, .h and .py
+  - repo: local
+    hooks:
+      - id: check-copyright
+        name: check-copyright
+        entry: ./.check-copyright.sh
+        language: system
+        pass_filenames: false
+        always_run: true
+
+  # shfmt: Formatter for shell scripts
+  - repo: https://github.com/maxwinterstein/shfmt-py
+    rev: v3.11.0.2
+    hooks:
+      - id: shfmt
+        args:
+          - -i
+          - "2"
+          - -ci
+        files: \.(sh|bash|zsh)$
 
   # Cppcheck: C++ static analysis
   - repo: https://github.com/pre-commit/mirrors-clang-format
@@ -95,16 +128,6 @@ repos:
         always_run: true
         types: ["python"]
 
-  # Check if the copyright header is present and correct on all source files .cpp, .h and .py
-  - repo: local
-    hooks:
-      - id: check-copyright
-        name: check-copyright
-        entry: ./.check-copyright.sh
-        language: system
-        pass_filenames: false
-        always_run: true
-
   # Pre-commit hook to test Jupyter notebooks
   - repo: local
     hooks:
@@ -114,26 +137,3 @@ repos:
         language: system
         pass_filenames: false
         files: ".*\\.ipynb$"
-
-  # shfmt: Formatter for shell scripts
-  - repo: https://github.com/maxwinterstein/shfmt-py
-    rev: v3.11.0.2
-    hooks:
-      - id: shfmt
-        args:
-          - -i
-          - "2"
-          - -ci
-        files: \.(sh|bash|zsh)$
-
-  # nbQA: formatting and linting for Jupyter notebooks
-  - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.9.1
-    hooks:
-      - id: nbqa-ruff
-        args: ["--extend-ignore=D100"]
-        additional_dependencies: [ruff, jupytext]
-
-      - id: nbqa-pyupgrade
-        args: ["--py37-plus"]
-        additional_dependencies: [pyupgrade, jupytext]
