@@ -14,7 +14,7 @@ The `master` branch is protected: direct pushes are not allowed.
 All changes must go through a pull request (PR). Here is how you should proceed:
 
 1. On GitHub, fork the repository to create your own copy.
-2. Clone your fork to your local machine.
+2. Clone your fork to your local machine, preferably on macOS or Ubuntu. On Windows, extra care is needed because the continuous integration does not run on Windows.
 3. Create a new branch from `master`:
    ```bash
    git checkout master
@@ -103,7 +103,7 @@ To work on the C++ part, you need a working C++ toolchain. On macOS this include
 
 ## Continuous Integration (CI)
 
-On each pull request targeting `master`, two categories of automation run.
+For every pull request targeting `master`, two categories of automated checks run on both `macos-latest` and `ubuntu-latest` runners.
 
 ### Pre-commit checks (via [pre-commit.ci](https://pre-commit.ci/) service)
 
@@ -133,7 +133,7 @@ On each pull request, GitHub Actions runs the following steps:
 7. Run selected pre-commit hooks:
    - [`clang-tidy`](https://github.com/pocc/pre-commit-hooks)
    - `uv-pytest` (Python configuration tests via the [`pytest`](https://docs.pytest.org/en/stable/) package)
-   - `test-notebooks` (Jupyter notebook tests via the local shell script `.check-notebooks.sh`)
+   - `test-notebooks` (Jupyter notebook tests via the local shell script `.check-notebooks.sh`, only on `macos-latest` runner)
    - `check-doxygen` (C++ documentation tests via the local shell script `.check-doxygen.sh`)
 8. Run the mechanical layer tests.
 
