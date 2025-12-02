@@ -21,7 +21,6 @@ All changes must go through a pull request (PR).
    ```bash
    git push -u origin feature/short-description
    ```
-
 6. Open a pull request on GitHub targeting `master`. The configured checks will run automatically and their status will appear on the PR.
 
 A PR is ready to merge when:
