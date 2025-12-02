@@ -40,8 +40,10 @@ search_dirs=(
 )
 
 # Temporary backup directory
-backup_dir="$(mktemp -d)"
+backup_dir="$root_dir/.mech_backup"
 echo -e "\nBacking up files to: $backup_dir"
+rm -rf "$backup_dir"
+mkdir -p "$backup_dir"
 
 # Decide correct and wrong extensions depending on OS
 if [[ "$os_type" == "macos" ]]; then
