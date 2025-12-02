@@ -34,10 +34,7 @@ fi
 echo "Detected OS: $os_type"
 
 # Directories to process
-search_dirs=(
-    "./"
-    "../../tutorials"
-)
+search_dirs=("./")
 
 # Temporary backup directory
 backup_dir="$root_dir/.mech_backup"

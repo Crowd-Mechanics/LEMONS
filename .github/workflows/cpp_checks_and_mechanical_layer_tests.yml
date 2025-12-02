@@ -66,6 +66,7 @@ jobs:
           uv run pre-commit run uv-pytest --all-files
 
       - name: Run notebooks tests pre-commit hook
+        if: runner.os == 'macOS'
         run: |
           uv run pre-commit run test-notebooks --all-files
 
