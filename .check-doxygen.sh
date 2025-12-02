@@ -21,11 +21,11 @@ if grep -q "warning:" "$WARNINGS_FILE"; then
     echo "Doxygen warnings/errors detected:"
     cat "$WARNINGS_FILE"
     rm "$WARNINGS_FILE"
-    cd "$ORIG_DIR" || exit 1  # Return to original directory before exiting
+    cd "$ORIG_DIR" || exit 1
     exit 1
 else
     echo "Doxygen check passed: No warnings found."
     rm "$WARNINGS_FILE"
-    cd "$ORIG_DIR" || exit 1  # Return to original directory
+    cd "$ORIG_DIR" || exit 1
     exit 0
 fi

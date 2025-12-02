@@ -1,137 +1,150 @@
-# Contributing to This Project
+# Contributing to the LEMONS project
 
 Thanks for your interest in contributing! This document explains the development workflow, how to run checks and tests, and what is expected in a pull request.
-
-
 
 ## Branching and pull requests
 
 The `master` branch is protected: direct pushes are not allowed.
-All changes must go through a pull request (PR).
+All changes must go through a pull request (PR). Here is how you should proceed:
 
-1. Click Fork on GitHub to create your own copy under your account.
-2. Clone your GitHub repository to your local machine to be able to make changes
+1. On GitHub, fork the repository to create your own copy.
+2. Clone your fork to your local machine.
 3. Create a new branch from `master`:
-   ```
+   ```bash
    git checkout master
    git pull
    git checkout -b feature/short-description
    ```
-4. Make your changes and commit them.
-5. Push your branch:
+4. Set up the required Python and C++ environments ([detailed below](#working-on-the-python-files)).
+5. Make your changes.
+6. Run the hooks defined in the `.pre-commit-config.yaml` file:
+   ```bash
+   uv run pre-commit run --all-files
    ```
+7. Run the mechanical layer tests:
+   ```bash
+   cd tests/mechanical_layer
+   ./run_mechanical_tests.sh
+   cd ../..
+   ```
+8. Commit your changes.
+9. Push your branch:
+   ```bash
    git push -u origin feature/short-description
    ```
-6. Open a pull request on GitHub targeting `master`. GitHub will run the configured checks and show their status in the PR.
+10. Open a pull request on GitHub targeting `master`. The configured checks ([detailed below](#continuous-integration-ci)) will run automatically and their status will appear on the PR.
 
 A PR is ready to merge when:
-- All automated checks are green (CI pre-commit hooks and CI github actions hooks and tests).
-- The code has been reviewed and approved by at least one of the collaborators.
-- The history is reasonably clean.
 
-There are mainly to type of check that are performed: some for maintaining the coding style quality and readability and those to test the functions used and if the obtained result is the desired one.
+- All automated checks are green (pre-commit.ci checks and GitHub Actions CI).
+- The code has been reviewed and approved by at least one collaborator.
+- The commit history is reasonably clean.
 
-## Development environment
+There are two main types of checks:
 
-The project combines C++, Python, shell scripts, and Jupyter notebooks. The CI uses macOS with LLVM, Doxygen, Graphviz, and Python 3.10. The python dependencies are managed with the python package [uv](https://docs.astral.sh/uv/).
+- **Style and quality checks**, which enforce formatting, coding conventions, documentation rules, and basic static analysis.
+- **Functional checks**, which run tests to ensure the behavior and results are correct.
 
 
 
-### Modify the python codes
+## Working on the Python files
 
-To work on the python code, you need
-1. install python ici la version 3.13 ou plus
-2. to Create and activate a virtual environment using [uv](https://docs.astral.sh/uv/>) to manage dependencies efficiently:
+To work on the Python code:
+
+1. Install Python (version 3.13 or later).
+2. Install and configure the [`uv`](https://docs.astral.sh/uv/) package manager to set up the Python virtual environment with all required dependencies:
+   ```bash
+   python -m pip install --upgrade pip
+   pip install uv pre-commit
+   uv sync
+   ```
+   This creates and manages a virtual environment for you and installs all dependencies (including development dependencies).
+
+You can then modify the Python code as needed. Before committing, run in the repository root:
 
 ```bash
-python -m pip install --upgrade pip
-pip install uv
-uv sync
+uv run pre-commit run --all-files --skip clang-tidy,clang-format,cpplint
 ```
 
+Here `--skip` is used to avoid running the C++-related hooks locally when you are only modifying Python code, which saves time.
 
 
-You can modify the code then as you mwant and before commiting, run on the root directory
 
-```bash
-uv run pre-commit run --all-files
-```
+## Working on the C++ mechanical layer
 
-To run a single hook (useful when iterating on a specific issue):
+To work on the C++ part, you need a working C++ toolchain. On macOS this includes LLVM/Clang and CMake. The C++ “mechanical layer” has its own build and test workflow:
 
-```
-uv run pre-commit run ruff --all-files
-uv run pre-commit run clang-format --all-files
-```
-
-
-To improve the C++ code you need, to setup the right C++ environment (LLMV on macOS)
-The C++ “mechanical layer” has its own build and test workflow. CI separates fast automated tests from video generation to keep feedback quick.
-
-### Building the C++ project
-
-From the repository root:
-
-```
-cd src/mechanical_layer
-cmake -H. -Bbuild -DBUILD_SHARED_LIBS=ON
-cmake --build build
-cd ../..
-```
-
-This creates the `build` directory used by `clang-tidy` and the C++ tests.
-
-### Running mechanical layer tests
-
-From the repository root:
-
-```
-cd tests/mechanical_layer
-./run_mechanical_tests.sh
-cd ../..
-```
-
-Please run these tests locally before opening a PR that touches the mechanical layer.
+1. You first need to build the C++ project. From the repository root, run:
+    ```bash
+    cd src/mechanical_layer
+    cmake -H. -Bbuild -DBUILD_SHARED_LIBS=ON
+    cmake --build build
+    cd ../..
+    ```
+    This creates the `build` directory used by the C++ pre-commit hooks and tests.
+2. Modify the code as you want.
+3. Run mechanical layer pre-commit hooks and tests. From the repository root:
+    ```bash
+    uv run pre-commit run --all-files
+    cd tests/mechanical_layer
+    ./run_mechanical_tests.sh
+    cd ../..
+    ```
+4. Additionally, you may want to visualize the outputs of the mechanical layer tests. From the repository root:
+    ```bash
+    cd tests/mechanical_layer
+    ./make_tests_videos.sh
+    cd ../..
+    ```
 
 
----
 
-## CI: what runs on GitHub
+## Continuous Integration (CI)
 
-On each pull request targeting `master`,
-Ci-precommit runs :
-1. ruff
-2. codespell to ...
-3. etc
+On each pull request targeting `master`, two categories of automation run.
 
-GitHub Actions run:
+### Pre-commit checks (via [pre-commit.ci](https://pre-commit.ci/) service)
 
-1. Checkout of the repository.
-2. Installation of LLVM and Graphviz (macOS).
-3. Installation of the latest Doxygen.
-4. Python setup (3.10), `uv` installation, and dependency sync with `uv sync --extra dev`.
-5. Installation of the pre-commit hook (`uv run pre-commit install`).
-6. C++ build of the mechanical layer.
-7. Pre-commit hooks for:
-   - `clang-tidy`
-   - `uv-pytest` (configuration tests)
-   - `test-notebooks`
-   - `check-doxygen`
-8. Mechanical layer tests via `./tests/mechanical_layer/run_mechanical_tests.sh`.
+The pre-commit.ci service runs most of the hooks defined in `.pre-commit-config.yaml`, including for example:
 
-All these checks must succeed before the PR can be merged.
+- Spell checking ([`codespell`](https://github.com/codespell-project/codespell))
+- Python formatting and linting ([`ruff`, `ruff-format`](https://github.com/astral-sh/ruff-pre-commit))
+- Python type checking ([`mypy`](https://github.com/pre-commit/mirrors-mypy))
+- Python docstring validation ([`numpydoc-validation`](https://github.com/numpy/numpydoc))
+- Notebook checks and upgrades ([`nbqa-ruff`, `nbqa-pyupgrade`](https://github.com/nbQA-dev/nbQA))
+- Copyright header checks (via the local shell script `.check-copyright.sh`)
+- Shell formatting ([`shfmt`](https://github.com/maxwinterstein/shfmt-py))
+- C/C++ formatting and style checks ([`clang-format`](https://github.com/pocc/pre-commit-hooks), [`cpplint`](https://github.com/cpplint/cpplint))
 
----
+Some more complex hooks are skipped here and are handled instead by GitHub Actions (see below).
+
+### GitHub Actions workflow
+
+On each pull request, GitHub Actions runs the following steps:
+
+1. Check out the repository.
+2. Install LLVM and Graphviz (on macOS).
+3. Install the latest Doxygen.
+4. Set up Python, install `uv`, and synchronize dependencies.
+5. Install the pre-commit hook.
+6. Build the C++ mechanical layer with CMake.
+7. Run selected pre-commit hooks:
+   - [`clang-tidy`](https://github.com/pocc/pre-commit-hooks)
+   - `uv-pytest` (Python configuration tests via the [`pytest`](https://docs.pytest.org/en/stable/) package)
+   - `test-notebooks` (Jupyter notebook tests via the local shell script `.check-notebooks.sh`)
+   - `check-doxygen` (C++ documentation tests via the local shell script `.check-doxygen.sh`)
+8. Run the mechanical layer tests.
+
+All of these checks must succeed before the PR can be merged.
+
+
 
 ## Reporting issues and proposing changes
 
-If you are unsure about an approach, open an issue or a draft pull request and describe:
+If you are unsure about an approach, open an issue and describe:
 
 - The problem you are trying to solve.
 - The proposed solution.
-- Any open design questions (API changes, performance implications, etc.).
+- Any open design questions (for example, API changes or performance implications).
 
 Maintainers can then provide early feedback before you invest too much time in a particular direction.
-
-
-
