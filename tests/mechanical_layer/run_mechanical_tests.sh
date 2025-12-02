@@ -36,7 +36,7 @@ echo "Detected OS: $os_type"
 # Directories to process
 search_dirs=(
     "./"
-    "../../tutorials/mechanical_layer"
+    "../../tutorials"
 )
 
 # Temporary backup directory
