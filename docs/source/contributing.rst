@@ -120,7 +120,6 @@ The pre-commit.ci service runs most of the hooks defined in ``.pre-commit-config
 - Python type checking (`mypy <https://github.com/pre-commit/mirrors-mypy>`__)
 - Python docstring validation (`numpydoc-validation <https://github.com/numpy/numpydoc>`__)
 - Notebook checks and upgrades (`nbqa-ruff, nbqa-pyupgrade <https://github.com/nbQA-dev/nbQA>`__)
-- Copyright header checks (via the local shell script ``.check-copyright.sh``)
 - Shell formatting (`shfmt <https://github.com/maxwinterstein/shfmt-py>`__)
 - C/C++ formatting and style checks (`clang-format <https://github.com/pocc/pre-commit-hooks>`__, `cpplint <https://github.com/cpplint/cpplint>`__)
 
@@ -139,6 +138,7 @@ On each pull request, GitHub Actions runs the following steps:
 6. Build the C++ mechanical layer with CMake.
 7. Run selected pre-commit hooks:
 
+   - ``check-copyright`` (verify that the copyright headers are present and correctly formatted using the ``.check-copyright.sh`` script.)
    - `clang-tidy <https://github.com/pocc/pre-commit-hooks>`__
    - ``uv-pytest`` (Python configuration tests via the `pytest <https://docs.pytest.org/en/stable/>`__ package)
    - ``test-notebooks`` (Jupyter notebook tests via the local shell script ``.check-notebooks.sh``, only on ``macos-latest`` runner)
