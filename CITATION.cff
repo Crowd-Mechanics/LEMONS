@@ -24,16 +24,16 @@ identifiers:
 repository-code: >-
   https://github.com/odufour7/LEMONS
 abstract: >-
-  The rise of large-scale events demands innovative safety tools
-  to optimise crowd flow. Traditional models rely on oversimplified
-  circular agents, ignoring body shape heterogeneities and thereby
-  misjudging flow or crowd density. To address this gap, we present
-  a software for more realistic crowd simulations. A user-friendly
-  graphical interface enables the creation of 2D and 3D pedestrian
-  crowds from anthropometric data. Then, a C++ library (Python-compatible)
-  handles mechanical contacts, resolving agent-to-agent and agent-to-obstacle
-  collisions in 2D spaces. Users can extend simulations by integrating
-  decision-making algorithms from established crowd models.
+  To model dense crowds, the usual recourse to oversimplified (circular)
+  pedestrian shapes and contact forces shows limitations. To help modellers
+  overcome these limitations, we propose an open-source numerical tool. It
+  consists of a Python library that generates 2D and 3D pedestrian crowds
+  based on anthropometric data, and a C++ library that computes
+  mechanical contacts with other agents and with obstacles, and evolves the
+  crowd's configuration. Additionally, we provide an online platform with a
+  user-friendly graphical interface for the first library, and scripts to call
+  the second library from Python. The tool enables users to implement
+  their own decisional layer, i.e., to control the agents' choices of desired velocities.
 keywords:
   - anthropometry
   - crowd dynamics

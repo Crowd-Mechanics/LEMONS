@@ -1,29 +1,40 @@
 How to test ``CrowdMechanics``
 ================================
 
-After modifying the C++ code, you can run a series of eight tests (covering distinct scenarios) by following the steps below:
+After modifying the C++ code, you can run a series of eight series of tests (covering distinct scenarios) by following the steps below:
 
 1. Navigate to the ``tests/mechanical_layer`` directory.
 2. Run the following command in your terminal:
 
    .. code-block:: bash
 
-      ./run_mechanical_tests
+      ./run_mechanical_tests.sh
+3. If you further want to visualize the results of the tests as videos, ensure that you have ``ffmpeg`` installed on your system. And run the following command in your terminal:
 
-   The script will prompt you to enter the path to your ``ffmpeg`` application, which is required to generate movies from the simulation files.
+   .. code-block:: bash
+
+      ./make_tests_videos.sh
+   All videos are saved in the ``tests/mechanical_layer/videos`` folder.
 
 .. note::
 
-   If you do not already have ``ffmpeg`` installed, you can find installation instructions on the official website: `https://ffmpeg.org/ <https://ffmpeg.org/>`__
+   - If you do not already have ``ffmpeg`` installed, you can find
+     installation instructions on the official website:
+     `https://ffmpeg.org/ <https://ffmpeg.org/>`__.
 
-The results of the eight tests will appear in the movies directory. You will then have the possibility to look at all the videos and see if they meet your expectations.
+   - The details of the test series are described in :ref:`mechanical-tests`.
+     These tests are designed to verify the behavior of each mathematical
+     term in the mechanical model and are not intended as comparisons with
+     experimental data. They rely on tolerance thresholds that you can
+     adjust in the respective test folders if necessary.
+
 The eight test scenarios are as follows:
 
 1. **Agent pushing another agent** (``test_push_agent_agent`` folder)
 
    Tests the force orthogonal to the contact surface, representing a damped spring interaction between two agents.
 
-2. **Agent colliding with a call** (``test_push_agent_wall`` folder)
+2. **Agent colliding with a wall** (``test_push_agent_wall`` folder)
 
    Tests the force orthogonal to the contact surface, representing a damped spring interaction between an agent and a wall.
 

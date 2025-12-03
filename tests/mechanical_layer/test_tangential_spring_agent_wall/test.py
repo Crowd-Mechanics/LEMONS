@@ -1,5 +1,5 @@
 """
-Tests for the tangential spring agent wall scenario.
+Tests the force tangential to the contact surface, representing a damped spring interaction between an agent and a wall.
 
 Tests cover:
     - Time and position continuity

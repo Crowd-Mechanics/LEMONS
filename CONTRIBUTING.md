@@ -76,7 +76,7 @@ To work on the Python wrapper:
 
 ## Working on the C++ mechanical layer
 
-To work on the C++ part, you need a working C++ toolchain. On macOS this includes LLVM/Clang and CMake. The C++ “mechanical layer” has its own build and test workflow:
+To work on the C++ part, you need a working C++ toolchain. On macOS this includes LLVM/Clang and CMake. The C++ mechanical layer has its own build and test workflow:
 
 1. You first need to build the C++ project. From the repository root, run:
    ```bash
@@ -85,7 +85,6 @@ To work on the C++ part, you need a working C++ toolchain. On macOS this include
    cmake --build build
    cd ../..
    ```
-   This creates the `build` directory used by the C++ pre-commit hooks and tests.
 2. Modify the code as you want.
 3. Run mechanical layer pre-commit hooks and tests. The tests depend on the Python wrapper, so you must set up the required Python virtual environment as explained above. Then, from the repository root:
    ```bash

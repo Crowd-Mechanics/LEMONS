@@ -1,5 +1,5 @@
 """
-Tests for the t_rotation scenario.
+Tests the behaviour as an agent undergoes a translation and gradually relaxes to a stationary state (no motion) due to friction.
 
 Tests cover:
     - Time and position continuity

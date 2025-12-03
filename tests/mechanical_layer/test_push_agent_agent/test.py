@@ -1,5 +1,5 @@
 """
-Tests for the push agent agent scenario.
+Tests the force orthogonal to the contact surface, representing a damped spring interaction between two agents.
 
 Tests cover:
     - Time and position continuity for each agent

@@ -1,5 +1,5 @@
 """
-Tests for the tangential spring agent agent scenario.
+Tests the force tangential to the contact surface, representing a damped spring interaction between two agents.
 
 Tests cover:
     - Time and position continuity
