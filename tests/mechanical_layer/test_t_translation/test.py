@@ -1,5 +1,5 @@
 """
-Tests for the t_translation scenario.
+Tests the behaviour as an agent rotates and gradually relaxes to a stationary state (no motion), due to the fluid-like torque.
 
 Tests cover:
     - Time and position continuity

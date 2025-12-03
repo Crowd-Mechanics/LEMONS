@@ -76,7 +76,7 @@ To work on the Python wrapper:
 
 ## Working on the C++ mechanical layer
 
-To work on the C++ part, you need a working C++ toolchain. On macOS this includes LLVM/Clang and CMake. The C++ “mechanical layer” has its own build and test workflow:
+To work on the C++ part, you need a working C++ toolchain. On macOS this includes LLVM/Clang and CMake. The C++ mechanical layer has its own build and test workflow:
 
 1. You first need to build the C++ project. From the repository root, run:
    ```bash
@@ -85,7 +85,6 @@ To work on the C++ part, you need a working C++ toolchain. On macOS this include
    cmake --build build
    cd ../..
    ```
-   This creates the `build` directory used by the C++ pre-commit hooks and tests.
 2. Modify the code as you want.
 3. Run mechanical layer pre-commit hooks and tests. The tests depend on the Python wrapper, so you must set up the required Python virtual environment as explained above. Then, from the repository root:
    ```bash
@@ -114,7 +113,6 @@ The pre-commit.ci service runs most of the hooks defined in `.pre-commit-config.
 - Python type checking ([`mypy`](https://github.com/pre-commit/mirrors-mypy))
 - Python docstring validation ([`numpydoc-validation`](https://github.com/numpy/numpydoc))
 - Notebook checks and upgrades ([`nbqa-ruff`, `nbqa-pyupgrade`](https://github.com/nbQA-dev/nbQA))
-- Copyright header checks (via the local shell script `.check-copyright.sh`)
 - Shell formatting ([`shfmt`](https://github.com/maxwinterstein/shfmt-py))
 - C/C++ formatting and style checks ([`clang-format`](https://github.com/pocc/pre-commit-hooks), [`cpplint`](https://github.com/cpplint/cpplint))
 
@@ -131,6 +129,7 @@ On each pull request, GitHub Actions runs the following steps:
 5. Install the pre-commit hook.
 6. Build the C++ mechanical layer with CMake.
 7. Run selected pre-commit hooks:
+   - `check-copyright` (verify that the copyright headers are present and correctly formatted using the `.check-copyright.sh` script.)
    - [`clang-tidy`](https://github.com/pocc/pre-commit-hooks)
    - `uv-pytest` (Python configuration tests via the [`pytest`](https://docs.pytest.org/en/stable/) package)
    - `test-notebooks` (Jupyter notebook tests via the local shell script `.check-notebooks.sh`, only on `macos-latest` runner)

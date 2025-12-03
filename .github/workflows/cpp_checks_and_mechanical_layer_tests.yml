@@ -57,6 +57,10 @@ jobs:
           cmake --build build
           cd ../..
 
+      - name: Run copyright check pre-commit hook
+        run: |
+          uv run pre-commit run check-copyright --all-files
+
       - name: Run clang-tidy pre-commit hook
         run: |
           uv run pre-commit run clang-tidy --all-files

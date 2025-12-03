@@ -1,5 +1,5 @@
 """
-Tests for the push agent wall scenario.
+Tests the force orthogonal to the contact surface, representing a damped spring interaction between an agent and a wall.
 
 Tests cover:
     - Time and position continuity for each agent

@@ -1,5 +1,5 @@
 """
-Tests for the slip agent wall scenario.
+Tests the Coulomb friction interaction between an agent and a wall as the agent slides.
 
 Tests cover:
     - Time and position continuity

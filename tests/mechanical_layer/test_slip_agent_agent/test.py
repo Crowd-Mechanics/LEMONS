@@ -1,5 +1,5 @@
 """
-Tests for the slip agent agent scenario.
+Tests the Coulomb friction interaction between two agents as one slides over the other.
 
 Tests cover:
     - Time and position continuity for each agent

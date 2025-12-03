@@ -14,6 +14,7 @@ Welcome to the official LEMONS package documentation! This guide provides compre
 
    installation
    source
+   contributing
 
 .. toctree::
    :maxdepth: 2
