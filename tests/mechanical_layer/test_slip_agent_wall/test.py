@@ -4,8 +4,8 @@ Tests the Coulomb friction interaction between an agent and a wall as the agent 
 Tests cover:
     - Time and position continuity
     - Near-zero angular velocity (omega), constant orientation (theta)
-    - Velocity along the x-axis should be positive during the core of the simulation
-    - Velocity along the y-axis should be either near zero or negative during the core of the simulation
+    - Velocity along the x-axis should be positive during the core simulation
+    - Velocity along the y-axis should be either near zero or negative during the core simulation
 """
 
 # Copyright  2025  Institute of Light and Matter, CNRS UMR 5306, University Claude Bernard Lyon 1
@@ -42,11 +42,17 @@ import pytest
 
 from configuration.backup import xml_to_Chaos
 
-TIME_TOL = 1e-4  # seconds
-MAX_SPATIAL_JUMP = 1  # meters
-VX_TOL = 1e-2  # meters/second
-VY_TOL = 1e-2  # meters/second
-OMEGA_CONTACT_TOL = 0.5  # radians/second
+#: Tolerance for the constancy of the decisional time step used throughout the simulation (s).
+TIME_TOL = 1e-4
+#: Maximum allowed spatial jump (m) between consecutive time steps for the agent.
+MAX_SPATIAL_JUMP = 1
+#: Opposite of the minimum allowed velocity along x during core simulation (m/s).
+VX_TOL = 1e-2
+#: Maximum allowed velocity along y during core simulation (m/s).
+VY_TOL = 1e-2
+#: Tolerance for near-zero angular velocities of all agents during the whole simulation (rad/s).
+OMEGA_CONTACT_TOL = 0.5
+#: Maximum allowed range for orientation (theta) of all agents during the whole simulation (radians).
 DELTA_THETA_CONTACT_TOL = 0.5  # radians
 
 
@@ -140,7 +146,7 @@ def test_omega_near_zero_and_theta_near_constant(df: pd.DataFrame) -> None:
 
 def test_velocity_signs_during_core(df: pd.DataFrame) -> None:
     """
-    During the core of the simulation: vx > 0 and vy ~ 0 or negative.
+    During the core of the simulation: vx > 0 and vy ~ 0 or negative where "core" is defined as the central 80% of the simulation time.
 
     Parameters
     ----------

@@ -43,15 +43,22 @@ import pytest
 
 from configuration.backup import xml_to_Chaos
 
-TIME_TOL = 1e-4  # seconds
-MAX_SPATIAL_JUMP = 1  # meters
-Y_TOL = 1e-2  # meters
-VX_TOL = 1e-2  # meters/second
-VY_TOL = 1e-2  # meters/second
-OMEGA_TOL = 1e-2  # radians/second
-DELTA_X_TOL = 1e-2  # meters
-DELTA_Y_TOL = 1e-2  # meters
-DELTA_THETA_TOL = 1e-2  # radians
+#: Tolerance for the constancy of the decisional time step used throughout the simulation (s).
+TIME_TOL = 1e-4
+#: Maximum allowed spatial jump (m) between consecutive time steps for each agent.
+MAX_SPATIAL_JUMP = 1
+#: Tolerance for the constancy of y coordinate during the push on the x-axis and during the stationary phase (m).
+DELTA_Y_TOL = 1e-2
+#: Tolerance for near-zero velocities along x during stationary phase (m/s).
+VX_TOL = 1e-2
+#: Tolerance for near-zero velocities along y during stationary phase (m/s).
+VY_TOL = 1e-2
+#: Tolerance for near-zero angular velocities during stationary phase (rad/s).
+OMEGA_TOL = 1e-2
+#: Tolerance for constancy of x position during stationary phase (m).
+DELTA_X_TOL = 1e-2
+#: Tolerance for constancy of orientation during push and stationary phase (radians).
+DELTA_THETA_TOL = 1e-2
 
 
 @pytest.fixture(scope="session")
@@ -131,7 +138,7 @@ def test_push_on_x_axis_only(df: pd.DataFrame) -> None:
 
     for agent_id, g in df.groupby("ID"):
         y_range = g["y"].max() - g["y"].min()
-        if y_range > Y_TOL:
+        if y_range > DELTA_Y_TOL:
             violations_y.append((agent_id, float(y_range)))
 
         theta_range = g["theta"].max() - g["theta"].min()
