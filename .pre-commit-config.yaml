@@ -22,7 +22,7 @@ repos:
         args:
           - --skip=*.js,*.html,*.css,*.pdf,*.png,*.csv,*.pkl,*.json,*.xml
           - --ignore-words-list=teh,fo,bar,tesselator,Tesselator,tesselation,tesselate
-        files: '\.(py|md|c|cpp|h|hpp|rst|sh|ipynb)$'
+        files: '\.(py|md|c|cpp|h|hpp|rst|sh)$'
 
   # Ruff: Linter and Formatter
   - repo: https://github.com/astral-sh/ruff-pre-commit
