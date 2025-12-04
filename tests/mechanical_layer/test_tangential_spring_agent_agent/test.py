@@ -40,9 +40,12 @@ import pytest
 
 from configuration.backup import xml_to_Chaos
 
-TIME_TOL = 1e-4  # seconds
-MAX_SPATIAL_JUMP = 1  # meters
-OMEGA_CONTACT_TOL = 0.5  # radians/second
+#: Tolerance for the constancy of the decisional time step used throughout the simulation (s).
+TIME_TOL = 1e-4
+#: Maximum allowed spatial jump (m) between consecutive time steps for each agent.
+MAX_SPATIAL_JUMP = 1
+#: Tolerance for the positivity of the angular velocity (rad/s) during the whole simulation.
+OMEGA_CONTACT_TOL = 0.1
 
 
 @pytest.fixture(scope="session")

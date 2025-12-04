@@ -34,83 +34,140 @@ import numpy as np
 np.random.seed(0)
 
 # Conversion factors
+#: Conversion factor from pixels to centimeters used to map the cadaver torso image with superimposed disks to the modeled 2D shape.
 PIXEL_TO_CM_PEDESTRIAN: float = 30.0 / (2.0 * 405.97552)
+#: Conversion factor from pixels to centimeters used to map the bike image with superimposed rectangles to the modeled 2D shape.
 PIXEL_TO_CM_BIKE: float = 142.0 / 204.0
+#: Conversion factor from millimeters to centimeters.
 MM_TO_CM: float = 0.1
+#: Conversion factor from inches to centimeters.
 INCH_TO_CM: float = 2.54
+#: Conversion factor from pounds to kilograms.
 LB_TO_KG: float = 0.453592
+#: Conversion factor from centimeters to meters.
 CM_TO_M: float = 0.01
+#: Conversion factor from meters to centimeters.
 M_TO_CM: float = 100.0
 
 # Initial agents / measures
-DISK_QUAD_SEGS: int = 10  # Number of segments in a quarter circle
-POLYGON_TOLERANCE: float = 0.04  # Size of minimum distance between two points
-DISTANCE_BTW_TARGET_KEYS_ALTITUDES: float = 2.0  # Minimum distance between two target keys
-NB_FUNCTION_EVALS: int = 80  # Number of function evaluations
+#: Fixed number of segments per quarter circle for approximating disk boundaries as Shapely polygons.
+DISK_QUAD_SEGS: int = 10
+#: Size of the minimum distance between two points when simplifying polygons representing one contour of a 3D agent.
+POLYGON_TOLERANCE: float = 0.04
+#: Size of the altitude bins, chosen to reduce the number of contours used to represent a 3D agent
+DISTANCE_BTW_TARGET_KEYS_ALTITUDES: float = 2.0
+#: Maximum number of iterations for the dual annealing optimization algorithm used to fit the 2D shape of an agent.
+NB_FUNCTION_EVALS: int = 80
+#: Default number of disks used to approximate the 2D shape of a pedestrian.
 DISK_NUMBER: int = 5
 
-DEFAULT_FLOOR_DAMPING: float = 2.0  # Damping coefficient for the floor
-DEFAULT_ANGULAR_DAMPING: float = 2.0  # Damping coefficient for the angular velocity
-EPSILON_SMOOTHING_KNEES: float = 8.0  # Small value for smoothing
-EPSILON_SMOOTHING_NECK: float = 2.0  # Small value for smoothing
-NECK_HEIGHT_MALE: float = 160.0  # Height of the neck in cm
-NECK_HEIGHT_FEMALE: float = 150.0  # Height of the neck in cm
-KNEES_HEIGHT_MALE: float = 59.0  # Height of the knees in cm
-KNEES_HEIGHT_FEMALE: float = 50.0  # Height of the knees in cm
-
-HEIGHT_OF_BIDELTOID_OVER_HEIGHT: float = 151.6 / 187.0  # Ratio of the height of the bideltoid to the agent height (male = female)
+#: Default damping coefficient for the fluid friction force between floor and agents (1/s)
+DEFAULT_FLOOR_DAMPING: float = 2.0
+#: Default damping coefficient for the fluid friction torque between floor and agents (1/s)
+DEFAULT_ANGULAR_DAMPING: float = 2.0
+#: Width of the sigmoid used to fit the 3D shape to anthropometric data, with the transition at knee height (cm).
+EPSILON_SMOOTHING_KNEES: float = 8.0
+#: Width of the sigmoid used to fit the 3D shape to anthropometric data, with the transition at neck height (cm).
+EPSILON_SMOOTHING_NECK: float = 2.0
+#: Altitude of the neck for the default male 3D pedestrian (cm).
+NECK_HEIGHT_MALE: float = 160.0
+#: Altitude of the neck for the default female 3D pedestrian (cm).
+NECK_HEIGHT_FEMALE: float = 150.0
+#: Altitude of the knees for the default male 3D pedestrian (cm).
+KNEES_HEIGHT_MALE: float = 59.0
+#: Altitude of the knees for the default female 3D pedestrian (cm).
+KNEES_HEIGHT_FEMALE: float = 50.0
+#: Ratio of the altitude of the horizontal slice used to measure bideltoid breadth in the 186.6 cm reference cryogenic male specimen
+#: to its total height (identical for male and female).
+HEIGHT_OF_BIDELTOID_OVER_HEIGHT: float = 151.6 / 186.6
 
 # Material properties
-YOUNG_MODULUS_CONCRETE: float = 1.7e10  # N/m
-YOUNG_MODULUS_HUMAN_NAKED: float = 2.6e6  # N/m
-YOUNG_MODULUS_HUMAN_CLOTHES: float = 3.05e6  # N/m
+#: Default young modulus of the concrete material used for obstacles (N/m).
+YOUNG_MODULUS_CONCRETE: float = 1.7e10
+#: Default young modulus of the naked human body material (N/m).
+YOUNG_MODULUS_HUMAN_NAKED: float = 2.6e6
+#: Default young modulus of the clothed human body material (N/m).
+YOUNG_MODULUS_HUMAN_CLOTHES: float = 3.05e6
 
+#: Default shear modulus of the concrete material used for obstacles (N/m).
 SHEAR_MODULUS_CONCRETE: float = 7.10e9  # N/m
-SHEAR_MODULUS_HUMAN_NAKED: float = 7.5e5  # N/m, incompressibility hypothesis, nu = 0.5
-SHEAR_MODULUS_HUMAN_CLOTHES: float = 1.02e6  # N/m, incompressibility hypothesis, nu = 0.5
+#: Default shear modulus of the naked human body material (N/m) under the incompressibility hypothesis i.e. nu = 0.5.
+SHEAR_MODULUS_HUMAN_NAKED: float = 7.5e5
+#: Default shear modulus of the clothed human body material (N/m) under the incompressibility hypothesis i.e. nu = 0.5.
+SHEAR_MODULUS_HUMAN_CLOTHES: float = 1.02e6
 
-GAMMA_NORMAL: float = 1.3 * 10**4  # Damping coefficient for normal contact (N/(m/s))
-GAMMA_TANGENTIAL: float = 1.3 * 10**4  # Damping coefficient for tangential contact (N/(m/s))
-KINETIC_FRICTION: float = 0.5  # Coefficient of kinetic friction (dimensionless)
+#: Default normal-contact damping coefficient (N·s/m), used both for agent–agent and agent–obstacle interactions.
+GAMMA_NORMAL: float = 1.3 * 10**4
+#: Default tangential-contact damping coefficient (N·s/m), used both for agent–agent and agent–obstacle interactions.
+GAMMA_TANGENTIAL: float = 1.3 * 10**4
+#: Default coefficient of kinetic friction (dimensionless), used both for agent–agent and agent–obstacle interactions.
+KINETIC_FRICTION: float = 0.5
 
 # Crowd class
-DEFAULT_AGENT_NUMBER: int = 4  # Default number of agents
-MAX_NB_ITERATIONS: int = 130  # Maximum number of iterations for the parking algorithm
-DEFAULT_REPULSION_LENGTH: float = 5.0  # cm
-DEFAULT_DESIRED_DIRECTION: float = 0.0  # degrees
+#: Default number of agents in the crowd.
+DEFAULT_AGENT_NUMBER: int = 4
+#: Maximum number of attempts to place an agent in the crowd without overlap for the packing algorithm.
+MAX_NB_ITERATIONS: int = 130
+#: Default repulsion length (cm) used in the packing algorithm to avoid initial overlaps between agents.
+DEFAULT_REPULSION_LENGTH: float = 5.0
+#: Default desired direction (degrees) for all agents in the crowd.
+DEFAULT_DESIRED_DIRECTION: float = 0.0
+#: Boolean variable selecting between pseudo‑random orientation and perfect alignment for all agents in the crowd.
 DEFAULT_VARIABLE_ORIENTATION: bool = False
-INFINITE: float = 1.0e10  # Infinite value for the simulation
-INTENSITY_ROTATIONAL_FORCE: float = 10.0  # degrees
-INTENSITY_TRANSLATIONAL_FORCE: float = 5.0  # arbitrary units
-GRID_SIZE_X: float = 31.0  # cm
-GRID_SIZE_Y: float = 60.0  # cm
-GRID_SIZE_X_BIKE: float = 200.0  # cm
-GRID_SIZE_Y_BIKE: float = 200.0  # cm
-INITIAL_TEMPERATURE: float = 1.0  # Initial temperature for the packing algorithm
-ADDITIVE_COOLING: float = 0.1  # Cooling rate for the simulated annealing algorithm T<- max(T, T - COOLING_RATE)
+#: Large value used to represent infinity.
+INFINITE: float = 1.0e10
+#: Intensity of the random forces (degrees) applied to agents during the packing algorithm to help them escape local overlaps.
+INTENSITY_ROTATIONAL_FORCE: float = 10.0
+#: Intensity of the random forces (cm) applied to agents during the packing algorithm to help them escape local overlaps.
+INTENSITY_TRANSLATIONAL_FORCE: float = 5.0
+#: Default grid size in the X direction (cm) for the packing of the pedestrians on a grid.
+GRID_SIZE_X: float = 31.0
+#: Default grid size in the Y direction (cm) for the packing of the pedestrians on a grid.
+GRID_SIZE_Y: float = 60.0
+#: Default grid size in the X direction (cm) for the packing of the bikes on a grid.
+GRID_SIZE_X_BIKE: float = 200.0
+#: Default grid size in the Y direction (cm) for the packing of the bikes on a grid.
+GRID_SIZE_Y_BIKE: float = 200.0
+#: Initial temperature used to stabilize crowd packing by gradually reducing the magnitude of rotations.
+INITIAL_TEMPERATURE: float = 1.0
+#: Cooling rate for the packing algorithm T<- max(T, T - COOLING_RATE)
+ADDITIVE_COOLING: float = 0.1
 
 # Crowd Statistics
-DEFAULT_PEDESTRIAN_HEIGHT: float = 170.0  # cm
-DEFAULT_BIKE_WEIGHT: float = 30.0  # kg
-DEFAULT_PEDESTRIAN_WEIGHT: float = 70.0  # kg
+#: Default weight of a bike (kg) used for the initialization of a bike.
+DEFAULT_BIKE_WEIGHT: float = 30.0
+#: Default weight of a pedestrian (kg) used for the initialization of a pedestrian.
+DEFAULT_PEDESTRIAN_WEIGHT: float = 70.0
 
 # Decisional force and torque
-DECISIONAL_TRANSLATIONAL_FORCE_X: float = 10.0**2  # N
-DECISIONAL_TRANSLATIONAL_FORCE_Y: float = 10.0**2  # N
-DECISIONAL_TORQUE: float = 0.0  # N.m
+#: Default propulsion force in the X direction (N) used to populate the AgentDynamics file.
+DECISIONAL_TRANSLATIONAL_FORCE_X: float = 10.0**2
+#: Default propulsion force in the Y direction (N) used to populate the AgentDynamics file.
+DECISIONAL_TRANSLATIONAL_FORCE_Y: float = 10.0**2
+#: Default propulsion torque (N.m) used to populate the AgentDynamics file.
+DECISIONAL_TORQUE: float = 0.0
 
 # Initial velocity
-INITIAL_TRANSLATIONAL_VELOCITY_X: float = 0.0  # m/s
-INITIAL_TRANSLATIONAL_VELOCITY_Y: float = 0.0  # m/s
-INITIAL_ROTATIONAL_VELOCITY: float = 0.0  # rad/s
+#: Default initial translational velocity in the X direction (m/s) used to populate the AgentDynamics file.
+INITIAL_TRANSLATIONAL_VELOCITY_X: float = 0.0
+#: Default initial translational velocity in the Y direction (m/s) used to populate the AgentDynamics file.
+INITIAL_TRANSLATIONAL_VELOCITY_Y: float = 0.0
+#: Default initial rotational velocity (rad/s) used to populate the AgentDynamics file.
+INITIAL_ROTATIONAL_VELOCITY: float = 0.0
 
 # Agent Interactions
-INITIAL_TANGENTIAL_FORCE_X: float = 0.0  # N
-INITIAL_TANGENTIAL_FORCE_Y: float = 0.0  # N
-INITIAL_NORMAL_FORCE_X: float = 0.0  # N
-INITIAL_NORMAL_FORCE_Y: float = 0.0  # N
-INITIAL_TANGENTIAL_RELATIVE_DISPLACEMENT_X: float = 0.0  # m
-INITIAL_TANGENTIAL_RELATIVE_DISPLACEMENT_Y: float = 0.0  # m
+#: Default initial tangential force in the X direction (N) used to populate the AgentInteractions file.
+INITIAL_TANGENTIAL_FORCE_X: float = 0.0
+#: Default initial tangential force in the Y direction (N) used to populate the AgentInteractions file.
+INITIAL_TANGENTIAL_FORCE_Y: float = 0.0
+#: Default initial normal force in the X direction (N) used to populate the AgentInteractions file.
+INITIAL_NORMAL_FORCE_X: float = 0.0
+#: Default initial normal force in the Y direction (N) used to populate the AgentInteractions file.
+INITIAL_NORMAL_FORCE_Y: float = 0.0
+#: Default initial tangential relative displacement in the X direction (m) used to populate the AgentInteractions file.
+INITIAL_TANGENTIAL_RELATIVE_DISPLACEMENT_X: float = 0.0
+#: Default initial tangential relative displacement in the Y direction (m) used to populate the AgentInteractions file.
+INITIAL_TANGENTIAL_RELATIVE_DISPLACEMENT_Y: float = 0.0
 
 
 class BackupDataTypes(Enum):
@@ -178,6 +235,7 @@ class StatType(Enum):
     max = auto()
 
 
+#: Immutable dictionary containing default statistical data for crowd generation.
 CrowdStat = MappingProxyType(
     {
         "male_proportion": 0.5,

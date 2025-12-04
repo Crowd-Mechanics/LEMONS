@@ -28,43 +28,60 @@
 from configuration.utils.typing_custom import Sex
 
 # User Interface
+#: Name fo the first tab within the Streamlit application
 FIRST_TAB_NAME: str = "One agent"
+#: Name fo the second tab within the Streamlit application
 SECOND_TAB_NAME: str = "Crowd"
+#: Name fo the third tab within the Streamlit application
 THIRD_TAB_NAME: str = "Anthropometry"
+#: Name fo the fourth tab within the Streamlit application
 FOURTH_TAB_NAME: str = "About"
 
+#: Project name
 PROJECT_NAME: str = "LEMONS"
 
 # 2D / 3D shapes tab
-DEFAULT_PEDESTRIAN_HEIGHT: float = 170.0  # cm
-DEFAULT_HEIGHT_MIN: float = 100.0  # in cm
-DEFAULT_HEIGHT_MAX: float = 230.0  # in cm
+#: Minimum pedestrian height (cm)
+DEFAULT_HEIGHT_MIN: float = 100.0
+#: Maximum pedestrian height (cm)
+DEFAULT_HEIGHT_MAX: float = 230.0
 
+#: Maximum translation along X axis allowed (cm)
 MAX_TRANSLATION_X: float = 200.0  # cm
+#: Maximum translation along Y axis allowed (cm)
 MAX_TRANSLATION_Y: float = 200.0  # cm
 
+#: Default sex of the pedestrian
 DEFAULT_SEX: Sex = "male"
 
 # Crowd tab
-DEFAULT_BOUNDARY_X: float = 200.0  # cm
-DEFAULT_BOUNDARY_X_MIN: float = 50.0  # cm
-DEFAULT_BOUNDARY_X_MAX: float = 2000.0  # cm
-DEFAULT_BOUNDARY_Y: float = 200.0  # cm
-DEFAULT_BOUNDARY_Y_MIN: float = 50.0  # cm
-DEFAULT_BOUNDARY_Y_MAX: float = 2000.0  # cm
-
+#: Default boundary length along X axis (cm)
+DEFAULT_BOUNDARY_X: float = 200.0
+#: Minimum boundary length along X axis (cm)
+DEFAULT_BOUNDARY_X_MIN: float = 50.0
+#: Maximum boundary length along X axis (cm)
+DEFAULT_BOUNDARY_X_MAX: float = 2000.0
+#: Default boundary length along Y axis (cm)
+DEFAULT_BOUNDARY_Y: float = 200.0
+#: Minimum boundary length along Y axis (cm)
+DEFAULT_BOUNDARY_Y_MIN: float = 50.0
+#: Maximum boundary length along Y axis (cm)
+DEFAULT_BOUNDARY_Y_MAX: float = 2000.0
+#:  Default number of agents in the crowd
 DEFAULT_AGENT_NUMBER: int = 4
+#: Minimum number of agents in the crowd
 DEFAULT_AGENT_NUMBER_MIN: int = 1
+#: Maximum number of agents in the crowd
 DEFAULT_AGENT_NUMBER_MAX: int = 300
 
-MAX_MOVE_X: float = 50.0  # cm
-MAX_MOVE_Y: float = 50.0  # cm
-MAX_ROTATION_ANGLE: float = 30.0  # degrees
-
+#: Minimum repulsion strength between agents during crowd generation
 DEFAULT_REPULSION_LENGTH_MIN: float = 1.0
+#: Maximum repulsion strength between agents during crowd generation
 DEFAULT_REPULSION_LENGTH_MAX: float = 70.0
 
-DEFAULT_WALL_INTERACTION: float = False
+#: Presence or not of wall interactions during the simulation
+DEFAULT_WALL_INTERACTION: bool = False
 
 # Developer
+#: Show or not developer options in the application to help debugging
 SHOW_DEV: bool = False

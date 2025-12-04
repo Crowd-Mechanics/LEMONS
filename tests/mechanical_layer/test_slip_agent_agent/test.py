@@ -42,15 +42,24 @@ import pytest
 
 from configuration.backup import xml_to_Chaos
 
-TIME_TOL = 1e-4  # seconds
-MAX_SPATIAL_JUMP = 1  # meters
-VX_TOL = 1e-2  # meters/second
-VX_CONTACT_TOL = 0.5  # meters/second
-VY_CONTACT_TOL = 0.5  # meters/second
-OMEGA_CONTACT_TOL = 0.5  # radians/second
-DELTA_THETA_CONTACT_TOL = 0.5  # Maximum allowed range for theta
-DELTA_X_CONTACT_TOL = 0.5  # Maximum allowed range for x
-DELTA_Y_CONTACT_TOL = 0.5  # Maximum allowed range for y
+#: Tolerance for the constancy of the decisional time step used throughout the simulation (s).
+TIME_TOL = 1e-4
+#: Maximum allowed spatial jump (m) between consecutive time steps for each agent.
+MAX_SPATIAL_JUMP = 1
+#: Minimum velocity allowed for agent 2 along x during slip phase (m/s).
+VX_TOL = 1e-2
+#: Tolerance for near-zero velocities of agent 0 and 1 along x during the whole simulation (m/s).
+VX_CONTACT_TOL = 0.5
+#: Tolerance for near-zero velocities of agent 0 and 1 along y during the whole simulation (m/s).
+VY_CONTACT_TOL = 0.5
+#: Tolerance for near-zero angular velocities of all agents during the whole simulation (rad/s).
+OMEGA_CONTACT_TOL = 0.5
+#: Maximum allowed range for orientation (theta) of all agents during the whole simulation (radians).
+DELTA_THETA_CONTACT_TOL = 0.5
+#: Maximum allowed range for x of agents 0 and 1 during the whole simulation (m).
+DELTA_X_CONTACT_TOL = 0.5
+#: Maximum allowed range for y of agents 0 and 1 during the whole simulation (m).
+DELTA_Y_CONTACT_TOL = 0.5
 
 
 @pytest.fixture(scope="session")
@@ -191,5 +200,5 @@ def test_agent_2_positive_vx_during_slip(df: pd.DataFrame) -> None:
     # slip phase is for x smaller than 2.8 meters
     slip_phase = g[g["x"] < 2.8]
 
-    moving = slip_phase[slip_phase["vx"].abs() > -VX_TOL]
+    moving = slip_phase[slip_phase["vx"].abs() > VX_TOL]
     assert not moving.empty, "Agent 2 never moves significantly"

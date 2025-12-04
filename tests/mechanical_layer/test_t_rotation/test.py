@@ -43,14 +43,22 @@ import pytest
 
 from configuration.backup import xml_to_Chaos
 
-TIME_TOL = 1e-4  # seconds
-MAX_SPATIAL_JUMP = 1  # meters
-VX_TOL = 1e-2  # meters/second
-VY_TOL = 1e-2  # meters/second
-OMEGA_TOL = 1e-2  # radians/second
-DELTA_THETA_TOL = 1e-2  # radians
-DELTA_Y_TOL = 1e-2  # meters
+#: Tolerance for the constancy of the decisional time step used throughout the simulation (s).
+TIME_TOL = 1e-4
+#: Maximum allowed spatial jump (m) between consecutive time steps for the agent.
+MAX_SPATIAL_JUMP = 1
+#: Tolerance for near-zero velocities along x during the whole simulation (m/s).
+VX_TOL = 1e-2
+# : Tolerance for near-zero velocities along y during the whole simulation (m/s).
+VY_TOL = 1e-2
+#: Tolerance for the positivity of angular velocity during the whole simulation (rad/s).
+OMEGA_TOL = 1e-2
+#: Tolerance for constancy of orientation during the stationary phase (radians).
+DELTA_THETA_TOL = 1e-2
+#: Tolerance for constancy of x position during the stationary phase (m).
 DELTA_X_TOL = 1e-2  # meters
+#: Tolerance for constancy of y position during the stationary phase (m).
+DELTA_Y_TOL = 1e-2  # meters
 
 
 @pytest.fixture(scope="session")

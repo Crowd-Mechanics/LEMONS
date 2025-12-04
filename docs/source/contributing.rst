@@ -5,7 +5,7 @@ Thanks for your interest in contributing! This guide covers:
 
 - The :ref:`general-procedure` for contributing to the project
 - How to set up and test the :ref:`Python wrapper <python-wrapper>` and the :ref:`mechanical layer <cpp-mechanical-layer>`
-- What happens in :ref:`the continous integration <continuous-integration>` when you open a pull request
+- What happens in :ref:`the continuous integration <continuous-integration>` when you open a pull request
 - How :ref:`to report an issue <reporting-issues>`
 
 .. _general-procedure:
@@ -97,7 +97,7 @@ To work on the C++ part, you need a working C++ toolchain. On macOS this include
       cd tests/mechanical_layer
       ./run_mechanical_tests.sh
 
-4. Additionally, you may want to visualize the outputs of the mechanical Layer tests::
+4. Additionally, you may want to visualize the outputs of the mechanical layer tests::
 
       ./make_tests_videos.sh
 
@@ -123,7 +123,7 @@ The pre-commit.ci service runs most of the hooks defined in ``.pre-commit-config
 - Shell formatting (`shfmt <https://github.com/maxwinterstein/shfmt-py>`__)
 - C/C++ formatting and style checks (`clang-format <https://github.com/pocc/pre-commit-hooks>`__, `cpplint <https://github.com/cpplint/cpplint>`__)
 
-Some more complex hooks are skipped here and are handled instead by GitHub Actions (see below).
+Some more complex hooks that require the C++ library built or the Python environment are skipped here and are handled instead by GitHub Actions (see below).
 
 GitHub Actions workflow
 ~~~~~~~~~~~~~~~~~~~~~~~~

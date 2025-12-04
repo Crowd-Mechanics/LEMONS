@@ -116,7 +116,7 @@ The pre-commit.ci service runs most of the hooks defined in `.pre-commit-config.
 - Shell formatting ([`shfmt`](https://github.com/maxwinterstein/shfmt-py))
 - C/C++ formatting and style checks ([`clang-format`](https://github.com/pocc/pre-commit-hooks), [`cpplint`](https://github.com/cpplint/cpplint))
 
-Some more complex hooks are skipped here and are handled instead by GitHub Actions (see below).
+Some more complex hooks that require the C++ library built or the Python environment are skipped here and are handled instead by GitHub Actions (see below).
 
 ### GitHub Actions workflow
 
