@@ -133,6 +133,7 @@ def sliders_for_agent_position() -> tuple[float, float, float]:
     -------
     tuple[float, float, float]
         A tuple containing:
+
         - `x_translation`: The translation along the X-axis (cm).
         - `y_translation`: The translation along the Y-axis (cm).
         - `rotation_angle`: The rotation angle around the Z-axis in degrees.

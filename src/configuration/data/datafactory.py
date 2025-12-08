@@ -53,6 +53,7 @@ def read_anthropometric_data(sex: Sex, data_dir_path: Path) -> pd.DataFrame:
     -------
     pd.DataFrame
         Processed DataFrame containing:
+
         - Original data with standardized units (converted to cm/kg)
         - Renamed columns with units in brackets
         - Added "sex" column indicating the subject"s gender
@@ -138,6 +139,7 @@ def prepare_data() -> None:
 
     This function checks for the existence of preprocessed data files and, if not found,
     initiates the data preparation process. It performs the following steps:
+
     1. Prepares anthropometric data by calling `prepare_anthropometric_data()`.
     2. Prepares bike data by calling `prepare_bike_data()`.
     3. Prepares 3D body data by calling `prepare_3D_body_data()`.
@@ -162,6 +164,7 @@ def prepare_3D_body_data(data_dir_path: Path) -> None:
     Process 3D body data by keeping one MultiPolygon per bin of height of a given size and reducing the precision of each MultiPolygon.
 
     For each sex (male/female):
+
     1. Loads original 3D body shape data from <sex>_3dBody.pkl
     2. Creates target bins at 3cm intervals (controlled by DISTANCE_BTW_TARGET_KEYS_ALTITUDES)
     3. Selects the nearest available height to each bin's boundary values
