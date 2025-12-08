@@ -643,3 +643,59 @@ def filter_dict_by_not_None_values(input_dict: dict[str, Any]) -> dict[str, Any]
         A new dictionary containing only the key-value pairs where the value is not None.
     """
     return {k: v for k, v in input_dict.items() if v is not None and v != []}
+
+
+def k_from_EG(E1: float, G1: float, E2: float, G2: float) -> tuple[float, float]:
+    r"""
+    Compute ``k_perp`` and ``k_par`` from ``E1``, ``G1``, ``E2``, ``G2``.
+
+    The spring constants are given by:
+
+    .. math::
+
+       k^{\perp} = \left(\frac{4G_1 - E_1}{4G_1^2} + \frac{4G_2 - E_2}{4G_2^2}\right)^{-1}, \\
+       k^{\parallel} = \left(\frac{6G_1 - E_1}{8G_1^2} + \frac{6G_2 - E_2}{8G_2^2}\right)^{-1}.
+
+    Parameters
+    ----------
+    E1 : float
+        Young's modulus of material 1 (Pa).
+    G1 : float
+        Shear modulus of material 1 (Pa).
+    E2 : float
+        Young's modulus of material 2 (Pa).
+    G2 : float
+        Shear modulus of material 2 (Pa).
+
+    Returns
+    -------
+    k_perp : float
+        Spring constant for the direction orthogonal to the surface contact (N/m).
+    k_par : float
+        Spring constant for the direction parallel to the surface contact (N/m).
+    """
+    inv_k_perp = (4 * G1 - E1) / (4 * G1**2) + (4 * G2 - E2) / (4 * G2**2)
+    inv_k_par = (6 * G1 - E1) / (8 * G1**2) + (6 * G2 - E2) / (8 * G2**2)
+
+    k_perp = 1.0 / inv_k_perp
+    k_par = 1.0 / inv_k_par
+    return k_perp, k_par
+
+
+def G_from_E_nu(E: float, nu: float) -> float:
+    """
+    Compute shear modulus G from Young's modulus E and Poisson's ratio nu.
+
+    Parameters
+    ----------
+    E : float
+        Young's modulus (Pa).
+    nu : float
+        Poisson's ratio (dimensionless).
+
+    Returns
+    -------
+    float
+        Shear modulus G (Pa).
+    """
+    return E / (2 * (1 + nu))

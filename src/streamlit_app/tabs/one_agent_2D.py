@@ -122,9 +122,11 @@ def sliders_for_agent_measures(agent_measures: AgentMeasures) -> None:
     Notes
     -----
     - For pedestrians:
+
         - Sliders are created for `bideltoid_breadth` and `chest_depth`.
         - Other measures (e.g., height, weight, and sex) are set to default values.
     - For bikes:
+
         - Sliders are created for `wheel_width`, `total_length`, `handlebar_length`, and `top_tube_length`.
         - Other measures (e.g., weight) are set to default values.
     """
@@ -205,6 +207,7 @@ def sliders_for_position() -> tuple[float, float, float]:
     -------
     tuple[float, float, float]
         A tuple containing:
+
         - `x_translation` (float): The translation along the X-axis (cm).
         - `y_translation` (float): The translation along the Y-axis (cm).
         - `rotation_angle` (float): The rotation angle in degrees.

@@ -48,6 +48,7 @@ class Shapes2D:
     Class to store body shapes based on agent type.
 
     This class allows you to manage shapes in two ways:
+
     1. Provide a dictionary of pre-defined Shapely shapes as input
     2. Specify the type of shape and its characteristics to create it
     """
@@ -99,12 +100,14 @@ class Shapes2D:
             Additional keyword arguments specific to the shape type:
 
             - **Disk**:
+
                 - `x` (float): The x-coordinate of the disk's center.
                 - `y` (float): The y-coordinate of the disk's center.
                 - `radius` (float): The radius of the disk.
                 - `material` (str): The material of the disk.
 
             - **Rectangle**:
+
                 - `min_x` (float): The minimum x-coordinate of the rectangle.
                 - `min_y` (float): The minimum y-coordinate of the rectangle.
                 - `max_x` (float): The maximum x-coordinate of the rectangle.
@@ -112,6 +115,7 @@ class Shapes2D:
                 - `material` (str): The material of the rectangle.
 
             - **Polygon**:
+
                 - `points` (list of tuple[float, float]): A list of `(x, y)` coordinates representing
                     the vertices of the polygon. Must contain at least 3 points, and the first and last
                     points must match to close the polygon.
@@ -183,6 +187,7 @@ class Shapes2D:
             the type of shape:
 
             - **Disk**:
+
                 - `type` (str): The type of the shape (always `'disk'`).
                 - `radius` (float): The radius of the disk.
                 - `material` (str): The material of the disk's interior.
@@ -190,6 +195,7 @@ class Shapes2D:
                 - `y` (float): The y-coordinate of the disk's center.
 
             - **Rectangle**:
+
                 - `type` (str): The type of the shape (always `'rectangle'`).
                 - `material` (str): The material of the rectangle's interior.
                 - `min_x` (float): The x-coordinate of the rectangle's minimum bound.
@@ -198,6 +204,7 @@ class Shapes2D:
                 - `max_y` (float): The y-coordinate of the rectangle's maximum bound.
 
             - **Polygon**:
+
                 - `type` (str): The type of the shape (always `'polygon'`).
                 - `material` (str): The material of the polygon's interior.
                 - `points` (list of tuple[float, float]): A list of `(x, y)` coordinates representing
@@ -296,6 +303,7 @@ class Shapes2D:
             ----------
             scaling_factor : NDArray[np.float64]
                 A 1D numpy array of length 2 containing scaling factors:
+
                 - scaling_factor[0]: x-axis scaling factor
                 - scaling_factor[1]: y-axis scaling factor
 
