@@ -1,0 +1,17 @@
+<Agents>
+    <Agent Id="0">
+        <Kinematics Position="0.000,0.000" Velocity="0.00,0.00" Theta="0.0" Omega="0.0"/>
+    <Dynamics Fp="0.00,0.0" Mp="0.0"/></Agent>
+    <Agent Id="1">
+        <Kinematics Position="0.358,0.034" Velocity="0.00,0.00" Theta="0.0" Omega="0.0"/>
+    <Dynamics Fp="0.00,0.0" Mp="0.0"/></Agent>
+    <Agent Id="2">
+        <Kinematics Position="0.676,-0.011" Velocity="0.00,0.00" Theta="0.0" Omega="0.0"/>
+    <Dynamics Fp="0.00,0.0" Mp="0.0"/></Agent>
+    <Agent Id="3">
+        <Kinematics Position="1.007,-0.032" Velocity="0.00,0.00" Theta="0.0" Omega="0.0"/>
+    <Dynamics Fp="0.00,0.0" Mp="0.0"/></Agent>
+    <Agent Id="4">
+        <Kinematics Position="1.437,-0.049" Velocity="0.00,0.00" Theta="0.0" Omega="0.0"/>
+    <Dynamics Fp="0.00,0.0" Mp="0.0"/></Agent>
+</Agents>
