@@ -44,12 +44,26 @@ precommit_output.txt
 
 build/
 
-/tutorials/mechanical_layer/outputXML/
-/tutorials/mechanical_layer/inputXML/
-/tutorials/mechanical_layer/outputCSV/
-/tutorials/mechanical_layer/inputCSV/
-/tutorials/mechanical_layer/plots/
-/tutorials/mechanical_layer/dynamic/AgentInteractions.xml
+/tutorials/mechanical_layer/evacuation/outputXML/
+/tutorials/mechanical_layer/evacuation/inputXML/
+/tutorials/mechanical_layer/evacuation/outputCSV/
+/tutorials/mechanical_layer/evacuation/inputCSV/
+/tutorials/mechanical_layer/evacuation/plots/
+/tutorials/mechanical_layer/evacuation/dynamic/AgentInteractions.xml
+
+/tutorials/mechanical_layer/push_Feldmann/Tue_15_m_noW_row2_15_w_s_b_p_n_d/outputXML/
+/tutorials/mechanical_layer/push_Feldmann/Tue_15_m_noW_row2_15_w_s_b_p_n_d/inputXML/
+/tutorials/mechanical_layer/push_Feldmann/Tue_15_m_noW_row2_15_w_s_b_p_n_d/outputCSV/
+/tutorials/mechanical_layer/push_Feldmann/Tue_15_m_noW_row2_15_w_s_b_p_n_d/inputCSV/
+/tutorials/mechanical_layer/push_Feldmann/Tue_15_m_noW_row2_15_w_s_b_p_n_d/plots/
+/tutorials/mechanical_layer/push_Feldmann/Tue_15_m_noW_row2_15_w_s_b_p_n_d/dynamic/AgentInteractions.xml
+
+/tutorials/mechanical_layer/push_Feldmann/Wed_03_m_wiW_row4_14_w_s_b_p_n_u/outputXML/
+/tutorials/mechanical_layer/push_Feldmann/Wed_03_m_wiW_row4_14_w_s_b_p_n_u/inputXML/
+/tutorials/mechanical_layer/push_Feldmann/Wed_03_m_wiW_row4_14_w_s_b_p_n_u/outputCSV/
+/tutorials/mechanical_layer/push_Feldmann/Wed_03_m_wiW_row4_14_w_s_b_p_n_u/inputCSV/
+/tutorials/mechanical_layer/push_Feldmann/Wed_03_m_wiW_row4_14_w_s_b_p_n_u/plots/
+/tutorials/mechanical_layer/push_Feldmann/Wed_03_m_wiW_row4_14_w_s_b_p_n_u/dynamic/AgentInteractions.xml
 
 /tests/mechanical_layer/test_push_agent_agent/inputCSV/
 /tests/mechanical_layer/test_push_agent_agent/inputXML/
