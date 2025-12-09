@@ -252,7 +252,7 @@ def plot_and_download_crowd2D(current_crowd: Crowd) -> None:
         st.subheader("Visualisation")
 
         if st.session_state.plot_twoD_run:
-            st.session_state.twoD_scene = plot.display_crowd2D(current_crowd)
+            st.session_state.twoD_scene = plot.display_crowd2D(current_crowd)[0]
             st.session_state.plot_twoD_run = False
 
         st.pyplot(st.session_state.twoD_scene)
@@ -823,7 +823,7 @@ def plot_and_download_crowd_from_config(current_crowd: Crowd) -> None:
     # --- Plotting ---
     col1, _ = st.columns([1.5, 1])
     with col1:
-        fig = plot.display_crowd2D(current_crowd)
+        fig = plot.display_crowd2D(current_crowd)[0]
         st.pyplot(fig)
 
         # --- Download section ---

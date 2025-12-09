@@ -92,7 +92,7 @@ for t in range(Ndt):
     )
 
     # Plot and save the crowd as a PNG file
-    plot.display_crowd2D(crowd)
+    plot.display_crowd2D(crowd)[0]
     plt.savefig(plotsPath / rf"crowd2D_t={t:d}.png", dpi=300, format="png")
     plt.close()
 
