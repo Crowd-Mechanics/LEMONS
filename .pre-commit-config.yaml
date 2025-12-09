@@ -57,7 +57,7 @@ repos:
     rev: 1.9.1
     hooks:
       - id: nbqa-ruff
-        args: ["--extend-ignore=D100"]
+        args: ["--extend-ignore=D100,E402"]
         additional_dependencies: [ruff, jupytext]
 
       - id: nbqa-pyupgrade

@@ -29,6 +29,7 @@ import logging
 from typing import Optional
 
 import cmcrameri as cram
+import matplotlib.axes as maxes
 import matplotlib.colors as mcolors
 import matplotlib.figure as mfig
 import matplotlib.pyplot as plt
@@ -36,7 +37,8 @@ import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 import pyvista as pv
-from matplotlib.colors import Normalize
+from matplotlib.colors import Normalize, to_rgba
+from matplotlib.typing import ColorType
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from numpy.typing import NDArray
 from shapely.geometry import MultiPolygon, Polygon
@@ -518,7 +520,7 @@ def display_body3D_mesh(
     return fig
 
 
-def display_crowd2D(crowd: Crowd) -> mfig.Figure:
+def display_crowd2D(crowd: Crowd) -> tuple[mfig.Figure, maxes.Axes]:
     """
     Generate a matplotlib figure object of a crowd of agents in 2D.
 
@@ -529,8 +531,8 @@ def display_crowd2D(crowd: Crowd) -> mfig.Figure:
 
     Returns
     -------
-    matplotlib.figure.Figure
-        A matplotlib figure object displaying the 2D plot of the crowd.
+    tuple[matplotlib.figure.Figure, matplotlib.axes.Axes]
+        A tuple containing a matplotlib figure object and axes displaying the 2D plot of the crowd.
 
     Raises
     ------
@@ -551,7 +553,7 @@ def display_crowd2D(crowd: Crowd) -> mfig.Figure:
         txt_size = max(int(80 / crowd.get_number_agents()), 10)
 
     # Initialize a Matplotlib figure
-    fig, ax = plt.subplots(figsize=(8, 8))
+    fig, ax = plt.subplots(figsize=(9, 9))
     # Plot each agent's shape
     for id_agent, agent in enumerate(crowd.agents):
         agent_geometric = agent.shapes2D.get_geometric_shape()
@@ -618,7 +620,7 @@ def display_crowd2D(crowd: Crowd) -> mfig.Figure:
     ax.set_aspect("equal", "box")
     fig.tight_layout()
 
-    return fig
+    return fig, ax
 
 
 def display_crowd3D_slices_by_slices(crowd: Crowd) -> go.Figure:
@@ -1003,3 +1005,23 @@ def display_distribution(df: pd.DataFrame, column: str) -> go.Figure:
     )
 
     return fig
+
+
+def darken(color: ColorType, factor: float = 0.8) -> tuple[float, float, float, float]:
+    """
+    Return a darker shade of `color` without changing its hue.
+
+    Parameters
+    ----------
+    color : ColorType
+        Any Matplotlib-acceptable color specification.
+    factor : float, optional
+        Multiplier for RGB channels; < 1 darkens, > 1 lightens.
+
+    Returns
+    -------
+    RGBA
+        Darkened color as (r, g, b, a) with components in [0.0, 1.0].
+    """
+    r, g, b, a = to_rgba(color)
+    return (r * factor, g * factor, b * factor, a)
