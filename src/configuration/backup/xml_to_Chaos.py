@@ -25,6 +25,7 @@
 # The fact that you are presently reading this means that you have had knowledge of the CeCILL-B license and that
 # you accept its terms.
 
+import os
 import re
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -213,6 +214,8 @@ def export_CSV_to_CHAOS(PathCSV: Path, dt: float) -> None:
     PathCSV.mkdir(parents=True, exist_ok=True)
     PathCHAOS = PathCSV / "ForCHAOS"
     PathCHAOS.mkdir(parents=True, exist_ok=True)
+    for file in PathCHAOS.glob("traj*.csv"):
+        os.remove(file)  # clean old files
 
     path_to_CSV_main_file = PathCSV / trajectories_csv_filename
     lignes = pd.read_csv(path_to_CSV_main_file, sep=",", header=0, index_col=False)

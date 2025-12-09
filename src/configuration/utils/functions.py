@@ -682,6 +682,36 @@ def k_from_EG(E1: float, G1: float, E2: float, G2: float) -> tuple[float, float]
     return k_perp, k_par
 
 
+def EG_from_k(k_perp: float, k_par: float) -> tuple[float, float]:
+    r"""
+    Compute ``E`` and ``G`` from ``k_perp`` and ``k_par``, assuming both materials in contact are identical.
+
+    The moduli are given by:
+
+    .. math::
+
+         G = \frac{k^{\parallel} k^{\perp}}{2 k^{\perp} - k^{\parallel}}, \\
+         E = \frac{2 k^{\parallel} k^{\perp} (4 k^{\perp} - 3 k^{\parallel})}{(k^{\parallel} - 2 k^{\perp})^2}.
+
+    Parameters
+    ----------
+    k_perp : float
+        Spring constant for the direction orthogonal to the surface contact (N/m).
+    k_par : float
+        Spring constant for the direction parallel to the surface contact (N/m).
+
+    Returns
+    -------
+    E : float
+        Young's modulus (Pa).
+    G : float
+        Shear modulus (Pa).
+    """
+    G = k_par * k_perp / (2 * k_perp - k_par)
+    E = 2 * k_par * k_perp * (4 * k_perp - 3 * k_par) / (k_par - 2 * k_perp) ** 2
+    return E, G
+
+
 def G_from_E_nu(E: float, nu: float) -> float:
     """
     Compute shear modulus G from Young's modulus E and Poisson's ratio nu.

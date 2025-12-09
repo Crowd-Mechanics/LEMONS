@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Agents>
-    <Agent Type="pedestrian" Id="0" Mass="89.0" Height="1.794" MomentOfInertia="1.85" FloorDamping="2.00" AngularDamping="2.00">
+    <Agent Type="pedestrian" Id="0" Mass="89.0" Height="1.794" MomentOfInertia="1.85" FloorDamping="4.50" AngularDamping="4.50">
         <Shape Type="disk" Radius="0.09495" MaterialId="human_naked" Position="-0.015458,0.153544"/>
         <Shape Type="disk" Radius="0.13058" MaterialId="human_naked" Position="0.008692,0.067374"/>
         <Shape Type="disk" Radius="0.1365" MaterialId="human_naked" Position="0.013532,4e-06"/>
         <Shape Type="disk" Radius="0.13058" MaterialId="human_naked" Position="0.008692,-0.067376"/>
         <Shape Type="disk" Radius="0.09495" MaterialId="human_naked" Position="-0.015458,-0.153546"/>
     </Agent>
-    <Agent Type="pedestrian" Id="1" Mass="63.0" Height="1.740" MomentOfInertia="1.02" FloorDamping="2.00" AngularDamping="2.00">
+    <Agent Type="pedestrian" Id="1" Mass="63.0" Height="1.740" MomentOfInertia="1.02" FloorDamping="4.50" AngularDamping="4.50">
         <Shape Type="disk" Radius="0.07826" MaterialId="human_naked" Position="-0.012738,0.144246"/>
         <Shape Type="disk" Radius="0.10762" MaterialId="human_naked" Position="0.007162,0.063296"/>
         <Shape Type="disk" Radius="0.1125" MaterialId="human_naked" Position="0.011152,-4e-06"/>
         <Shape Type="disk" Radius="0.10762" MaterialId="human_naked" Position="0.007162,-0.063294"/>
         <Shape Type="disk" Radius="0.07826" MaterialId="human_naked" Position="-0.012738,-0.144244"/>
     </Agent>
-    <Agent Type="pedestrian" Id="2" Mass="86.0" Height="1.905" MomentOfInertia="1.78" FloorDamping="2.00" AngularDamping="2.00">
+    <Agent Type="pedestrian" Id="2" Mass="86.0" Height="1.905" MomentOfInertia="1.78" FloorDamping="4.50" AngularDamping="4.50">
         <Shape Type="disk" Radius="0.08591" MaterialId="human_naked" Position="-0.013986,0.168084"/>
         <Shape Type="disk" Radius="0.11814" MaterialId="human_naked" Position="0.007864,0.073754"/>
         <Shape Type="disk" Radius="0.1235" MaterialId="human_naked" Position="0.012244,4e-06"/>
         <Shape Type="disk" Radius="0.11814" MaterialId="human_naked" Position="0.007864,-0.073756"/>
         <Shape Type="disk" Radius="0.08591" MaterialId="human_naked" Position="-0.013986,-0.168086"/>
     </Agent>
-    <Agent Type="pedestrian" Id="3" Mass="68.0" Height="1.902" MomentOfInertia="1.26" FloorDamping="2.00" AngularDamping="2.00">
+    <Agent Type="pedestrian" Id="3" Mass="68.0" Height="1.902" MomentOfInertia="1.26" FloorDamping="4.50" AngularDamping="4.50">
         <Shape Type="disk" Radius="0.09565" MaterialId="human_naked" Position="-0.015572,0.13435"/>
         <Shape Type="disk" Radius="0.13153" MaterialId="human_naked" Position="0.008758,0.05895"/>
         <Shape Type="disk" Radius="0.1375" MaterialId="human_naked" Position="0.013628,0"/>
         <Shape Type="disk" Radius="0.13153" MaterialId="human_naked" Position="0.008758,-0.05895"/>
         <Shape Type="disk" Radius="0.09565" MaterialId="human_naked" Position="-0.015572,-0.13435"/>
     </Agent>
-    <Agent Type="pedestrian" Id="4" Mass="78.0" Height="1.725" MomentOfInertia="1.63" FloorDamping="2.00" AngularDamping="2.00">
+    <Agent Type="pedestrian" Id="4" Mass="78.0" Height="1.725" MomentOfInertia="1.63" FloorDamping="4.50" AngularDamping="4.50">
         <Shape Type="disk" Radius="0.09391" MaterialId="human_naked" Position="-0.01529,0.156092"/>
         <Shape Type="disk" Radius="0.12914" MaterialId="human_naked" Position="0.0086,0.068492"/>
         <Shape Type="disk" Radius="0.135" MaterialId="human_naked" Position="0.01338,2e-06"/>
