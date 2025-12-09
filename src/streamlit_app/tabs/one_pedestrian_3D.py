@@ -277,12 +277,12 @@ def slices_option(current_pedestrian: Agent) -> None:
     title_progress_bar.empty()
     status_text.empty()
 
-    # Streamlit button in the sidebar to download the graph in PDF format
+    # Streamlit button in the sidebar to download the graph in PNG format
     st.sidebar.header("Download")
     st.sidebar.download_button(
-        label="Download plot as PDF",
-        data=fig_plotly.to_image(format="pdf"),
-        file_name="body3D_slices.pdf",
+        label="Download plot as PNG",
+        data=fig_plotly.to_image(format="png", width=1600, height=1200),
+        file_name="body3D_slices.png",
         width="stretch",
     )
 
@@ -323,9 +323,9 @@ def mesh_option(current_pedestrian: Agent) -> None:
     # Streamlit button in the sidebar to download the graph in PDF format
     st.sidebar.header("Download")
     st.sidebar.download_button(
-        label="Download plot as PDF",
-        data=fig_plotly_mesh.to_image(format="pdf"),
-        file_name="body3D_mesh.pdf",
+        label="Download plot as PNG",
+        data=fig_plotly_mesh.to_image(format="png", width=1600, height=1200),
+        file_name="body3D_mesh.png",
         width="stretch",
     )
 

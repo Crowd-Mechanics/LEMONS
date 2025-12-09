@@ -286,9 +286,9 @@ def run_tab_agent2D() -> None:
     st.sidebar.header("Download")
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     st.sidebar.download_button(
-        label="Download plot as PDF",
-        data=fig.to_image(format="pdf"),
-        file_name=f"body2D_orthogonal_projection_{timestamp}.pdf",
-        mime="application/pdf",
+        label="Download plot as PNG",
+        data=fig.to_image(format="png", width=1600, height=1200),
+        file_name=f"body2D_orthogonal_projection_{timestamp}.png",
+        mime="image/png",
         width="stretch",
     )

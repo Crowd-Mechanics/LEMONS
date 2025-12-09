@@ -44,6 +44,8 @@ precommit_output.txt
 
 build/
 
+/tutorials/mechanical_layer/evacuation/
+
 /tutorials/mechanical_layer/evacuation/outputXML/
 /tutorials/mechanical_layer/evacuation/inputXML/
 /tutorials/mechanical_layer/evacuation/outputCSV/
