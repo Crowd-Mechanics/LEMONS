@@ -17,7 +17,7 @@
 [![](https://badgen.net/static/DOC/lemons-docs/cyan?icon=https://icons.getbootstrap.com/icons/filetype-doc/)](https://lemons.readthedocs.io/en/latest/index.html)
 [![](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/odufour7/LEMONS)
 [![](https://badgen.net/badge/🚀/Streamlit%20App/green)](https://lemons.streamlit.app/)
-[![](https://badgen.net/badge/VIDEO/10.5281%2Fzenodo.16371832/red)](https://zenodo.org/records/16371833)
+[![](https://badgen.net/badge/VIDEO/10.5281%2Fzenodo.16371832/red)](https://doi.org/10.5281/zenodo.17885366)
 
  <img src="./docs/source/_static/logo/logo_icon.png" alt="lemon" width="20" style="vertical-align:middle;"> **LEMONS**: *An Open-Source Platform to Generate Non-Circular, Anthropometry-Based Pedestrian Shapes and Simulate Their Mechanical Interactions in 2D*
 
