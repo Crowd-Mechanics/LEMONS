@@ -659,13 +659,13 @@ def k_from_EG(E1: float, G1: float, E2: float, G2: float) -> tuple[float, float]
     Parameters
     ----------
     E1 : float
-        Young's modulus of material 1 (Pa).
+        Young's modulus of material 1 (N/m).
     G1 : float
-        Shear modulus of material 1 (Pa).
+        Shear modulus of material 1 (N/m).
     E2 : float
-        Young's modulus of material 2 (Pa).
+        Young's modulus of material 2 (N/m).
     G2 : float
-        Shear modulus of material 2 (Pa).
+        Shear modulus of material 2 (N/m).
 
     Returns
     -------
@@ -673,6 +673,10 @@ def k_from_EG(E1: float, G1: float, E2: float, G2: float) -> tuple[float, float]
         Spring constant for the direction orthogonal to the surface contact (N/m).
     k_par : float
         Spring constant for the direction parallel to the surface contact (N/m).
+
+    Notes
+    -----
+    The elastic moduli are assumed to be for 2D systems and thus have units of N/m.
     """
     inv_k_perp = (4 * G1 - E1) / (4 * G1**2) + (4 * G2 - E2) / (4 * G2**2)
     inv_k_par = (6 * G1 - E1) / (8 * G1**2) + (6 * G2 - E2) / (8 * G2**2)
@@ -703,9 +707,13 @@ def EG_from_k(k_perp: float, k_par: float) -> tuple[float, float]:
     Returns
     -------
     E : float
-        Young's modulus (Pa).
+        Young's modulus (N/m).
     G : float
-        Shear modulus (Pa).
+        Shear modulus (N/m).
+
+    Notes
+    -----
+    The elastic moduli are assumed to be for 2D systems and thus have units of N/m.
     """
     G = k_par * k_perp / (2 * k_perp - k_par)
     E = 2 * k_par * k_perp * (4 * k_perp - 3 * k_par) / (k_par - 2 * k_perp) ** 2
@@ -719,13 +727,17 @@ def G_from_E_nu(E: float, nu: float) -> float:
     Parameters
     ----------
     E : float
-        Young's modulus (Pa).
+        Young's modulus (N/m).
     nu : float
         Poisson's ratio (dimensionless).
 
     Returns
     -------
     float
-        Shear modulus G (Pa).
+        Shear modulus G (N/m).
+
+    Notes
+    -----
+    The elastic moduli are assumed to be for 2D systems and thus have units of N/m.
     """
     return E / (2 * (1 + nu))

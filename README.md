@@ -45,7 +45,7 @@ Cite us:
 @software{lemons_2025_14906931,
     author    = {Dufour, Oscar and Stapelle, Maxime and Nicolas, Alexandre},
     title     = {LEMONS - An open-source platform to generate non-circuLar, anthropometry-based pEdestrian shapes and simulate their Mechanical interactiONS in two dimensions},
-    month     = {jul},
+    month     = {dec},
     year      = {2025},
     version   = {v1.0.0},
 }
@@ -59,9 +59,10 @@ Cite us:
 </tr>
 
 ## An example of a crowd simulation
+Forward propagation of a push through a row of people (experience from [Feldmann S., Adrian J., 2023](https://doi.org/10.1016/j.ssci.2023.106173)). Dotted lines: measured head trajectories, solid lines: simulation.
 <tr>
   <td align="center" style="width:100%;">
-    <img src="./data/images/practical_case.png" width="450" alt="An example of a crowd simulation." style="display:block; margin:auto;">
+    <img src="./data/images/practical_case_push_close_to_wall.png" width="450" alt="An example of a crowd simulation." style="display:block; margin:auto;">
   </td>
 </tr>
 

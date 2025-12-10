@@ -25,7 +25,6 @@
 # The fact that you are presently reading this means that you have had knowledge of the CeCILL-B license and that
 # you accept its terms.
 
-from datetime import datetime
 from pathlib import Path
 
 import streamlit as st
@@ -283,12 +282,12 @@ def run_tab_agent2D() -> None:
             st.text(" ")
             st.image(str(path_file / "measures_bike.png"), width="stretch")
 
-    st.sidebar.header("Download")
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    st.sidebar.download_button(
-        label="Download plot as PNG",
-        data=fig.to_image(format="png", width=1600, height=1200),
-        file_name=f"body2D_orthogonal_projection_{timestamp}.png",
-        mime="image/png",
-        width="stretch",
-    )
+    # st.sidebar.header("Download") # Requites kaleido package that causes issues on some OS
+    # timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    # st.sidebar.download_button(
+    #     label="Download plot as PNG",
+    #     data=fig.to_image(format="png", width=1600, height=1200),
+    #     file_name=f"body2D_orthogonal_projection_{timestamp}.png",
+    #     mime="image/png",
+    #     width="stretch",
+    # )

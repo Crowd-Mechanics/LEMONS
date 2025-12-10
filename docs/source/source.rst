@@ -28,7 +28,7 @@ To cite this work, please use the following reference in bibtex format:
    @software{lemons_2025_14906931,
      author    = {Dufour, Oscar and Stapelle, Maxime and Nicolas, Alexandre},
      title     = {LEMONS - An open-source platform to generate non-circuLar, anthropometry-based pEdestrian shapes and simulate their Mechanical interactiONS in two dimensions},
-     month     = {jul},
+     month     = {dec},
      year      = {2025},
      version   = {v1.0.0},
    }
