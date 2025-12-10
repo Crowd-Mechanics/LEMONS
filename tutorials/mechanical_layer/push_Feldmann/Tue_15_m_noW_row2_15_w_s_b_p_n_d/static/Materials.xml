@@ -6,11 +6,11 @@
         <Material Id="human_naked" YoungModulus="4.0e6" ShearModulus="1379310.3"/>
     </Intrinsic>
     <Binary>
-        <Contact Id1="concrete" Id2="concrete" GammaNormal="1.30e+04" GammaTangential="1.30e+04" KineticFriction="0.50"/>
-        <Contact Id1="concrete" Id2="human_clothes" GammaNormal="1.30e+04" GammaTangential="1.30e+04" KineticFriction="0.50"/>
-        <Contact Id1="concrete" Id2="human_naked" GammaNormal="1.30e+04" GammaTangential="1.30e+04" KineticFriction="0.50"/>
-        <Contact Id1="human_clothes" Id2="human_clothes" GammaNormal="1.30e+04" GammaTangential="1.30e+04" KineticFriction="0.50"/>
-        <Contact Id1="human_clothes" Id2="human_naked" GammaNormal="1.30e+04" GammaTangential="1.30e+04" KineticFriction="0.50"/>
+        <Contact Id1="concrete" Id2="concrete" GammaNormal="1.30e+03" GammaTangential="1.30e+03" KineticFriction="0.50"/>
+        <Contact Id1="concrete" Id2="human_clothes" GammaNormal="1.30e+03" GammaTangential="1.30e+03" KineticFriction="0.50"/>
+        <Contact Id1="concrete" Id2="human_naked" GammaNormal="1.23e+03" GammaTangential="1.23e+03" KineticFriction="0.50"/>
+        <Contact Id1="human_clothes" Id2="human_clothes" GammaNormal="1.30e+03" GammaTangential="1.30e+03" KineticFriction="0.50"/>
+        <Contact Id1="human_clothes" Id2="human_naked" GammaNormal="1.30e+03" GammaTangential="1.30e+03" KineticFriction="0.50"/>
         <Contact Id1="human_naked" Id2="human_naked" GammaNormal="0.7e3" GammaTangential="0.7e3" KineticFriction="0.4"/>
     </Binary>
 </Materials>
