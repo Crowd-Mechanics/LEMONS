@@ -83,23 +83,23 @@ HEIGHT_OF_BIDELTOID_OVER_HEIGHT: float = 151.6 / 186.6
 
 # Material properties
 #: Default young modulus of the concrete material used for obstacles (N/m).
-YOUNG_MODULUS_CONCRETE: float = 1.7e10
+YOUNG_MODULUS_CONCRETE: float = 1.7e9
 #: Default young modulus of the naked human body material (N/m).
-YOUNG_MODULUS_HUMAN_NAKED: float = 2.6e6
+YOUNG_MODULUS_HUMAN_NAKED: float = 4.0e6
 #: Default young modulus of the clothed human body material (N/m).
-YOUNG_MODULUS_HUMAN_CLOTHES: float = 3.05e6
+YOUNG_MODULUS_HUMAN_CLOTHES: float = 3.1e6
 
 #: Default shear modulus of the concrete material used for obstacles (N/m).
-SHEAR_MODULUS_CONCRETE: float = 7.10e9  # N/m
+SHEAR_MODULUS_CONCRETE: float = 7.10e8  # N/m
 #: Default shear modulus of the naked human body material (N/m) under the incompressibility hypothesis i.e. nu = 0.5.
-SHEAR_MODULUS_HUMAN_NAKED: float = 7.5e5
+SHEAR_MODULUS_HUMAN_NAKED: float = 1.38e6
 #: Default shear modulus of the clothed human body material (N/m) under the incompressibility hypothesis i.e. nu = 0.5.
-SHEAR_MODULUS_HUMAN_CLOTHES: float = 1.02e6
+SHEAR_MODULUS_HUMAN_CLOTHES: float = 9.0e5
 
 #: Default normal-contact damping coefficient (N·s/m), used both for agent–agent and agent–obstacle interactions.
-GAMMA_NORMAL: float = 1.3 * 10**4
+GAMMA_NORMAL: float = 1.3 * 10**3
 #: Default tangential-contact damping coefficient (N·s/m), used both for agent–agent and agent–obstacle interactions.
-GAMMA_TANGENTIAL: float = 1.3 * 10**4
+GAMMA_TANGENTIAL: float = 1.3 * 10**3
 #: Default coefficient of kinetic friction (dimensionless), used both for agent–agent and agent–obstacle interactions.
 KINETIC_FRICTION: float = 0.5
 
