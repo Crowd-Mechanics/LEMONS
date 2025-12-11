@@ -89,6 +89,8 @@ docutils==0.21.2
     #   sphinx
     #   sphinx-mdinclude
     #   sphinx-rtd-theme
+execnet==2.1.2
+    # via pytest-xdist
 executing==2.2.0
     # via stack-data
 exhale==0.3.7
@@ -357,7 +359,7 @@ pluggy==1.5.0
     # via pytest
 pooch==1.8.2
     # via pyvista
-pre-commit==4.2.0
+pre-commit==4.5.0
     # via lemons (pyproject.toml)
 prometheus-client==0.21.1
     # via jupyter-server
@@ -368,7 +370,9 @@ prompt-toolkit==3.0.50
 protobuf==5.29.3
     # via streamlit
 psutil==7.0.0
-    # via ipykernel
+    # via
+    #   ipykernel
+    #   pytest-xdist
 ptyprocess==0.7.0
     # via
     #   pexpect
@@ -399,10 +403,13 @@ pytest==8.3.5
     #   nbmake
     #   pytest-cov
     #   pytest-timeout
+    #   pytest-xdist
 pytest-cov==6.1.1
     # via lemons (pyproject.toml)
 pytest-timeout==2.4.0
     # via kaleido
+pytest-xdist==3.8.0
+    # via lemons (pyproject.toml)
 python-dateutil==2.9.0.post0
     # via
     #   arrow
