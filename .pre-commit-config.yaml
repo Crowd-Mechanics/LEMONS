@@ -122,7 +122,7 @@ repos:
     hooks:
       - id: uv-pytest
         name: pytest
-        entry: uv run pytest tests/configuration
+        entry: uv run pytest -n auto tests/configuration
         language: system
         pass_filenames: false
         always_run: true
