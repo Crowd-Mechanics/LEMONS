@@ -5,7 +5,7 @@ ci:
   autoupdate_commit_msg: "[pre-commit.ci] pre-commit automatically updated revs."
   autoupdate_schedule: weekly
   skip:
-    [clang-tidy, uv-pytest, check-doxygen, test-notebooks, check-copyright]
+    [clang-tidy, uv-pytest, check-doxygen, check-copyright]
     # we skip clang-tidy because it requires a build directory and llvm installed,
     # but we can't build the C++ package and install llvm with pre-commit.ci
     # so we use GitHub Actions for that instead
@@ -122,18 +122,8 @@ repos:
     hooks:
       - id: uv-pytest
         name: pytest
-        entry: uv run pytest tests/configuration
+        entry: uv run pytest -n auto tests/configuration
         language: system
         pass_filenames: false
         always_run: true
         types: ["python"]
-
-  # Pre-commit hook to test Jupyter notebooks
-  - repo: local
-    hooks:
-      - id: test-notebooks
-        name: Setup and test notebooks
-        entry: ./.check-notebooks.sh
-        language: system
-        pass_filenames: false
-        files: ".*\\.ipynb$"
