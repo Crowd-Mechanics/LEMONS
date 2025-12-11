@@ -72,7 +72,7 @@ jobs:
       - name: Run notebooks tests pre-commit hook
         if: runner.os == 'macOS'
         run: |
-          uv run pre-commit run test-notebooks --all-files
+          uv run ./.check-notebooks.sh
 
       - name: Run doxygen pre-commit hook
         run: |

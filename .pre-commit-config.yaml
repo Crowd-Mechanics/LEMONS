@@ -127,13 +127,3 @@ repos:
         pass_filenames: false
         always_run: true
         types: ["python"]
-
-  # Pre-commit hook to test Jupyter notebooks
-  - repo: local
-    hooks:
-      - id: test-notebooks
-        name: Setup and test notebooks
-        entry: ./.check-notebooks.sh
-        language: system
-        pass_filenames: false
-        files: ".*\\.ipynb$"

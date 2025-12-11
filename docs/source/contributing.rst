@@ -45,7 +45,7 @@ All changes must go through a pull request (PR). Here is how you should proceed:
 
 A PR is ready to merge when:
 
-- All automated checks are green (pre-commit.ci checks and GitHub Actions CI).
+- All automated checks are green (pre-commit.ci and GitHub Actions checks).
 - The code has been reviewed and approved by at least one collaborator.
 - The commit history is reasonably clean.
 
@@ -136,7 +136,7 @@ On each pull request, GitHub Actions runs the following steps:
 4. Set up Python, install ``uv``, and synchronize dependencies.
 5. Install the pre-commit hook.
 6. Build the C++ mechanical layer with CMake.
-7. Run selected pre-commit hooks:
+7. Run selected pre-commit hooks and test scripts:
 
    - ``check-copyright`` (verify that the copyright headers are present and correctly formatted using the ``.check-copyright.sh`` script.)
    - `clang-tidy <https://github.com/pocc/pre-commit-hooks>`__
