@@ -77,7 +77,7 @@ def output_zip_path_fixture(crowd_fixture: Crowd) -> Path:
     Path
         The path to the saved zip file.
     """
-    output_file_path = Path.cwd().parent.parent / "data" / "xml" / "crowd_ANSURII.zip"
+    output_file_path = Path.cwd().parent.parent / "data" / "tutorial_configuration_files" / "crowd_ANSURII.zip"
     fun_zip.save_crowd_data_to_zip(crowd_fixture, output_file_path)
     return output_file_path
 
