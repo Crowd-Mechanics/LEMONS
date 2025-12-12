@@ -50,7 +50,7 @@ copyfile("../initial_agent_dynamics_files/AgentDynamics_test_slip_agent_agent.xm
 
 # === Loading the External Mechanics Library ===
 # Adjust filename for OS (.so for Linux, .dylib for macOS)
-Clibrary = ctypes.CDLL("../../../src/mechanical_layer/build/libCrowdMechanics.dylib")
+Clibrary = ctypes.CDLL("../../../src/mechanical_layer/build/libCrowdMechanics.so")
 
 agentDynamicsFilename = "AgentDynamics.xml"
 
@@ -74,7 +74,9 @@ for t in range(Ndt):
     copyfile("dynamic/" + agentDynamicsFilename, str(inputPath) + rf"/AgentDynamics input t={t * dt:.1f}.xml")
 
     # 2. Call the external mechanics engine, passing in the list of required XML files
-    Clibrary.CrowdMechanics(filesInput)
+    if Clibrary.CrowdMechanics(filesInput) != 0:
+        print("Crowd mechanics engine failed!")
+        exit(0)
 
     # 3. Save the updated AgentDynamics output to results folder (can be used for analysis later)
     copyfile("dynamic/" + agentDynamicsFilename, str(outputPath) + rf"/AgentDynamics output t={(t + 1) * dt:.1f}.xml")
