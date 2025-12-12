@@ -50,7 +50,7 @@ copyfile("../initial_agent_dynamics_files/AgentDynamics_test_slip_agent_wall.xml
 
 # === Loading the External Mechanics Library ===
 # Adjust filename for OS (.so for Linux, .dylib for macOS)
-Clibrary = ctypes.CDLL("../../../src/mechanical_layer/build/libCrowdMechanics.dylib")
+Clibrary = ctypes.CDLL("../../../src/mechanical_layer/build/libCrowdMechanics.so")
 
 agentDynamicsFilename = "AgentDynamics.xml"
 
