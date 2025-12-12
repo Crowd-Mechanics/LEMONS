@@ -32,8 +32,10 @@ filesInput[:] = files
 # c_lib.CrowdMechanics.argtypes = [ctypes.POINTER(ctypes.c_char_p * nFiles)]
 # c_lib.CrowdMechanics.restype = ctypes.c_int
 
-## The actual call to the library
-c_lib.CrowdMechanics(filesInput)
+## The actual call to the library -- Always check the return code!
+if c_lib.CrowdMechanics(filesInput) != 0:
+    print("Crowd mechanics engine failed!")
+    exit(0)
 ```
 
 ## C++
