@@ -1,9 +1,20 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 set -euo pipefail
 
-# Ask user for ffmpeg path
-read -p "Enter the full path to ffmpeg: " FFMPEG_BIN
+# Make globs like test_*/ expand to nothing (instead of the literal pattern) when no match exists
+shopt -s nullglob # prevents unmatched globs from remaining unexpanded [web:26]
+
+# Ask user for ffmpeg path (allow empty to use PATH)
+read -r -p "Enter the full path to ffmpeg (or leave empty to use ffmpeg from PATH): " FFMPEG_BIN
+
+if [[ -z "${FFMPEG_BIN}" ]]; then
+	FFMPEG_BIN="$(command -v ffmpeg || true)"
+fi
+
+if [[ -z "${FFMPEG_BIN}" || ! -x "${FFMPEG_BIN}" ]]; then
+	echo "Error: ffmpeg not found/executable. Got: '${FFMPEG_BIN:-<empty>}'"
+	exit 1
+fi
 
 # Get the absolute path to current directory
 root_dir="$(pwd)"
@@ -11,31 +22,32 @@ root_dir="$(pwd)"
 # Ensure movies directory exists
 mkdir -p "$root_dir/movies"
 
-# Remove all files in ./movies/
+# Remove all .mov files in ./movies/ (portable; does nothing if none exist)
 echo "Cleaning $root_dir/movies/"
-rm -f "$root_dir/movies/"*.mov
+find "$root_dir/movies" -maxdepth 1 -type f -name '*.mov' -exec rm -f {} +
 
-# Process each immediate subdirectory
-for dir in test_*/ ; do
-    # Remove trailing slash
-    dir="${dir%/}"
-    # Make the videos
-    if [ -d "$dir" ]; then
-        echo -e "\nProcessing directory: $dir"
-        uv run python $root_dir/$dir/run_video.py --ffmpeg="$FFMPEG_BIN"
-    fi
-    # Copy .mov video from each ./directory/movies/ to ./movies/
-    movie_dir="$root_dir/$dir/movies"
-    if [ -d "$movie_dir" ]; then
-        # Find first .mov file in the movie_dir
-        mov_file=$(find "$movie_dir" -maxdepth 1 -type f -name '*.mov' | head -n 1)
-        if [ -n "$mov_file" ]; then
-            cp "$mov_file" "$root_dir/movies/"
-            echo -e "\nCopied $(basename "$mov_file") from $root_dir/$dir/movies/ to $root_dir/movies/"
-        else
-            echo -e "\nNo .mov file found in $root_dir/$dir/movies/"
-        fi
-    fi
+# Process each immediate subdirectory test_*/
+for dir in test_*/; do
+	dir="${dir%/}"
+
+	if [[ ! -d "$dir" ]]; then
+		continue
+	fi
+
+	echo -e "\nProcessing directory: $dir"
+	uv run python "$root_dir/$dir/run_video.py" --ffmpeg="$FFMPEG_BIN"
+
+	# Copy first .mov video from ./directory/movies/ to ./movies/
+	movie_dir="$root_dir/$dir/movies"
+	if [[ -d "$movie_dir" ]]; then
+		mov_file="$(find "$movie_dir" -maxdepth 1 -type f -name '*.mov' -print -quit)"
+		if [[ -n "$mov_file" ]]; then
+			cp -p "$mov_file" "$root_dir/movies/"
+			echo -e "\nCopied $(basename "$mov_file") from $movie_dir to $root_dir/movies/"
+		else
+			echo -e "\nNo .mov file found in $movie_dir"
+		fi
+	fi
 done
 
 echo -e "\nAll done."
