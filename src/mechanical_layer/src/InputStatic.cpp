@@ -157,6 +157,7 @@ int readMaterials(const std::string& file, std::map<std::string, int32_t>& mater
         cerr << "Error: no materials in " << file << endl;
         return EXIT_FAILURE;
     }
+    vector<string> materialIds;
     nMaterials = 0;
     while (materialElement)
     {
@@ -179,9 +180,10 @@ int readMaterials(const std::string& file, std::map<std::string, int32_t>& mater
             return EXIT_FAILURE;
         }
         elasticProperties.emplace_back(E, G);
+        materialIds.emplace_back(static_cast<string>(id));
+        nMaterials++;
 
         materialElement = materialElement->NextSiblingElement("Material");
-        nMaterials++;
     }
     /*  Allocate global variables, now that we know the materials   */
     intrinsicProperties = new double*[nIntrinsicProperties];
@@ -211,9 +213,21 @@ int readMaterials(const std::string& file, std::map<std::string, int32_t>& mater
         for (uint32_t j = 0; j < nMaterials; j++)
         {
             double stiffnessNormal = computeStiffnessNormal(i, j);
+            if (stiffnessNormal <= 0)
+            {
+                cerr << "Error: materials '" << materialIds[i] << "' and '" << materialIds[j]
+                     << "' produce non positive normal stiffness!" << endl;
+                return EXIT_FAILURE;
+            }
             binaryProperties[STIFFNESS_NORMAL][j][i] = stiffnessNormal;
             binaryProperties[STIFFNESS_NORMAL][i][j] = stiffnessNormal;
             double stiffnessTangential = computeStiffnessTangential(i, j);
+            if (stiffnessTangential <= 0)
+            {
+                cerr << "Error: materials '" << materialIds[i] << "' and '" << materialIds[j]
+                     << "' produce non positive tangential stiffness!" << endl;
+                return EXIT_FAILURE;
+            }
             binaryProperties[STIFFNESS_TANGENTIAL][j][i] = stiffnessTangential;
             binaryProperties[STIFFNESS_TANGENTIAL][i][j] = stiffnessTangential;
         }
