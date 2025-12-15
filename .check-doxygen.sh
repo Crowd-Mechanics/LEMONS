@@ -1,7 +1,5 @@
 #!/bin/bash
-
-# Exit immediately on errors and unset variables
-set -e
+set -euo pipefail
 
 # Save the original directory and move to docs/
 ORIG_DIR=$(pwd)
