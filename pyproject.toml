@@ -1,13 +1,20 @@
 [project]
 name = "lemons"
 version = "1.0.0"
-description = "lemons is an open-source platform to generate non-circular, anthropometry-based pedestrian shapes and simulate their mechanical interactions in two dimensions"
+description = "The lemons python wrapper, is an open-source python interface to (i) generate non-circular, anthropometry-based pedestrian shapes, (ii) visualise crowds, and (iii) simulate their dynamics in two dimensions via simple calls to the C++ library."
 readme = "README.md"
 requires-python = ">=3.13"
 authors = [
-    { name = "Oscar DUFOUR" },
-    { name = "Maxime STAPELLE" },
-    { name = "Alexandre NICOLAS" },
+    { name = "Oscar DUFOUR", email = "oscar.dufour@univ-lyon1.fr" },
+    { name = "Maxime STAPELLE", email = "maxime.stapelle@univ-lyon1.fr" },
+    { name = "Alexandre NICOLAS", email = "alexandre.nicolas@univ-lyon1.fr" },
+]
+license = "CECILL-B"
+license-files = ["LICEN[CS]E.txt"]
+classifiers = [
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.13",
 ]
 
 dependencies = [
@@ -51,6 +58,10 @@ dependencies = [
 [project.optional-dependencies]
 dev = []
 
+[project.urls]
+Homepage = "https://github.com/Crowd-Mechanics/LEMONS"
+Issues = "https://github.com/Crowd-Mechanics/LEMONS/issues"
+
 [build-system]
 requires = ["setuptools", "wheel", "pandoc"]
 build-backend = "setuptools.build_meta"
@@ -68,3 +79,9 @@ checks = [
 # have to use single quotes for regex in TOML
 exclude = ['\.undocumented_method$', '\.__repr__$']
 override_SS05 = ['^Process ', '^Assess ', '^Access ']
+
+[[tool.uv.index]]
+name = "testpypi"
+url = "https://test.pypi.org/simple/"
+publish-url = "https://test.pypi.org/legacy/"
+explicit = true

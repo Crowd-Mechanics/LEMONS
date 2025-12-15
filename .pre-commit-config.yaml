@@ -14,6 +14,15 @@ ci:
 fail_fast: false # Continue running other hooks even if one fails
 
 repos:
+  # UV: Python package and project manager
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.9.17
+    hooks:
+      - id: uv-lock # To make sure your uv.lock file is up to date even if your pyproject.toml file was changed
+      - id: uv-export # To keep a requirements.txt file in sync with your uv.lock file
+      - id: pip-compile # To compile requirements files
+        args: [requirements.in, -o, requirements.txt]
+
   # Codespell: Spell checker
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.1
