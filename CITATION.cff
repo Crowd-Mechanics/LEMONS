@@ -22,7 +22,7 @@ identifiers:
   - type: doi
     value: 10.1038/s41597-025-04732-3
 repository-code: >-
-  https://github.com/odufour7/LEMONS
+  https://github.com/Crowd-Mechanics/LEMONS
 abstract: >-
   To model dense crowds, the usual recourse to oversimplified (circular)
   pedestrian shapes and contact forces shows limitations. To help modellers

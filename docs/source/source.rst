@@ -2,7 +2,7 @@ Source
 ======
 
 The source code of the latest release is always available in our public
-`Git repository <https://github.com/odufour7/LEMONS.git>`__.
+`Git repository <https://github.com/Crowd-Mechanics/LEMONS>`__.
 
 Authors
 -------
