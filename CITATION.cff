@@ -35,10 +35,13 @@ abstract: >-
   the second library from Python. The tool enables users to implement
   their own decisional layer, i.e., to control the agents' choices of desired velocities.
 keywords:
-  - anthropometry
+  - crowd generation
   - crowd dynamics
+  - pedestrian dynamics
+  - anthropometry
   - mechanical interactions
   - bideltoid breadth
   - chest depth
+  - non-circular shapes
 licence: CeCILL-B
 version: 1.0.0
