@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Make globs like test_*/ expand to nothing (instead of the literal pattern) when no match exists
-shopt -s nullglob # prevents unmatched globs from remaining unexpanded [web:26]
+# Set on the shell option nullglob any glob pattern (like  *.txt) that does not match any files expands to an empty string instead of staying as the literal pattern.
+shopt -s nullglob
 
 # Ask user for ffmpeg path (allow empty to use PATH)
 read -r -p "Enter the full path to ffmpeg (or leave empty to use ffmpeg from PATH): " FFMPEG_BIN
@@ -22,7 +22,7 @@ root_dir="$(pwd)"
 # Ensure movies directory exists
 mkdir -p "$root_dir/movies"
 
-# Remove all .mov files in ./movies/ (portable; does nothing if none exist)
+# Remove all .mov files in ./movies/ (does nothing if none exist)
 echo "Cleaning $root_dir/movies/"
 find "$root_dir/movies" -maxdepth 1 -type f -name '*.mov' -exec rm -f {} +
 

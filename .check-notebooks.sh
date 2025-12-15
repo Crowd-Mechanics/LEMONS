@@ -1,8 +1,9 @@
 #!/bin/bash
+set -euo pipefail
 
 # Prepare the environment for notebook testing
 
-# => Copy configuration files needed for the pushing scenario (mechanical layer tutorial)
+# => Copy configuration files needed for the pushing scenario, far from wall (mechanical layer tutorial)
 cp ./data/tutorial_mechanical_layer/push_Feldmann/Tue_15_m_noW_row2_15_w_s_b_p_n_d/AgentDynamics.xml ./tutorials/mechanical_layer/push_Feldmann/Tue_15_m_noW_row2_15_w_s_b_p_n_d/dynamic/
 cp ./data/tutorial_mechanical_layer/push_Feldmann/Tue_15_m_noW_row2_15_w_s_b_p_n_d/Agents.xml ./tutorials/mechanical_layer/push_Feldmann/Tue_15_m_noW_row2_15_w_s_b_p_n_d/static/
 cp ./data/tutorial_mechanical_layer/push_Feldmann/Tue_15_m_noW_row2_15_w_s_b_p_n_d/Geometry.xml ./tutorials/mechanical_layer/push_Feldmann/Tue_15_m_noW_row2_15_w_s_b_p_n_d/static/
@@ -12,7 +13,7 @@ if [ -f ./tutorials/mechanical_layer/push_Feldmann/Tue_15_m_noW_row2_15_w_s_b_p_
     rm ./tutorials/mechanical_layer/push_Feldmann/Tue_15_m_noW_row2_15_w_s_b_p_n_d/dynamic/AgentInteractions.xml
 fi
 
-# => Copy configuration files needed for the pushing scenario (mechanical layer tutorial)
+# => Copy configuration files needed for the pushing scenario, close to wall (mechanical layer tutorial)
 cp ./data/tutorial_mechanical_layer/push_Feldmann/Wed_03_m_wiW_row4_14_w_s_b_p_n_u/AgentDynamics.xml ./tutorials/mechanical_layer/push_Feldmann/Wed_03_m_wiW_row4_14_w_s_b_p_n_u/dynamic/
 cp ./data/tutorial_mechanical_layer/push_Feldmann/Wed_03_m_wiW_row4_14_w_s_b_p_n_u/Agents.xml ./tutorials/mechanical_layer/push_Feldmann/Wed_03_m_wiW_row4_14_w_s_b_p_n_u/static/
 cp ./data/tutorial_mechanical_layer/push_Feldmann/Wed_03_m_wiW_row4_14_w_s_b_p_n_u/Geometry.xml ./tutorials/mechanical_layer/push_Feldmann/Wed_03_m_wiW_row4_14_w_s_b_p_n_u/static/
