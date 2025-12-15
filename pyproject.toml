@@ -1,7 +1,17 @@
 [project]
 name = "lemons"
 version = "1.0.0"
-description = "The lemons python wrapper, is an open-source python interface to (i) generate non-circular, anthropometry-based pedestrian shapes, (ii) visualise crowds, and (iii) simulate their dynamics in two dimensions via simple calls to the C++ library."
+description = "Python wrapper for the LEMONS library to generate anthropometry-based, non-circular pedestrian shapes, visualize crowds, and simulate 2D dynamics."
+keywords = [
+    "crowd generation",
+    "crowd dynamics",
+    "pedestrian dynamics",
+    "anthropometry",
+    "mechanical interactions",
+    "bideltoid breadth",
+    "chest depth",
+    "non-circular shapes",
+]
 readme = "README.md"
 requires-python = ">=3.13"
 authors = [
@@ -18,37 +28,23 @@ classifiers = [
 ]
 
 dependencies = [
-    "breathe>=4.36.0",
     "cmcrameri>=1.9",
-    "codespell>=2.4.1",
     "dicttoxml>=1.7.16",
-    "exhale>=0.3.7",
     "gprof2dot>=2025.4.14",
     "jupyter>=1.1.1",
     "kaleido>=1.2.0",
     "kivy>=2.3.1",
     "matplotlib>=3.10.3",
-    "myst-parser>=4.0.1",
-    "nbmake>=1.5.5",
-    "nbsphinx>=0.9.6",
-    "nbsphinx-link>=1.3.1",
     "numpy>=2.2.6",
-    "numpydoc>=1.8.0",
     "pandas>=2.2.3",
     "pathlib>=1.0.1",
     "plotly>=6.1.1",
-    "pre-commit>=4.5.0",
     "pytest>=8.3.5",
     "pytest-cov>=6.1.1",
     "pytest-xdist[psutil]>=3.8.0",
     "pyvista>=0.45.2",
-    "ruff>=0.11.10",
     "scipy>=1.15.3",
     "shapely>=2.1.1",
-    "sphinx>=8.2.3",
-    "sphinx-autodoc-typehints>=3.2.0",
-    "sphinx-mdinclude>=0.6.2",
-    "sphinx-rtd-theme>=3.0.2",
     "streamlit>=1.45.1",
     "streamlit-option-menu>=0.4.0",
     "watchdog>=6.0.0",
@@ -56,7 +52,22 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = []
+dev = [
+    "pre-commit>=4.5.0",
+    "codespell>=2.4.1",
+    "numpydoc>=1.8.0",
+    "ruff>=0.11.10",
+    "exhale>=0.3.7",
+    "breathe>=4.36.0",
+    "myst-parser>=4.0.1",
+    "nbmake>=1.5.5",
+    "nbsphinx>=0.9.6",
+    "nbsphinx-link>=1.3.1",
+    "sphinx>=8.2.3",
+    "sphinx-autodoc-typehints>=3.2.0",
+    "sphinx-mdinclude>=0.6.2",
+    "sphinx-rtd-theme>=3.0.2",
+]
 
 [project.urls]
 Homepage = "https://github.com/Crowd-Mechanics/LEMONS"
@@ -68,6 +79,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+include = ["configuration*", "streamlit_app*"]
 
 [tool.numpydoc_validation]
 checks = [
@@ -81,7 +93,7 @@ exclude = ['\.undocumented_method$', '\.__repr__$']
 override_SS05 = ['^Process ', '^Assess ', '^Access ']
 
 [[tool.uv.index]]
-name = "testpypi"
-url = "https://test.pypi.org/simple/"
-publish-url = "https://test.pypi.org/legacy/"
+name = "pypi"
+url = "https://pypi.org/simple/"
+publish-url = "https://pypi.org/legacy/"
 explicit = true

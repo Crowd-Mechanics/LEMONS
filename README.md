@@ -1,7 +1,7 @@
 <table align="center" style="width:100%; border-collapse:collapse;">
   <tr>
     <td align="center" style="width:100%;">
-      <img src="./docs/source/_static/logo/logo_doc.png" width="300" alt="Project icon" style="display:block; margin:auto;">
+      <img src="https://raw.githubusercontent.com/Crowd-Mechanics/LEMONS/master/docs/source/_static/logo/logo_doc.png" width="300" alt="Project icon" style="display:block; margin:auto;">
     </td>
   </tr>
   <tr>
@@ -19,7 +19,7 @@
 [![](https://badgen.net/badge/🚀/Streamlit%20App/green)](https://lemons.streamlit.app/)
 [![](https://badgen.net/badge/VIDEO/10.5281%2Fzenodo.17885366/red)](https://doi.org/10.5281/zenodo.17885366)
 
- <img src="./docs/source/_static/logo/logo_icon.png" alt="lemon" width="20" style="vertical-align:middle;"> **LEMONS**: *An Open-Source Platform to Generate Non-Circular, Anthropometry-Based Pedestrian Shapes and Simulate Their Mechanical Interactions in 2D*
+ <img src="https://raw.githubusercontent.com/Crowd-Mechanics/LEMONS/master/docs/source/_static/logo/logo_icon.png" alt="lemon" width="20" style="vertical-align:middle;"> **LEMONS**: *An Open-Source Platform to Generate Non-Circular, Anthropometry-Based Pedestrian Shapes and Simulate Their Mechanical Interactions in 2D*
 
 </div>
 
@@ -54,7 +54,7 @@ Cite us:
 ## An example of a generated crowd
 <tr>
   <td align="center" style="width:100%;">
-    <img src="./data/images/crowd_150_agents.png" width="450" alt="Project icon" style="display:block; margin:auto;">
+    <img src="https://raw.githubusercontent.com/Crowd-Mechanics/LEMONS/master/data/images/crowd_150_agents.png" width="450" alt="Project icon" style="display:block; margin:auto;">
   </td>
 </tr>
 
@@ -62,19 +62,16 @@ Cite us:
 Forward propagation of a push through a row of people (experience from [Feldmann S., Adrian J., 2023](https://doi.org/10.1016/j.ssci.2023.106173)). Dotted lines: measured head trajectories, solid lines: simulation.
 <tr>
   <td align="center" style="width:100%;">
-    <img src="./data/images/practical_case_push_close_to_wall.png" width="450" alt="An example of a crowd simulation." style="display:block; margin:auto;">
+    <img src="https://raw.githubusercontent.com/Crowd-Mechanics/LEMONS/master/data/images/practical_case_push_close_to_wall.png" width="450" alt="An example of a crowd simulation." style="display:block; margin:auto;">
   </td>
 </tr>
 
 ## An example of a 3D crowd
 <tr>
   <td align="center" style="width:100%;">
-    <img src="./data/images/3D_crowd.png" width="450" alt="A crowd in 3D." style="display:block; margin:auto;">
+    <img src="https://raw.githubusercontent.com/Crowd-Mechanics/LEMONS/master/data/images/3D_crowd.png" width="450" alt="A crowd in 3D." style="display:block; margin:auto;">
   </td>
 </tr>
 
 ## License
 Every part of `LEMONS` is available under the [`CeCILL-B`](https://cecill.info/licences.fr.html) license.
-
-
-
