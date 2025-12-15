@@ -1,0 +1,105 @@
+name: CI (build, lint, docs, tests)
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  ci:
+    name: ${{ matrix.os }} / build + checks
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: System deps (Ubuntu)
+        if: runner.os == 'Linux'
+        run: |
+          echo "::group::APT install"
+          sudo apt-get update
+          sudo apt-get install -y llvm clang build-essential cmake graphviz
+          echo "::endgroup::"
+
+      - name: System deps (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          echo "::group::brew install"
+          brew install llvm graphviz
+          echo "::endgroup::"
+
+      - name: Configure LLVM for clang-tidy (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          echo "$(brew --prefix llvm)/bin" >> "$GITHUB_PATH"
+          echo "SDKROOT=$(xcrun --show-sdk-path)" >> "$GITHUB_ENV"
+
+      - name: Install Doxygen
+        uses: ssciwr/doxygen-install@v1
+        with:
+          version: "1.13.2"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Python deps (uv sync)
+        run: |
+          echo "::group::Python environment"
+          python -m pip install --upgrade pip
+          pip install uv
+          uv sync
+          echo "::endgroup::"
+
+      - name: Build C++ mechanical layer (CMake)
+        working-directory: src/mechanical_layer
+        run: |
+          echo "::group::CMake configure"
+          cmake -S . -B build -DBUILD_SHARED_LIBS=ON
+          echo "::endgroup::"
+
+          echo "::group::CMake build"
+          cmake --build build
+          echo "::endgroup::"
+
+      - name: Lint (pre-commit) copyright
+        run: uv run pre-commit run check-copyright --all-files --show-diff-on-failure
+
+      - name: Static analysis (pre-commit) clang-tidy
+        run: uv run pre-commit run clang-tidy --all-files --show-diff-on-failure
+
+      - name: Python tests (pre-commit) configuration pytest
+        run: uv run pre-commit run uv-pytest --all-files
+
+      - name: Notebook tests (macOS only)
+        if: runner.os == 'macOS'
+        run: uv run ./.check-notebooks.sh
+
+      - name: Docs (pre-commit) doxygen
+        run: uv run pre-commit run check-doxygen --all-files
+
+      - name: Mechanical layer tests
+        working-directory: tests/mechanical_layer
+        run: ./run_mechanical_tests.sh
+
+      - name: Job summary
+        if: always()
+        run: |
+          {
+            echo "### Checks run in GitHub Actions"
+            echo "- CMake build (mechanical layer)"
+            echo "- pre-commit hooks: check-copyright, clang-tidy, uv-pytest, check-doxygen"
+            echo "- Mechanical layer test script"
+            echo ""
+            echo "### Checks run in pre-commit.ci"
+            echo "- All other hooks from .pre-commit-config.yaml (excluding ci: skip)"
+          } >> "$GITHUB_STEP_SUMMARY"
