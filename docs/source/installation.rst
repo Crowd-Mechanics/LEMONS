@@ -1,7 +1,7 @@
 Installation guide
 ==================
 
-You can try out the Streamlit application online at this `link <https://lemons.streamlit.app/>`_, generate your own crowd, download the corresponding configuration files, and run the crowd simulation locally.
+You can try out the Streamlit application online at this address `https://lemons.streamlit.app/ <https://lemons.streamlit.app/>`_, generate your own crowd, download the corresponding configuration files, and run the crowd simulation locally.
 
 If you want to use the Streamlit application locally, you can install it and use it following the advanced tutorial :ref:`installation_guide_app`.
 
