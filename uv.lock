@@ -1304,19 +1304,21 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
-    { name = "breathe" },
     { name = "codespell" },
-    { name = "exhale" },
-    { name = "myst-parser" },
     { name = "nbmake" },
-    { name = "nbsphinx" },
-    { name = "nbsphinx-link" },
     { name = "numpydoc" },
     { name = "pre-commit" },
     { name = "pytest" },
     { name = "pytest-cov" },
     { name = "pytest-xdist", extra = ["psutil"] },
     { name = "ruff" },
+]
+docs = [
+    { name = "breathe" },
+    { name = "exhale" },
+    { name = "myst-parser" },
+    { name = "nbsphinx" },
+    { name = "nbsphinx-link" },
     { name = "sphinx" },
     { name = "sphinx-autodoc-typehints" },
     { name = "sphinx-mdinclude" },
@@ -1346,19 +1348,21 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "breathe", specifier = ">=4.36.0" },
     { name = "codespell", specifier = ">=2.4.1" },
-    { name = "exhale", specifier = ">=0.3.7" },
-    { name = "myst-parser", specifier = ">=4.0.1" },
     { name = "nbmake", specifier = ">=1.5.5" },
-    { name = "nbsphinx", specifier = ">=0.9.6" },
-    { name = "nbsphinx-link", specifier = ">=1.3.1" },
     { name = "numpydoc", specifier = ">=1.8.0" },
     { name = "pre-commit", specifier = ">=4.5.0" },
     { name = "pytest", specifier = ">=8.3.5" },
     { name = "pytest-cov", specifier = ">=6.1.1" },
     { name = "pytest-xdist", extras = ["psutil"], specifier = ">=3.8.0" },
     { name = "ruff", specifier = ">=0.11.10" },
+]
+docs = [
+    { name = "breathe", specifier = ">=4.36.0" },
+    { name = "exhale", specifier = ">=0.3.7" },
+    { name = "myst-parser", specifier = ">=4.0.1" },
+    { name = "nbsphinx", specifier = ">=0.9.6" },
+    { name = "nbsphinx-link", specifier = ">=1.3.1" },
     { name = "sphinx", specifier = ">=8.2.3" },
     { name = "sphinx-autodoc-typehints", specifier = ">=3.2.0" },
     { name = "sphinx-mdinclude", specifier = ">=0.6.2" },

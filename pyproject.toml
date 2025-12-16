@@ -56,16 +56,18 @@ dev = [
     "codespell>=2.4.1",
     "numpydoc>=1.8.0",
     "ruff>=0.11.10",
+    "nbmake>=1.5.5",
+]
+docs = [
     "exhale>=0.3.7",
     "breathe>=4.36.0",
     "myst-parser>=4.0.1",
-    "nbmake>=1.5.5",
-    "nbsphinx>=0.9.6",
-    "nbsphinx-link>=1.3.1",
     "sphinx>=8.2.3",
     "sphinx-autodoc-typehints>=3.2.0",
     "sphinx-mdinclude>=0.6.2",
     "sphinx-rtd-theme>=3.0.2",
+    "nbsphinx>=0.9.6",
+    "nbsphinx-link>=1.3.1",
 ]
 
 [project.urls]
