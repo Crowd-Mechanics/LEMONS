@@ -1,3 +1,5 @@
+.. _tutorials_config_files:
+
 Configuration files
 ===================
 

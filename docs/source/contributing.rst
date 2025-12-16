@@ -65,8 +65,8 @@ To work on the Python wrapper:
 2. Install and configure the `uv <https://docs.astral.sh/uv/>`__ package manager to set up the Python virtual environment with all required dependencies::
 
       python -m pip install --upgrade pip
-      pip install uv pre-commit
-      uv sync
+      pip install uv
+      uv sync --locked --all-extras --dev
 
    This creates and manages a virtual environment for you and installs all dependencies (including development dependencies).
 3. You can then modify the Python code as needed.

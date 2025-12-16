@@ -7,13 +7,13 @@ To set up, follow these steps after downloading the repository from `GitHub <htt
 
 **1. Environment setup**
 
-Create and activate a virtual environment using `uv <https://docs.astral.sh/uv/>`__ to manage dependencies efficiently:
+Create and activate a Python virtual environment using `uv <https://docs.astral.sh/uv/>`__ to manage dependencies efficiently:
 
 .. code-block:: bash
 
    python -m pip install --upgrade pip
    pip install uv
-   uv sync
+   uv sync --locked --all-extras --dev
 
 
 **2. Launch the app**
