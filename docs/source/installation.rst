@@ -27,7 +27,7 @@ dependencies using `uv <https://docs.astral.sh/uv/>`__:
 
    python -m pip install --upgrade pip
    pip install uv
-   uv sync --locked --all-extras --dev
+   uv sync
 
 You can then launch the streamlit app locally with the following command:
 
