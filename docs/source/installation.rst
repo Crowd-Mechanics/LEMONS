@@ -8,7 +8,7 @@ Python wrapper
 --------------
 
 To use the Python wrapper locally (e.g., to run simulations, plot the crowd scene and get statistics as shown
-in the :ref:`tutorials <tutorials_config_files>`), install the package with pip:
+in the :ref:`tutorials <tutorials_config_files>`), install the package from `PyPi <https://pypi.org/project/lemons-crowd/>`_ with pip:
 
 .. code-block:: bash
 
