@@ -13,7 +13,7 @@ Create and activate a Python virtual environment using `uv <https://docs.astral.
 
    python -m pip install --upgrade pip
    pip install uv
-   uv sync --locked --all-extras --dev
+   uv sync
 
 
 **2. Launch the app**

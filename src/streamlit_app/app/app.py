@@ -16,7 +16,7 @@ To run the application, execute these commands from the root directory of the pr
 
 >>> pip install --upgrade pip
 >>> pip install uv
->>> uv sync --locked --all-extras --dev
+>>> uv sync
 >>> uv run streamlit run src/streamlit_app/app/app.py
 """
 
