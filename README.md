@@ -18,6 +18,8 @@
 [![](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/Crowd-Mechanics/LEMONS)
 [![](https://badgen.net/badge/🚀/Streamlit%20App/green)](https://lemons.streamlit.app/)
 [![](https://badgen.net/badge/VIDEO/10.5281%2Fzenodo.17885366/red)](https://doi.org/10.5281/zenodo.17885366)
+[![PyPI](https://img.shields.io/pypi/v/lemons-crowd)](https://pypi.org/project/lemons-crowd/)
+
 
  <img src="https://raw.githubusercontent.com/Crowd-Mechanics/LEMONS/master/docs/source/_static/logo/logo_icon.png" alt="lemon" width="20" style="vertical-align:middle;"> **LEMONS**: *An Open-Source Platform to Generate Non-Circular, Anthropometry-Based Pedestrian Shapes and Simulate Their Mechanical Interactions in 2D*
 
