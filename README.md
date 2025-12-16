@@ -40,6 +40,8 @@ This project is developed at
 
 ## Citation
 
+[![CITATION.cff](https://github.com/Crowd-Mechanics/LEMONS/actions/workflows/citation.yml/badge.svg)](https://github.com/Crowd-Mechanics/LEMONS/actions/workflows/citation.yml)
+
 If you use `LEMONS`, we encourage you to cite or reference this work as you would any other scientific research. The package is a result of a huge amount of time and effort invested by the authors. Citing us allows us to measure the impact of the research and encourages others to use the library.
 
 Cite us:
