@@ -14,8 +14,9 @@ Examples
 --------
 To run the application, execute these commands from the root directory of the project:
 
+>>> pip install --upgrade pip
 >>> pip install uv
->>> uv sync
+>>> uv sync --locked --all-extras --dev
 >>> uv run streamlit run src/streamlit_app/app/app.py
 """
 
