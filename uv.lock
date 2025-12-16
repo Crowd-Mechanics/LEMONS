@@ -1279,7 +1279,7 @@ wheels = [
 ]
 
 [[package]]
-name = "lemons"
+name = "lemons-crowd"
 version = "1.0.0"
 source = { editable = "." }
 dependencies = [

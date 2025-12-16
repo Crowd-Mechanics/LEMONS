@@ -1,5 +1,5 @@
 [project]
-name = "lemons"
+name = "lemons-crowd"
 version = "1.0.0"
 description = "Python wrapper for the LEMONS library to generate anthropometry-based, non-circular pedestrian shapes, visualize crowds, and simulate 2D dynamics."
 keywords = [
@@ -91,9 +91,3 @@ checks = [
 # have to use single quotes for regex in TOML
 exclude = ['\.undocumented_method$', '\.__repr__$']
 override_SS05 = ['^Process ', '^Assess ', '^Access ']
-
-[[tool.uv.index]]
-name = "pypi"
-url = "https://pypi.org/simple/"
-publish-url = "https://pypi.org/legacy/"
-explicit = true
