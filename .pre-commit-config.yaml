@@ -20,7 +20,7 @@ repos:
     hooks:
       - id: uv-lock # To make sure your uv.lock file is up to date even if your pyproject.toml file was changed
       - id: uv-export # To keep a requirements.txt file in sync with your uv.lock file
-        args: ["--output-file=requirements.txt", "--quiet"]
+        args: ["--output-file=requirements.txt", "--quiet", "--all-groups"]
 
   # Codespell: Spell checker
   - repo: https://github.com/codespell-project/codespell
