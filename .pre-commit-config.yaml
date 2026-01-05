@@ -16,7 +16,7 @@ fail_fast: true # Stop running other hooks even if one fails
 repos:
   # UV: Python package and project manager
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.9.17
+    rev: 0.9.21
     hooks:
       - id: uv-lock # To make sure your uv.lock file is up to date even if your pyproject.toml file was changed
       - id: uv-export # To keep a requirements.txt file in sync with your uv.lock file
@@ -34,7 +34,7 @@ repos:
 
   # Ruff: Linter and Formatter
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.9
+    rev: v0.14.10
     hooks:
       - id: ruff
         args: ["--fix"]
@@ -95,7 +95,7 @@ repos:
 
   # Cppcheck: C++ static analysis
   - repo: https://github.com/pre-commit/mirrors-clang-format
-    rev: v21.1.7
+    rev: v21.1.8
     hooks:
       - id: clang-format
         args: [--style=file]
