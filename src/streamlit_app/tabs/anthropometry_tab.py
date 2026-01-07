@@ -76,8 +76,6 @@ def run_tab_anthropometry() -> None:
     with col1:
         fig = plot.display_distribution(df, selected_attribute.lower())
         st.plotly_chart(fig, width="stretch")
-        # # Sidebar: Button to download the graph in PDF format # Requites kaleido package that causes issues on some OS
-        # selected_attribute_name = selected_attribute.replace(" ", "_")
     with col2:
         # display the mean and standard deviation of the selected attribute for man and woman
         if selected_attribute.lower() not in ["sex", "weight [kg]"]:
@@ -102,7 +100,8 @@ def run_tab_anthropometry() -> None:
     # Download section in the sidebar
     st.sidebar.title("Download")
 
-    # # Add a download button for the plot # Requites kaleido package that causes issues on some OS
+    # # Add a download button for the plot but it requires kaleido package that causes issues on some OS
+    # selected_attribute_name = selected_attribute.replace(" ", "_")
     # st.sidebar.download_button(
     #     label="Download plot as PDF",
     #     data=fig.to_image(format="pdf"),
