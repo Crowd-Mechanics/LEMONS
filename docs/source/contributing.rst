@@ -125,10 +125,10 @@ The pre-commit.ci service runs most of the hooks defined in ``.pre-commit-config
 
 Some more complex hooks that require the C++ library built or the Python environment are skipped here and are handled instead by GitHub Actions (see below).
 
-GitHub Actions workflow
-~~~~~~~~~~~~~~~~~~~~~~~~
+GitHub Actions workflow: CI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-On each pull request, GitHub Actions runs the following steps:
+On each pull request, GitHub Actions runs the workflow called CI (continuous integration). Here are the main steps:
 
 1. Check out the repository.
 2. Install LLVM and Graphviz (on macOS).

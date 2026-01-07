@@ -20,7 +20,7 @@ Development version (from source)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To install the latest development version, clone or download the full repository from
-`GitHub <https://github.com/Crowd-Mechanics/LEMONS>`__. Then create a virtual environment and install all required Python
+`GitHub <https://github.com/Crowd-Mechanics/LEMONS>`__. Then, from the root directory of the project, create a virtual environment and install all required Python
 dependencies using `uv <https://docs.astral.sh/uv/>`__:
 
 .. code-block:: bash

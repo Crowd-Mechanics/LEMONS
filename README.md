@@ -76,6 +76,7 @@ Forward propagation of a push through a row of people (experience from [Feldmann
     <img src="https://raw.githubusercontent.com/Crowd-Mechanics/LEMONS/master/data/images/3D_crowd.png" width="450" alt="A crowd in 3D." style="display:block; margin:auto;">
   </td>
 </tr>
+Here, the female specimen’s legs are together (touching), whereas the male specimen’s legs are apart.
 
 ## License
 Every part of `LEMONS` is available under the [`CeCILL-B`](https://cecill.info/licences.fr.html) license.
