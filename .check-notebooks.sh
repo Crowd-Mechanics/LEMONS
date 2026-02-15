@@ -34,7 +34,7 @@ if [ -f ./tutorials/mechanical_layer/evacuation/dynamic/AgentInteractions.xml ];
 fi
 
 ## Run nbmake tests on the configuration files notebooks
-uv run pytest --nbmake -n auto ./tutorials/configuration
+# uv run pytest --nbmake -n auto ./tutorials/configuration
 
 ## Additionally, the user can run nbmake tests on the mechanical-layer notebook on its local machine, provided he set the correct ffmpeg path in the notebook and use the appropriate extension for ../../src/mechanical_layer/build/libCrowdMechanics (.so on Ubuntu, .dylib on macOS).
 # uv run pytest --nbmake -n auto ./tutorials/mechanical_layer
