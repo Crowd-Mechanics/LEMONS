@@ -40,7 +40,7 @@ if c_lib.CrowdMechanics(filesInput) != 0:
 
 ## C++
 
-Assuming you have built ```CrowdMechanics``` as a shared library as intended, the following minimal code will run the simulation:
+Assuming the user has built ```CrowdMechanics``` as a shared library as intended, the following minimal code will run the simulation:
 
 ```c++
 //  Include the main header of the library

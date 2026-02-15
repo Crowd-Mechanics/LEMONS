@@ -6,7 +6,7 @@
 import os
 import sys
 
-# Add the source directory to sys.path so Sphinx can find your modules
+# Add the source directory to sys.path so Sphinx can find the modules
 sys.path.insert(0, os.path.abspath("../../src"))
 sys.path.insert(0, os.path.abspath("../../tests/configuration"))
 sys.path.insert(0, os.path.abspath("../../tests/mechanical_layer"))

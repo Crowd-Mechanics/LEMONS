@@ -1,15 +1,15 @@
 How to test ``CrowdMechanics``
 ================================
 
-After modifying the C++ code, you can run a series of eight series of tests (covering distinct scenarios) by following the steps below:
+After modifying the C++ code, run a series of eight series of tests (covering distinct scenarios) by following the steps below:
 
 1. Navigate to the ``tests/mechanical_layer`` directory.
-2. Run the following command in your terminal:
+2. Run the following command in the terminal:
 
    .. code-block:: bash
 
       ./run_mechanical_tests.sh
-3. If you further want to visualize the results of the tests as videos, ensure that you have ``ffmpeg`` installed on your system. And run the following command in your terminal:
+3. To further visualize the results of the tests as videos, ensure that ``ffmpeg`` is installed. And run the following command in the terminal:
 
    .. code-block:: bash
 
@@ -18,14 +18,14 @@ After modifying the C++ code, you can run a series of eight series of tests (cov
 
 .. note::
 
-   - If you do not already have ``ffmpeg`` installed, you can find
-     installation instructions on the official website:
+   - If ``ffmpeg`` is not already installed,
+     installation instructions can be found on the official website:
      `https://ffmpeg.org/ <https://ffmpeg.org/>`__.
 
    - The details of the test series are described in :ref:`mechanical-tests`.
      These tests are designed to verify the behavior of each mathematical
      term in the mechanical model and are not intended as comparisons with
-     experimental data. They rely on tolerance thresholds that you can
+     experimental data. They rely on tolerance thresholds that the user can
      adjust in the respective test folders if necessary.
 
 The eight test scenarios are as follows:

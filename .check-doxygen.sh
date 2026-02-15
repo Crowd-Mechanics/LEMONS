@@ -5,7 +5,7 @@ set -euo pipefail
 ORIG_DIR=$(pwd)
 cd docs || { echo "Error: 'docs' directory not found"; exit 1; }
 
-# Path to your Doxygen config file (now relative to docs/)
+# Path to the Doxygen config file (now relative to docs/)
 DOXYFILE="Doxyfile"
 
 # Temporary file for capturing warnings

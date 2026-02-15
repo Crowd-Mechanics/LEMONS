@@ -3,10 +3,23 @@ Contributing
 
 Thanks for your interest in contributing! This guide covers:
 
+- The :ref:`simple procedure` for contributing to the project if you just want to add new agent types without modifying the code
 - The :ref:`general-procedure` for contributing to the project
 - How to set up and test the :ref:`Python wrapper <python-wrapper>` and the :ref:`mechanical layer <cpp-mechanical-layer>`
 - What happens in :ref:`the continuous integration <continuous-integration>` when you open a pull request
 - How :ref:`to report an issue <reporting-issues>`
+
+
+.. _simple-procedure:
+
+Simple procedure
+----------------
+
+A simple option if you want to add a different type of agents (e.g., pedestrian with a backpack, etc.) consists in generating
+your own XML files corresponding to these new agents (following the guidelines in the paper), reviewing them carefully,
+and sending them to the authors of the paper along with your motivations and explanations so that they could include them
+into a new release of the software.
+
 
 .. _general-procedure:
 
