@@ -4,7 +4,7 @@ set -euo pipefail
 # Directory where this script lives
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Header templates (adjust paths if you move them)
+# Header templates (adjust paths if needed)
 PY_HEADER_FILE="$SCRIPT_DIR/LICENSE_PY_HEADER.txt"
 CPP_HEADER_FILE="$SCRIPT_DIR/LICENSE_CPP_HEADER.txt"
 
