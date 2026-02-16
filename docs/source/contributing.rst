@@ -74,7 +74,7 @@ Working on the Python wrapper
 
 To work on the Python wrapper:
 
-1. Install Python (version 3.13 or later).
+1. Install Python (version 3.13).
 2. Install and configure the `uv <https://docs.astral.sh/uv/>`__ package manager to set up the Python virtual environment with all required dependencies::
 
       python -m pip install --upgrade pip

@@ -1,6 +1,6 @@
 [project]
 name = "lemons-crowd"
-version = "1.0.1"
+version = "1.0.4"
 description = "Python wrapper for the LEMONS library to generate anthropometry-based, non-circular pedestrian shapes, visualize crowds, and simulate 2D dynamics."
 keywords = [
     "crowd generation",

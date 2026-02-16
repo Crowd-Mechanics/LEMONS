@@ -13,7 +13,7 @@
 
 <div align="center">
 
-[![](https://badgen.net/badge/DOI/open%20access/orange)](https://scipost.org/submissions/scipost_202507_00067v1/)
+[![](https://badgen.net/badge/DOI/open%20access/orange)](https://scipost.org/submissions/scipost_202507_00067v2/)
 [![](https://badgen.net/static/DOC/lemons-docs/cyan?icon=https://icons.getbootstrap.com/icons/filetype-doc/)](https://lemons.readthedocs.io/en/latest/index.html)
 [![](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/Crowd-Mechanics/LEMONS)
 [![](https://badgen.net/badge/🚀/Streamlit%20App/green)](https://lemons.streamlit.app/)
@@ -49,9 +49,11 @@ Cite us:
 @article{lemons_2025_14906931,
     author    = {Dufour, Oscar and Stapelle, Maxime and Nicolas, Alexandre},
     title     = {LEMONS - An open-source platform to generate non-circuLar, anthropometry-based pEdestrian shapes and simulate their Mechanical interactiONS in two dimensions},
+    journal   = {SciPost Phys. Codebases},
+    publisher = {SciPost},
     month     = {dec},
     year      = {2025},
-    version   = {v1.0.1},
+    version   = {v1.0.4},
 }
 ```
 
