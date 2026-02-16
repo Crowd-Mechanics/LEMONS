@@ -53,7 +53,7 @@ Cite us:
     publisher = {SciPost},
     month     = {dec},
     year      = {2025},
-    version   = {v1.0.4},
+    version   = {v1.0.5},
 }
 ```
 
