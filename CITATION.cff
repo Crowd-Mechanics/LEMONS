@@ -57,5 +57,4 @@ preferred-citation:
       given-names: Maxime
     - family-names: Nicolas
       given-names: Alexandre
-  publisher: SciPost
-  journal: SciPost Phys. Codebases
+  journal-title: SciPost Phys. Codebases
