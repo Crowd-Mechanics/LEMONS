@@ -30,5 +30,5 @@ To cite this work, please use the following reference in bibtex format:
      title     = {LEMONS - An open-source platform to generate non-circuLar, anthropometry-based pEdestrian shapes and simulate their Mechanical interactiONS in two dimensions},
      month     = {dec},
      year      = {2025},
-     version   = {v1.0.0},
+     version   = {v1.0.4},
    }

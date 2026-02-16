@@ -22,7 +22,7 @@ authors:
 
 repository-code: "https://github.com/Crowd-Mechanics/LEMONS"
 license: "CECILL-B"
-version: "1.0.2"
+version: "1.0.4"
 
 keywords:
   - "crowd generation"
