@@ -22,7 +22,7 @@ authors:
 
 repository-code: "https://github.com/Crowd-Mechanics/LEMONS"
 license: "CECILL-B"
-version: "1.0.1"
+version: "1.0.2"
 
 keywords:
   - "crowd generation"
@@ -57,3 +57,5 @@ preferred-citation:
       given-names: Maxime
     - family-names: Nicolas
       given-names: Alexandre
+  publisher: SciPost
+  journal: SciPost Phys. Codebases
