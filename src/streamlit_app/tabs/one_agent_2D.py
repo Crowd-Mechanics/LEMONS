@@ -25,13 +25,18 @@
 # The fact that you are presently reading this means that you have had knowledge of the CeCILL-B license and that
 # you accept its terms.
 
+from datetime import datetime
 from pathlib import Path
 
 import streamlit as st
 
+import configuration.backup.crowd_to_dict as fun_dict
+import configuration.backup.crowd_to_zip_and_reverse as fun_zip
+import configuration.backup.dict_to_xml_and_reverse as fun_xml
 import configuration.utils.constants as cst
 import streamlit_app.utils.constants as cst_app
 from configuration.models.agents import Agent
+from configuration.models.crowd import Crowd
 from configuration.models.measures import AgentMeasures
 from streamlit_app.plot import plot
 
@@ -251,6 +256,33 @@ def run_tab_agent2D() -> None:
     # Input fields for Anthropometric parameters
     st.sidebar.header("Adjust agent parameters")
     sliders_for_agent_measures(agent_measures)
+
+    # Download section to export the current agent as a ZIP file containing XML config files
+    st.sidebar.header("Download")
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    current_crowd = Crowd(agents=[current_agent])
+    if st.session_state.agent_type_measures == cst.AgentTypes.pedestrian:
+        filename = f"Crowd2D_of_one_pedestrian_{timestamp}.zip"
+        zip_buffer = fun_zip.write_crowd_data_to_zip(current_crowd)
+        st.sidebar.download_button(
+            label="Export crowd of one pedestrian as XML config files",
+            data=zip_buffer,
+            file_name=filename,
+            mime="application/zip",
+            width="stretch",
+        )
+    else:
+        filename = f"Crowd2D_of_one_bike_{timestamp}.xml"
+        data_dict = fun_dict.get_light_agents_params(current_crowd)
+        data = fun_xml.save_light_agents_params_dict_to_xml(data_dict)
+        st.sidebar.download_button(
+            label="Export crowd of one bike as XML config file",
+            data=data,
+            file_name=filename,
+            mime="application/xml",
+            help="Export basic information about the crowd to a single XML file",
+            width="stretch",
+        )
 
     # Input fields for translation and rotation
     if cst_app.SHOW_DEV:

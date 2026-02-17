@@ -98,10 +98,20 @@ SHEAR_MODULUS_HUMAN_CLOTHES: float = 9.0e5
 
 #: Default normal-contact damping coefficient (N·s/m), used both for agent–agent and agent–obstacle interactions.
 GAMMA_NORMAL: float = 1.3 * 10**3
+#: Default normal-contact damping coefficient (N·s/m) for interactions between two human naked agents.
+GAMMA_NORMAL_HUMANNAKED_HUMANNAKED: float = 0.7 * 10**3
+#: Default normal-contact damping coefficient (N·s/m) for interactions between a naked human agent and a concrete obstacle.
+GAMMA_NORMAL_CONCRETE_HUMANNAKED: float = 1.23 * 10**3
 #: Default tangential-contact damping coefficient (N·s/m), used both for agent–agent and agent–obstacle interactions.
 GAMMA_TANGENTIAL: float = 1.3 * 10**3
+#: Default normal-contact damping coefficient (N·s/m) for interactions between two naked human agents.
+GAMMA_TANGENTIAL_HUMANNAKED_HUMANNAKED: float = 0.7 * 10**3
+#: Default tangential-contact damping coefficient (N·s/m) for interactions between a naked human agent and a concrete obstacle.
+GAMMA_TANGENTIAL_CONCRETE_HUMANNAKED: float = 1.23 * 10**3
 #: Default coefficient of kinetic friction (dimensionless), used both for agent–agent and agent–obstacle interactions.
 KINETIC_FRICTION: float = 0.5
+#: Default coefficient of kinetic friction (dimensionless) for interactions between two human naked agents.
+KINETIC_FRICTION_HUMANNAKED_HUMANNAKED: float = 0.4
 
 # Crowd class
 #: Default number of agents in the crowd.
