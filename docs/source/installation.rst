@@ -7,6 +7,9 @@ The user can try the Streamlit application online at `https://lemons.streamlit.a
 Python wrapper
 --------------
 
+From PyPi
+~~~~~~~~~~
+
 To use the Python wrapper locally (e.g., to run simulations, plot the crowd scene and get statistics as shown
 in the :ref:`tutorials <tutorials_config_files>`), install the package from `PyPi <https://pypi.org/project/lemons-crowd/>`_ with pip:
 
@@ -15,12 +18,12 @@ in the :ref:`tutorials <tutorials_config_files>`), install the package from `PyP
    python -m pip install --upgrade pip
    python -m pip install lemons-crowd
 
-Disclaimer, to run the streamlit app locally, the user needs to install the development version of the package, as described in the next section.
+Disclaimer, to run the streamlit app locally, the user needs to install the Python wrapper from source, as described in the next subsection below.
 
-Development version (from source)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+From source
+~~~~~~~~~~~
 
-To install the latest development version, clone or download the full repository from
+To install the Python wrapper from source, clone or download the full repository from
 `GitHub <https://github.com/Crowd-Mechanics/LEMONS>`__. Then, from the root directory of the project, create a virtual environment and install all required Python
 dependencies using `uv <https://docs.astral.sh/uv/>`__:
 
@@ -30,7 +33,7 @@ dependencies using `uv <https://docs.astral.sh/uv/>`__:
    pip install uv
    uv sync
 
-Then, launch the streamlit app locally with the following command:
+Eventually, launch the streamlit app locally with the following command:
 
 .. code-block:: bash
 

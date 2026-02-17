@@ -27,7 +27,7 @@
 
 import itertools
 from collections import defaultdict
-from typing import Any
+from typing import Any, cast
 
 import numpy as np
 from shapely.geometry import Point, Polygon
@@ -317,34 +317,57 @@ def get_materials_params() -> MaterialsDataType:
     MaterialsDataType
         A dictionary containing the parameters of the materials.
     """
+    # Use the Enum directly so mypy knows the type of each member.
+    materials_enum = list(cst.MaterialNames)  # list[MaterialNames]
+    material_names = [m.name for m in materials_enum]  # list[str]
+
     # Intrinsic material properties
-    intrinsic_materials: IntrinsicMaterialDataType = {
-        f"Material{id_material}": {
+    intrinsic_materials: IntrinsicMaterialDataType = {}
+    for id_material, material in enumerate(material_names):
+        young_name = f"YOUNG_MODULUS_{material.upper()}"
+        shear_name = f"SHEAR_MODULUS_{material.upper()}"
+
+        # getattr() is dynamic -> cast to keep mypy happy
+        young = cast(float, getattr(cst, young_name))
+        shear = cast(float, getattr(cst, shear_name))
+
+        intrinsic_materials[f"Material{id_material}"] = {
             "Id": material,
-            "YoungModulus": float(np.round(getattr(cst, f"YOUNG_MODULUS_{material.upper()}"), 2)),
-            "ShearModulus": float(np.round(getattr(cst, f"SHEAR_MODULUS_{material.upper()}"), 2)),
+            "YoungModulus": float(np.round(young, 2)),
+            "ShearModulus": float(np.round(shear, 2)),
         }
-        for id_material, material in enumerate(cst.MaterialNames.__members__.keys())
-    }
 
     # Binary material properties (pairwise interactions)
-    binary_materials: PairMaterialsDataType = {
-        f"Contact{id_contact}": {
+    human_naked = cst.MaterialNames.human_naked.name
+    concrete = cst.MaterialNames.concrete.name
+
+    binary_materials: PairMaterialsDataType = {}
+    for id_contact, (id1, id2) in enumerate(itertools.combinations_with_replacement(material_names, 2)):
+        # Defaults (typed locals help mypy)
+        gamma_n: float = cst.GAMMA_NORMAL
+        gamma_t: float = cst.GAMMA_TANGENTIAL
+        mu_k: float = cst.KINETIC_FRICTION
+
+        # Overrides
+        if id1 == human_naked and id2 == human_naked:
+            gamma_n = cst.GAMMA_NORMAL_HUMANNAKED_HUMANNAKED
+            gamma_t = cst.GAMMA_TANGENTIAL_HUMANNAKED_HUMANNAKED
+            mu_k = cst.KINETIC_FRICTION_HUMANNAKED_HUMANNAKED
+        elif (id1 == concrete and id2 == human_naked) or (id1 == human_naked and id2 == concrete):
+            gamma_n = cst.GAMMA_NORMAL_CONCRETE_HUMANNAKED
+            gamma_t = cst.GAMMA_TANGENTIAL_CONCRETE_HUMANNAKED
+
+        binary_materials[f"Contact{id_contact}"] = {
             "Id1": id1,
             "Id2": id2,
-            "GammaNormal": float(np.round(cst.GAMMA_NORMAL, 2)),
-            "GammaTangential": float(np.round(cst.GAMMA_TANGENTIAL, 2)),
-            "KineticFriction": float(np.round(cst.KINETIC_FRICTION, 2)),
+            "GammaNormal": float(np.round(gamma_n, 2)),
+            "GammaTangential": float(np.round(gamma_t, 2)),
+            "KineticFriction": float(np.round(mu_k, 2)),
         }
-        for id_contact, (id1, id2) in enumerate(itertools.combinations_with_replacement(cst.MaterialNames.__members__.keys(), 2))
-    }
 
-    # Combine intrinsic and binary properties into a single dictionary
-    materials_dict: MaterialsDataType = {
+    return {
         "Materials": {
             "Intrinsic": intrinsic_materials,
             "Binary": binary_materials,
         }
     }
-
-    return materials_dict
