@@ -175,7 +175,7 @@ def export_XML_to_CSV(PathCSV: Path, PathXML: Path) -> None:
     PathCSV : Path
         Path to the folder where the CSV file will be saved.
     PathXML : Path
-        Path to the folder containing the XML files.
+        Path to the folder containing the XML files (AgentDynamics).
     """
     times, agents = create_dict_of_agent_trajectories(PathXML)
     ID_agents = sorted(agents.keys())

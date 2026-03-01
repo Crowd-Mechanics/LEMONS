@@ -226,7 +226,7 @@ def display_body3D_orthogonal_projection(
             x, y = polygon.exterior.xy
             ax.plot(x, y, color=sm.to_rgba(np.array([height])), alpha=0.6, linewidth=2)
 
-    # Add a colorbar with inverted orientation (red at top)
+    # Add a colorbar
     divider = make_axes_locatable(ax)
     cax = divider.append_axes("right", size="5%", pad=0.2)
 

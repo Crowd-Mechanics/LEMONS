@@ -24,3 +24,19 @@ crowd\_to\_zip\_and\_reverse
    :members:
    :show-inheritance:
    :undoc-members:
+
+xml\_to\_Chaos
+--------------
+
+.. automodule:: configuration.backup.xml_to_Chaos
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+xml\_to\_PedPy
+--------------
+
+.. automodule:: configuration.backup.xml_to_PedPy
+   :members:
+   :show-inheritance:
+   :undoc-members:
