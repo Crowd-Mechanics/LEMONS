@@ -1,17 +1,17 @@
 <Agents>
     <Agent Id="0">
-        <Kinematics Position="0.000,0.000" Velocity="0.00,0.00" Theta="0.0" Omega="0.0"/>
-    <Dynamics Fp="0.00,0.0" Mp="0.0"/></Agent>
+        <Kinematics Position="0.698072,-0.000179879" Velocity="0.000875837,3.10111e-06" Theta="0.0553363" Omega="0.000103993" />
+    <Dynamics Fp="0.0000,0.00" Mp="0.00" /></Agent>
     <Agent Id="1">
-        <Kinematics Position="0.358,0.034" Velocity="0.00,0.00" Theta="0.0" Omega="0.0"/>
-    <Dynamics Fp="0.00,0.0" Mp="0.0"/></Agent>
+        <Kinematics Position="0.968685,0.0475096" Velocity="0.000881362,2.33456e-05" Theta="0.0419097" Omega="5.00296e-05" />
+    <Dynamics Fp="0.00,0.00" Mp="0.00" /></Agent>
     <Agent Id="2">
-        <Kinematics Position="0.676,-0.011" Velocity="0.00,0.00" Theta="0.0" Omega="0.0"/>
-    <Dynamics Fp="0.00,0.0" Mp="0.0"/></Agent>
+        <Kinematics Position="1.25429,-0.00623542" Velocity="0.000886648,1.08177e-05" Theta="-0.0941366" Omega="-0.000160918" />
+    <Dynamics Fp="0.00,0.00" Mp="0.00" /></Agent>
     <Agent Id="3">
-        <Kinematics Position="1.007,-0.032" Velocity="0.00,0.00" Theta="0.0" Omega="0.0"/>
-    <Dynamics Fp="0.00,0.0" Mp="0.0"/></Agent>
+        <Kinematics Position="1.50267,-0.0431734" Velocity="0.000889635,-1.51361e-05" Theta="-0.0161036" Omega="-3.91755e-05" />
+    <Dynamics Fp="0.00,0.00" Mp="0.00" /></Agent>
     <Agent Id="4">
-        <Kinematics Position="1.437,-0.049" Velocity="0.00,0.00" Theta="0.0" Omega="0.0"/>
-    <Dynamics Fp="0.00,0.0" Mp="0.0"/></Agent>
+        <Kinematics Position="1.75295,-0.0560121" Velocity="0.000909773,-2.22933e-05" Theta="-0.00238494" Omega="-6.28681e-06" />
+    <Dynamics Fp="0.00,0.00" Mp="0.00" /></Agent>
 </Agents>

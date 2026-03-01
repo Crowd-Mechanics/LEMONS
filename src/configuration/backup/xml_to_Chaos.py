@@ -69,7 +69,7 @@ def get_list_of_agents_and_times_from_XML(
 
     for fichier in folder_path.iterdir():
         if fichier.is_file() and fichier.name.startswith("AgentDyn") and fichier.name.endswith("xml"):
-            print(f"Processing file: {fichier}")
+            print(f"Processing file: {fichier.name}")
             pattern = re.compile(rf".*(input|output) t=({regex_nb})\.xml")
             m = pattern.fullmatch(str(fichier))
             if not m:
@@ -175,7 +175,7 @@ def export_XML_to_CSV(PathCSV: Path, PathXML: Path) -> None:
     PathCSV : Path
         Path to the folder where the CSV file will be saved.
     PathXML : Path
-        Path to the folder containing the XML files.
+        Path to the folder containing the XML files (AgentDynamics).
     """
     times, agents = create_dict_of_agent_trajectories(PathXML)
     ID_agents = sorted(agents.keys())

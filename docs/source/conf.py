@@ -77,7 +77,7 @@ autodoc_default_options = {
 
 autodoc_typehints = "description"  # Show type hints in the description section of the docstring
 autodoc_member_order = "bysource"  # Order members by their source code order
-autodoc_mock_imports = ["kivy"]
+autodoc_mock_imports = ["kivy", "streamlit"]
 
 
 # -- Exhale configuration ----------------------------------------------------
@@ -96,3 +96,6 @@ exhale_args = {
 
 breathe_projects = {"mechanical_layer": os.path.abspath("../doxy_files/xml")}
 breathe_default_project = "mechanical_layer"
+
+
+nbsphinx_execute = "never"
