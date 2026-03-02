@@ -30,7 +30,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from pedpy import TrajectoryData, WalkableArea
+import pedpy
 
 from configuration.backup.dict_to_xml_and_reverse import geometry_xml_to_dict
 from configuration.backup.xml_to_Chaos import export_XML_to_CSV
@@ -70,7 +70,7 @@ def _corners_to_ring(corners: dict[str, dict[str, tuple[float, float]]]) -> list
     return pts
 
 
-def GeometryDict_to_PedPyWalkableArea(geometry_dict: GeometryDataType) -> WalkableArea:
+def GeometryDict_to_PedPyWalkableArea(geometry_dict: GeometryDataType) -> pedpy.WalkableArea:
     """
     Convert a geometry dictionary (from XML) to a PedPy WalkableArea object.
 
@@ -103,12 +103,12 @@ def GeometryDict_to_PedPyWalkableArea(geometry_dict: GeometryDataType) -> Walkab
         if not corners:
             continue
         obstacles.append(_corners_to_ring(corners))
-    return WalkableArea(polygon=polygon, obstacles=obstacles or None)
+    return pedpy.WalkableArea(polygon=polygon, obstacles=obstacles or None)
 
 
 def export_XML_to_PedPy(
     PathAgentDynamicsXML: Path, PathGeometryXMLfile: Path, PathCSVfile: Path | None = None
-) -> tuple[TrajectoryData, WalkableArea]:
+) -> tuple[pedpy.TrajectoryData, pedpy.WalkableArea]:
     """
     Export trajectories from the AgentDynamics XML files to a TrajectoryData and WalkableArea objects used in PedPy Python library.
 
@@ -214,7 +214,7 @@ def export_XML_to_PedPy(
     data = pd.concat(per_ped_dfs, ignore_index=True)
     frame_rate = 1.0 / dt
 
-    traj = TrajectoryData(data=data, frame_rate=frame_rate)
+    traj = pedpy.TrajectoryData(data=data, frame_rate=frame_rate)
 
     with open(PathGeometryXMLfile, encoding="utf-8") as f:
         geometry_xml = f.read()

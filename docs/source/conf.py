@@ -1,4 +1,4 @@
-"""LEMON project documentation build configuration file."""
+"""LEMONS project documentation build configuration file."""
 
 # Configuration file for the Sphinx documentation builder.
 # For the full list of built-in configuration values, see the documentation:
@@ -65,7 +65,7 @@ intersphinx_mapping = {
     "shapely": ("https://shapely.readthedocs.io/en/stable/", None),  # Link to Shapely documentation
     "plotly": ("https://plotly.com/python-api-reference/", None),  # Link to Plotly documentation
     "numpy": ("https://numpy.org/doc/stable/", None),  # Link to NumPy documentation
-    "kivy": ("https://kivy.org/doc/stable/", None),  # Link to Kivy documentation
+    "pedpy": ("https://pedpy.readthedocs.io/stable/", None),  # Link to PedPy documentation
 }
 
 # -- Autodoc settings --------------------------------------------------------
