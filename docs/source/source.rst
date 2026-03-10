@@ -8,9 +8,9 @@ Authors
 -------
 The authors of the code are:
 
-- Oscar Dufour
-- Maxime Stapelle
-- Alexandre Nicolas
+- Oscar Dufour <mailto:s266580@studenti.polito.it>`_
+- Maxime Stapelle <mailto:maxime.stapelle@univ-lyon1.fr>`_
+- Alexandre Nicolas <mailto:alexandre.nicolas@univ-lyon1.fr>`_
 
 Affiliation
 -----------
