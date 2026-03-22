@@ -62,7 +62,7 @@ jobs:
         working-directory: src/mechanical_layer
         run: |
           echo "::group::CMake configure"
-          cmake -H -Bbuild -DBUILD_SHARED_LIBS=ON
+          cmake -H. -Bbuild -DBUILD_SHARED_LIBS=ON
           echo "::endgroup::"
 
           echo "::group::CMake build"
