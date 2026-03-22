@@ -18,6 +18,7 @@
 [![](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/Crowd-Mechanics/LEMONS)
 [![](https://badgen.net/badge/🚀/Streamlit%20App/green)](https://lemons.streamlit.app/)
 [![](https://badgen.net/badge/VIDEO/10.5281%2Fzenodo.17885366/red)](https://doi.org/10.5281/zenodo.17885366)
+[![](https://img.shields.io/badge/YouTube-tutorials-red?logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=ONumhX-LmgI)
 [![PyPI](https://img.shields.io/pypi/v/lemons-crowd)](https://pypi.org/project/lemons-crowd/)
 
 
