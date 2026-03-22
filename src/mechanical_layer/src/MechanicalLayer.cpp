@@ -647,8 +647,11 @@ void MechanicalLayer::loop()
     {
         const unsigned cpt_agent(active_shapeIDagent[cpt_shape]);
         const double delta_theta = thetnp1[cpt_agent] - thetn[cpt_agent];
-        delta[cpt_shape].first = delta[cpt_shape].first * cos(delta_theta) - delta[cpt_shape].second * sin(delta_theta);
-        delta[cpt_shape].second = delta[cpt_shape].first * sin(delta_theta) + delta[cpt_shape].second * cos(delta_theta);
+        const double old_x = delta[cpt_shape].first;
+        const double old_y = delta[cpt_shape].second;
+
+        delta[cpt_shape].first = old_x * std::cos(delta_theta) - old_y * std::sin(delta_theta);
+        delta[cpt_shape].second = old_x * std::sin(delta_theta) + old_y * std::cos(delta_theta);
     }
 
     //  Update position, velocity, orientation, angular velocity of each agent
