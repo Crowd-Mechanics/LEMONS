@@ -33,14 +33,19 @@ jobs:
         if: runner.os == 'macOS'
         run: |
           echo "::group::brew install"
-          brew install llvm graphviz
+          brew update
+          brew install llvm@20 graphviz
           echo "::endgroup::"
 
-      - name: Configure LLVM for clang-tidy (macOS)
+      - name: Configure Homebrew LLVM (macOS)
         if: runner.os == 'macOS'
         run: |
-          echo "$(brew --prefix llvm)/bin" >> "$GITHUB_PATH"
+          LLVM_PREFIX="$(brew --prefix llvm@20)"
+          echo "LLVM_PREFIX=$LLVM_PREFIX" >> "$GITHUB_ENV"
+          echo "$LLVM_PREFIX/bin" >> "$GITHUB_PATH"
           echo "SDKROOT=$(xcrun --show-sdk-path)" >> "$GITHUB_ENV"
+          echo "CLANG_TIDY=$LLVM_PREFIX/bin/clang-tidy" >> "$GITHUB_ENV"
+          echo "CLANG_FORMAT=$LLVM_PREFIX/bin/clang-format" >> "$GITHUB_ENV"
 
       - name: Install Doxygen
         uses: ssciwr/doxygen-install@v1
@@ -62,7 +67,7 @@ jobs:
         working-directory: src/mechanical_layer
         run: |
           echo "::group::CMake configure"
-          cmake -S . -B build -DBUILD_SHARED_LIBS=ON
+          cmake -H. -Bbuild -DBUILD_SHARED_LIBS=ON
           echo "::endgroup::"
 
           echo "::group::CMake build"
