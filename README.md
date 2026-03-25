@@ -47,14 +47,15 @@ If you use `LEMONS`, we encourage you to cite or reference this work as you woul
 
 Cite us:
 ```
-@article{lemons_2025_14906931,
-    author    = {Dufour, Oscar and Stapelle, Maxime and Nicolas, Alexandre},
-    title     = {LEMONS - An open-source platform to generate non-circuLar, anthropometry-based pEdestrian shapes and simulate their Mechanical interactiONS in two dimensions},
-    journal   = {SciPost Phys. Codebases},
-    publisher = {SciPost},
-    month     = {dec},
-    year      = {2025},
-    version   = {v1.0.5},
+@article{10.21468/SciPostPhysCodeb.67,
+	title     = {{LEMONS: An open-source platform to generate non-circuLar, anthropometry-based pEdestrian shapes and simulate their Mechanical interactiONS in two dimensions}},
+	author    = {Oscar Dufour and Maxime Stapelle and Alexandre Nicolas},
+	journal   = {SciPost Phys. Codebases},
+	pages     = {67},
+	year      = {2026},
+	publisher = {SciPost},
+	doi       = {10.21468/SciPostPhysCodeb.67},
+	url       = {https://scipost.org/10.21468/SciPostPhysCodeb.67},
 }
 ```
 

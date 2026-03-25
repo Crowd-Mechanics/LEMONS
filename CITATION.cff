@@ -6,7 +6,7 @@ message: "If you use this software, please cite the article in preferred-citatio
 authors:
   - family-names: Dufour
     given-names: Oscar
-    email: "oscar.dufour@univ-lyon1.fr"
+    email: "s266580@studenti.polito.it"
     affiliation: "Institute of Light and Matter, CNRS UMR 5306, University Claude Bernard Lyon 1"
     orcid: "https://orcid.org/0000-0003-1543-4912"
   - family-names: Stapelle
@@ -50,6 +50,7 @@ preferred-citation:
   type: article
   title: "LEMONS: An open-source platform to generate non-circuLar, anthropometry-based pEdestrian shapes and simulate their Mechanical interactiONS in two dimensions"
   year: 2026
+  month: 3
   authors:
     - family-names: Dufour
       given-names: Oscar
@@ -57,4 +58,9 @@ preferred-citation:
       given-names: Maxime
     - family-names: Nicolas
       given-names: Alexandre
-  journal: SciPost Phys. Codebases
+  publisher:
+    name: "SciPost"
+  journal: "SciPost Phys. Codebases"
+  doi: "10.21468/SciPostPhysCodeb.67"
+  url: "https://scipost.org/SciPostPhysCodeb.67"
+  pages: 67
