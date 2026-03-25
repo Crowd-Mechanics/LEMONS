@@ -13,7 +13,7 @@
 
 <div align="center">
 
-[![Paper DOI](https://img.shields.io/badge/Paper%20DOI-10.21468/SciPostPhysCodeb.67-f28c28?style=flat-square&labelColor=2f2f2f)](https://scipost.org/submissions/scipost_202507_00067v2/)
+[![Paper DOI](https://img.shields.io/badge/Paper%20DOI-10.21468/SciPostPhysCodeb.67-f28c28?style=flat-square&labelColor=2f2f2f)](https://scipost.org/SciPostPhysCodeb.67)
 [![Simulation Videos](https://img.shields.io/badge/Simulation%20Videos-Zenodo-1682D4?style=flat-square&labelColor=2f2f2f&logo=zenodo&logoColor=white)](https://doi.org/10.5281/zenodo.17885366)
 [![Docs](https://img.shields.io/badge/Docs-lemons--docs-00bcd4?style=flat-square&labelColor=2f2f2f&logo=readthedocs&logoColor=white)](https://lemons.readthedocs.io/en/latest/index.html)
 [![GitHub](https://img.shields.io/badge/GitHub-LEMONS-6e7681?style=flat-square&labelColor=2f2f2f&logo=github&logoColor=white)](https://github.com/Crowd-Mechanics/LEMONS)
