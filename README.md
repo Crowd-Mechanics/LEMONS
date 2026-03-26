@@ -13,13 +13,14 @@
 
 <div align="center">
 
-[![](https://badgen.net/badge/DOI/open%20access/orange)](https://scipost.org/submissions/scipost_202507_00067v2/)
-[![](https://badgen.net/static/DOC/lemons-docs/cyan?icon=https://icons.getbootstrap.com/icons/filetype-doc/)](https://lemons.readthedocs.io/en/latest/index.html)
-[![](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/Crowd-Mechanics/LEMONS)
-[![](https://badgen.net/badge/🚀/Streamlit%20App/green)](https://lemons.streamlit.app/)
-[![](https://badgen.net/badge/VIDEO/10.5281%2Fzenodo.17885366/red)](https://doi.org/10.5281/zenodo.17885366)
-[![](https://img.shields.io/badge/YouTube-tutorials-red?logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=ONumhX-LmgI)
-[![PyPI](https://img.shields.io/pypi/v/lemons-crowd)](https://pypi.org/project/lemons-crowd/)
+[![Paper DOI](https://img.shields.io/badge/Paper%20DOI-10.21468/SciPostPhysCodeb.67-f28c28?style=flat-square&labelColor=2f2f2f)](https://scipost.org/SciPostPhysCodeb.67)
+[![Simulation Videos](https://img.shields.io/badge/Simulation%20Videos-Zenodo-1682D4?style=flat-square&labelColor=2f2f2f&logo=zenodo&logoColor=white)](https://doi.org/10.5281/zenodo.17885366)
+[![Docs](https://img.shields.io/badge/Docs-lemons--docs-00bcd4?style=flat-square&labelColor=2f2f2f&logo=readthedocs&logoColor=white)](https://lemons.readthedocs.io/en/latest/index.html)
+[![GitHub](https://img.shields.io/badge/GitHub-LEMONS-6e7681?style=flat-square&labelColor=2f2f2f&logo=github&logoColor=white)](https://github.com/Crowd-Mechanics/LEMONS)
+[![App](https://img.shields.io/badge/App-Streamlit-22c55e?style=flat-square&labelColor=2f2f2f&logo=streamlit&logoColor=white)](https://lemons.streamlit.app/)
+[![YouTube](https://img.shields.io/badge/YouTube-tutorial-555555?style=flat-square&labelColor=2f2f2f&logo=youtube&logoColor=ff0000)](https://www.youtube.com/watch?v=ONumhX-LmgI)
+[![PyPI](https://img.shields.io/pypi/v/lemons-crowd?style=flat-square&labelColor=2f2f2f&logo=pypi&logoColor=white)](https://pypi.org/project/lemons-crowd/)
+
 
 
  <img src="https://raw.githubusercontent.com/Crowd-Mechanics/LEMONS/master/docs/source/_static/logo/logo_icon.png" alt="lemon" width="20" style="vertical-align:middle;"> **LEMONS**: *An Open-Source Platform to Generate Non-Circular, Anthropometry-Based Pedestrian Shapes and Simulate Their Mechanical Interactions in 2D*

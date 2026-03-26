@@ -144,10 +144,10 @@ def init_sidebar_looks() -> None:
     current_file_path = Path(__file__)
     ROOT_DIR = current_file_path.parent.parent.parent.parent.absolute()
     logo_path = ROOT_DIR / "docs" / "source" / "_static" / "logo" / "logo_app.png"
-    article_badge = "[![](https://badgen.net/badge/DOI/open%20access/orange)](https://scipost.org/submissions/scipost_202507_00067v1/)"
+    article_badge = "[![](https://badgen.net/badge/DOI/open%20access/orange)](https://scipost.org/SciPostPhysCodeb.67)"
     doc_badge = "[![](https://badgen.net/static/DOC/lemons-docs/cyan?icon=https://icons.getbootstrap.com/icons/filetype-doc/)](https://lemons.readthedocs.io/en/latest/index.html)"
     repo_badge = "[![](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/Crowd-Mechanics/LEMONS)"
-    zenodo_badge = "[![](https://badgen.net/badge/VIDEOS/10.5281%2Fzenodo.17885366/red)](https://doi.org/10.5281/zenodo.17885366)"
+    zenodo_badge = "[![](https://badgen.net/badge/VIDEOS/simulations/red)](https://doi.org/10.5281/zenodo.17885366)"
 
     c1, c2 = st.sidebar.columns((0.25, 0.8))
     c1.write("**Article**")
